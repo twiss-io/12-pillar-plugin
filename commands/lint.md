@@ -17,7 +17,8 @@ Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md`. **Report first, change no
 7. **Unprocessed sources:** raw files that no wiki page cites.
 8. **Quiet pillars:** pillar hubs not updated in over 60 days, and people pages for close contacts with no contact in a long time or with an important date coming up in the next 14 days.
 9. **Boundary leaks:** personal content copied into a business folder, content copied between businesses, or deal details sitting in the life wiki when that business has its own folder.
-10. **Light businesses:** stale or contradictory bullets in `businesses/*/notes.md`, and Light businesses whose notes have grown big enough to suggest an upgrade (`/12-pillars:add-business <name>`).
+10. **Stale actions:** open `- [ ]` items in any `actions.md` (or `To do:` bullets in a `notes.md`) past their due date, or more than 30 days old with no date. Suggest ticking them off, re-dating them, or dropping them.
+11. **Light businesses:** stale or contradictory bullets in `businesses/*/notes.md`, and Light businesses whose notes have grown big enough to suggest an upgrade (`/12-pillars:add-business <name>`).
 
 ## Report
 Group findings by type, most important first, each with the file and a proposed fix in one line. Then ask which to apply (all · pick · none) using clickable options.

@@ -67,10 +67,17 @@ mkdir -p ~/my-life && cd ~/my-life && claude
 |---|---|
 | `/12-pillars:setup` | The guided setup: about you, optional profiles, your vision, where you are now, your businesses (with a recommended folder structure), then the pillar that matters most. Resumable, and every question is skippable. |
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
+| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right business (or your life wiki). Also offered automatically when a session winds down. |
 | `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
 | `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
 | `/12-pillars:add-business` | Add a business, or upgrade a light one, with a recommended structure. |
 | `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. |
+
+## How filing works
+
+- **Life updates** ("closed a client today", "back's been bad all week") get filed right away, with one confirm.
+- **Brainstorms and planning sessions** aren't interrupted. When one winds down, you get a wrap-up card: what was decided, ideas parked, actions, open questions. One confirm files it. Next time you work on that business, the session starts from those decisions instead of from zero.
+- Two small hooks keep this reliable. One re-states the filing convention on every message, so it holds through long sessions and context compaction. The other re-orients each new or compacted session with your current season and any files you dropped in but haven't filed yet. Both do nothing outside a 12-pillar workspace.
 
 ## Optional profiles
 
@@ -85,4 +92,4 @@ Setup can keep an **astrology profile** (Chinese four-pillar chart, computed off
 
 ## Status
 
-Version 0.1.0, early release. Feedback and issues welcome.
+Version 0.2.0, early release. Feedback and issues welcome.

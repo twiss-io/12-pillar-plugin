@@ -43,6 +43,9 @@ The wiki is a **compiled view** of the raw material. If a wiki page and a raw so
             ├── index.md
             ├── log.md
             ├── overview.md        what it is, the person's role, current state
+            ├── decisions/         one page per decision (written by wrap)
+            ├── ideas.md           parked ideas (written by wrap)
+            ├── actions.md         open to-dos (written by wrap)
             └── <sections>/        chosen at setup, e.g. clients/, products/, team/
 ```
 
@@ -55,7 +58,7 @@ Businesses don't all get the same shape. `folder-design.md` explains how to choo
 ```markdown
 ---
 captured: 2026-10-21
-source: voice-note | chat | manual | import | setup | <original filename>
+source: voice-note | chat | manual | import | setup | session-summary | <original filename>
 ---
 <the user's words, unedited>
 ```
@@ -64,9 +67,11 @@ Binary files go in `raw/assets/` with the same date prefix.
 
 **Files the user drops into `raw/` themselves** keep whatever name they have and are never renamed or edited. Instead of adding a header, capture records them by citing them from wiki pages and logging them.
 
-**Mixed captures** (business and personal content in one item): the original goes to `life/raw/`, unedited. The business's `raw/` gets a separate file containing **only the business sentences**, with `source: excerpt of life/raw/<file>` in its header. This excerpt is the one allowed exception to "unedited", and it exists so personal content never enters a business folder. If the business is Light (no `raw/`), the business part becomes a dated bullet in its `notes.md` instead.
+**Mixed captures** (business and personal content in one item): the original goes to `life/raw/`, unedited. The business's `raw/` gets a separate file containing **only the business sentences**, with `source: excerpt of life/raw/<file>` in its header. This excerpt is one of **two exceptions** to "unedited" (the other is session notes, below), and it exists so personal content never enters a business folder. If the business is Light (no `raw/`), the business part becomes a dated bullet in its `notes.md` instead.
 
 Setup answers are saved the same way, as the user's own words in a Q&A layout with `source: setup`.
+
+**Session notes** (written by Wrap) are the second exception, a raw file the AI writes as a summary: `raw/YYYY-MM-DD-session-<slug>.md` with `source: session-summary`, holding a short summary of the discussion plus the user's key statements quoted verbatim.
 
 **Wiki pages:** lowercase kebab-case filenames. Every page starts with frontmatter:
 
@@ -93,7 +98,7 @@ A pillar is **running** once "Where this stands" has been filled from at least o
 
 **People pages** contain: who they are and how the person knows them, family, work, interests, what they're working toward, health if relevant, important dates (birthdays, anniversaries), how often to stay in touch, last contact, and open threads (promises either way).
 
-**`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Businesses (one line per business, linking its overview or `notes.md`). In a business wiki they are Overview, then one section per chosen folder (Decisions last). One line per page:
+**`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Businesses (one line per business, linking its overview or `notes.md`). In a business wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
 `- [Marcus Tan](people/marcus-tan.md) — friend from uni, now runs a bakery; rebrand prospect`
 
 **`log.md`** is append-only, newest at the bottom, one heading per operation:
@@ -111,6 +116,22 @@ followed by 1–3 lines of what changed. Never rewrite past entries.
 4. Write the changes: update pillar hubs, people, and topic pages; add new pages if needed; update `index.md`; append to `log.md`.
 
 One source often touches several pages. A single conversation note can update a person page, two pillar hubs, and a topic page. That's the point: capture once, and every relevant page stays current.
+
+### Two kinds of conversation
+
+- **Life updates** (short facts: an event, health, money, a person, a plan) are filed **right away** via Capture, so nothing is waiting when a long session gets compacted.
+- **Working sessions** (brainstorming, planning, strategy) are **not interrupted**. Most of what's said is exploration. When the session winds down, the AI offers a **Wrap**, which files only the outcome.
+
+A plugin hook re-states this convention on every message, so it holds through long sessions and compaction. A second hook re-orients each new or compacted session: it surfaces the current season and any unfiled sources, and offers a Wrap after compaction.
+
+### Wrap (end of a working session) — `/12-pillars:wrap`
+1. Extract the outcome: decisions (with reasoning and rejected alternatives), parked ideas, actions, open questions, facts learned, and any personal parts.
+2. Route each item: business decisions go to `wiki/decisions/`, ideas to `wiki/ideas.md`, actions and open questions to `wiki/actions.md`, facts to the matching section. Light businesses get prefixed `notes.md` bullets. Personal parts go to `life/`, with open questions in the relevant pillar hub. Captures already made during the session are skipped.
+3. Propose it as one card, confirm once, then save a session note to each destination's `raw/`, write the pages, link them from the relevant pillar hubs, and update index and log (`## [YYYY-MM-DD] wrap | <title>`).
+
+**Actions get closed, not just added.** When a capture shows an action happened, propose ticking it (`- [x]`, with the date). Lint reports open actions past their due date.
+
+**Starting a working session on a business:** read its `overview.md`, recent `decisions/`, `ideas.md`, and `actions.md` first, so the session builds on what was already decided instead of starting from zero.
 
 ### Ask (query) — `/12-pillars:ask`
 Read `index.md` first, then the relevant pages, following links and checking the raw sources when precision matters. Answer with links to the pages used. If the answer is worth keeping (a decision, a synthesis, a comparison), offer to save it as a new wiki page.

@@ -15,7 +15,7 @@ Read the item. Images count too: a receipt → money figures (#finance), a meal 
 - **Tags:** up to 10: pillar tags (`#faith` … `#legacy`), people (`#<name>`), businesses and topics. Reuse existing tags (search the `tags:` frontmatter across the wiki) and existing page names (check `index.md`) before inventing new ones.
 - **Where it goes:** `life/` by default. If it's about a business that has a folder, it goes there. Match the folder name, or an alias listed in the business's `CLAUDE.md` or the `Tags:` line of its `notes.md`. If it's mixed, split it explicitly: the original stays in `life/raw/`, and a business-only excerpt goes to the business.
 - **What changes:** list each page to create or update with a few words on what changes. Example: "people/marcus-tan.md: daughter started uni; owes you the revised timeline" · "businesses/acme-studio/wiki/proposals/marcus-rebrand.md: new, ~20K budget" · "pillars/09-opportunities.md: link to that proposal". Deal details live in the business folder. The life hub only links to them.
-- **Worth noting:** if it records a win someone witnessed, suggest asking for a testimonial now. If it contradicts something in the wiki (a changed job, an ended plan), point it out.
+- **Worth noting:** if it shows an open action in some `actions.md` was done, propose ticking it off. If it records a win someone witnessed, suggest asking for a testimonial now. If it contradicts something in the wiki (a changed job, an ended plan), point it out.
 
 Ask for one confirm. Accept corrections in plain language ("drop the last tag", "it's 25K not 20K").
 

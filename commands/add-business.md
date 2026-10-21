@@ -17,10 +17,12 @@ Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/folder-design.md` and `${CLAUDE_PLUGIN_
    - **Standard/Deep:**
      - Write `CLAUDE.md`: what it is, the user's role, tier, the sections and what goes in each, the routing tags (folder name plus aliases), and the boundary rule.
      - Create `raw/` and save the interview answers there as `YYYY-MM-DD-setup-interview.md` (the user's words verbatim in a Q&A layout, header `source: setup`).
-     - Create `wiki/index.md` with sections: Overview, then one per chosen folder (Decisions last).
+     - Create `wiki/index.md` with sections: Overview (lines for overview, ideas, actions), one per chosen folder, then Decisions.
+     - Create `wiki/ideas.md` (parked ideas) and `wiki/actions.md` (sections `## Open actions` and `## Open questions`), both with standard frontmatter.
+     - Always create `wiki/decisions/`, even if it wasn't one of the chosen sections.
      - Create `wiki/log.md` with first entry `## [YYYY-MM-DD] setup | Business folder created`.
-     - Write `wiki/overview.md` from what they told you, with standard frontmatter citing the interview file and a `## Sources` section.
+     - Write `wiki/overview.md` from what they told you, with standard frontmatter citing the interview file and a `## Sources` section. It links to `ideas.md`, `actions.md` and `decisions/`.
      - Create the chosen section folders.
-   - **Light:** just `notes.md`: a one-paragraph summary, a `Tags:` line (folder name plus aliases), then a `## Notes` list for dated bullets.
+   - **Light:** just `notes.md`: a one-paragraph summary, a `Tags:` line (folder name plus aliases), then a `## Notes` list for dated bullets (prefixed `Decided:`, `Idea:`, `To do:` or `Open:` where it helps).
 5. **Connect.** Add the business to the **Businesses** section of `life/wiki/index.md`, linking its overview (or `notes.md`). Link it from `life/wiki/pillars/09-opportunities.md`, and from `07-career.md` if it's their main work. Do not copy any content between folders.
 6. **Tell them how to use it** in one line: mention the business (`#<name>` or any of its aliases) when sharing something, and it'll be filed here.
