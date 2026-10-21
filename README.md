@@ -1,0 +1,88 @@
+# 12 Pillars — build your own life OS
+
+A Claude Code plugin that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life and **your** businesses.
+
+## The idea in three parts
+
+**1. The 12-Pillar Life Flywheel.** Your life is one connected system, not twelve separate departments. Each pillar gives something to the next:
+
+> Faith → direction · Identity → clarity · Time → allocation · Health → capacity · Development → skill · Relationships → access · Career → credibility · Brand → opportunity · Opportunities → finance · Finance → lifestyle · Lifestyle → legacy · Legacy → back to faith
+
+When something is stuck, the cause is usually upstream of it. Start with the pillar that hurts most and let momentum carry the rest. The full guide is in [`frameworks/12-pillars.md`](frameworks/12-pillars.md).
+
+**2. A memory that compounds.** Based on Andrej Karpathy's [LLM wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern:
+- `raw/` holds your sources: notes, voice notes, documents, screenshots. They're never edited.
+- `wiki/` holds pages the AI writes and keeps cross-linked: your pillars, people, topics, goals.
+- `CLAUDE.md` holds the rules for how it's all organised.
+
+You share something once, and every relevant page stays current. See [`frameworks/llm-wiki.md`](frameworks/llm-wiki.md).
+
+**3. Folders designed for you.** Setup interviews you about your life and each business you run (what it does, your role, what it runs on) and **recommends** a structure. A side project gets one notes page. An agency gets clients, projects, proposals, and team. Nothing is created until you confirm. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
+
+## What your workspace looks like
+
+```
+your-workspace/
+├── CLAUDE.md
+├── life/                     you, organised by the 12 pillars
+│   ├── raw/                  your sources (never edited)
+│   └── wiki/
+│       ├── index.md          catalog of every page
+│       ├── log.md            history of every change
+│       ├── self/             your vision, where you are now, optional profiles
+│       ├── pillars/          12 hub pages, 01-faith … 12-legacy
+│       ├── people/
+│       └── topics/
+└── businesses/
+    ├── my-agency/            Deep: raw/ + wiki/ with clients/ projects/ team/
+    ├── my-product/           Standard: raw/ + wiki/ with product/ decisions/
+    └── side-shop/            Light: notes.md
+```
+
+## Install
+
+You need [Claude Code](https://claude.com/claude-code). In a Claude Code session, run these **one at a time** (wait for each to finish):
+
+```
+/plugin marketplace add twiss-io/12-pillar-plugin
+```
+```
+/plugin install 12-pillars@12-pillars
+```
+
+Optional: turn on auto-updates with `/plugin` → Manage marketplaces → 12-pillars → Enable auto-update.
+
+Then create a personal folder, open Claude Code in it, and start setup:
+
+```bash
+mkdir -p ~/my-life && cd ~/my-life && claude
+```
+```
+/12-pillars:setup
+```
+
+## Commands
+
+| Command | What it does |
+|---|---|
+| `/12-pillars:setup` | The guided setup: about you, optional profiles, your vision, where you are now, your businesses (with a recommended folder structure), then the pillar that matters most. Resumable, and every question is skippable. |
+| `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
+| `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
+| `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
+| `/12-pillars:add-business` | Add a business, or upgrade a light one, with a recommended structure. |
+| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. |
+
+## Optional profiles
+
+Setup can keep an **astrology profile** (Chinese four-pillar chart, computed offline by a bundled script) and a **personality type** (Enneagram, through a short multiple-choice protocol). Both are entirely optional. You choose at the start, and everything works without them. They inform the AI quietly in the background and are shown whenever you ask. See [`frameworks/instruments.md`](frameworks/instruments.md).
+
+## Privacy
+
+- The plugin ships no personal data. Your workspace exists only on your machine.
+- Setup writes a `.gitignore` covering `life/` and `businesses/`, so your data stays out of git by default.
+- The AI is instructed never to put workspace content into web searches, URLs, or external tools.
+- Honest limit: your conversations go through your AI provider, the same as any Claude session.
+
+## Status
+
+Version 0.1.0, early release. Feedback and issues welcome.
