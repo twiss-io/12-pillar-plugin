@@ -15,7 +15,21 @@ Bundled instruments, with full paths, for stage 2:
 
 **Location.** The current directory becomes the workspace. If it looks like a code repository or someone else's project (has `package.json`, `src/`, a `.git` with commits not belonging to a personal workspace, etc.), stop and ask the user to confirm or to open Claude in a fresh folder such as `~/my-life`.
 
-**Resuming.** If `life/wiki/self/setup-progress.md` exists, this is a resume. Show the map of stages marked done / in progress / deferred / skipped, and ask where to pick up (clickable options: continue where we stopped · do something I put off · revisit something I skipped · wrap up). Never force the original order on a resume.
+**Resuming.** If `life/wiki/self/setup-progress.md` exists, this is a resume. Show the map of stages marked done / in progress / learning / deferred / skipped, and ask where to pick up (clickable options: continue where we stopped · do something I put off · revisit something I skipped · wrap up). For a stage marked `learning`, first show what has already been picked up about it, then ask only what's missing. Never force the original order on a resume.
+
+## Choose how to start
+
+On a fresh start (no `setup-progress.md`), offer one choice with AskUserQuestion before anything else:
+- **Full setup now (~45 min):** the guided interview below, stages 1–7.
+- **Quick start (~2 min), learn as we go:** set up the base workspace now, then fill it in from normal conversation over time.
+
+**Quick start** runs only stage 1, cut down: ask what the workspace should call them (one question, alias fine), skip the "what for" question, and create the base workspace exactly as stage 1 describes. Then:
+1. In `setup-progress.md`, add the line `Mode: learn as you go` under the title, mark stage 1 `done`, stage 2 (profiles) `deferred`, and stages 3–6 `learning`.
+2. Save their answer to `life/raw/YYYY-MM-DD-setup-about-you.md` (`source: setup`).
+3. Log `## [YYYY-MM-DD] setup | Quick start`.
+4. Tell them, in four short lines: just use this folder for anything; when they mention something about themselves along the way, it's noted without interrupting, and offered for filing in one batch when there's a pause; a business they keep mentioning gets offered a folder; `/12-pillars:setup` any time does a stage properly, and `/12-pillars:pillars` shows how much has filled in.
+
+Do not continue to stage 2. Quick start is finished.
 
 ## How to run the interview
 
@@ -50,7 +64,7 @@ businesses/
 
 Each pillar hub starts with frontmatter (`title`, `type: pillar`, `pillars: [<name>]`, `tags: ["#<name>"]`, `sources: []`, `updated`), then: the pillar's purpose and currency in one line taken from `12-pillars.md`, `**Status:** not yet running`, and empty sections `## Where this stands`, `## Current focus`, `## Open questions`, `## Linked pages`, `## Sources`. Add all 12 hubs to `index.md`.
 
-`setup-progress.md` is a checklist, one line per stage: `- [ ] 1 · About you — pending` (states: pending, in progress, done, deferred, skipped).
+`setup-progress.md` is a checklist, one line per stage: `- [ ] 1 · About you — pending` (states: pending, in progress, done, learning, deferred, skipped). `learning` means the stage is being filled from everyday conversation (quick start). Mark it `done` once its page exists with real content (for example, `self/now.md` has a `Season:` line, or a business folder exists for every business they've mentioned).
 
 Write the workspace `CLAUDE.md`:
 
@@ -66,6 +80,8 @@ The plugin's frameworks define the rules: 12-pillars.md, llm-wiki.md, folder-des
 
 ## Routing
 - Life updates (short facts) are filed right away. Working sessions (brainstorming, planning) are not interrupted; when one winds down, offer /12-pillars:wrap to file its decisions, ideas and actions.
+- Facts about the person mentioned in passing, while asking for something else, are noted without interrupting. At a natural pause, offer them in one batch ("I picked up 3 things about you: … File them?"), file after one confirm, and save the user's words to life/raw/YYYY-MM-DD-learned-<slug>.md (`source: chat`). Never ask the user questions just to fill pages.
+- If life/wiki/self/setup-progress.md says `Mode: learn as you go`, learned facts also fill self/now.md, self/north-star.md and the pillar hubs; mark a `learning` stage `done` when its page has real content. A business mentioned repeatedly with no folder gets offered a Light folder (notes.md) once.
 - Before a working session on a business, read its overview.md, recent decisions/, ideas.md and actions.md, so the session builds on what was decided.
 - Anything shared as a life update is a capture. Handle it exactly as /12-pillars:capture does: save the source to raw/ (with a `captured:`/`source:` header), propose in one message the title, ≤10 tags and every page that will change, wait for one confirm, then write the pages, update index.md, and append `## [YYYY-MM-DD] capture | <title>` to log.md.
 - A capture tagged with a business (its folder name or an alias in its CLAUDE.md) goes to that business's folder; a Light business gets a dated bullet in its notes.md. Mixed captures are split: the original in life/raw/, a business-only excerpt in the business raw/.

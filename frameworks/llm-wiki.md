@@ -117,10 +117,16 @@ followed by 1–3 lines of what changed. Never rewrite past entries.
 
 One source often touches several pages. A single conversation note can update a person page, two pillar hubs, and a topic page. That's the point: capture once, and every relevant page stays current.
 
-### Two kinds of conversation
+### Three kinds of conversation
 
 - **Life updates** (short facts: an event, health, money, a person, a plan) are filed **right away** via Capture, so nothing is waiting when a long session gets compacted.
 - **Working sessions** (brainstorming, planning, strategy) are **not interrupted**. Most of what's said is exploration. When the session winds down, the AI offers a **Wrap**, which files only the outcome.
+- **Other tasks** (writing an email, fixing code, planning a trip) where the person mentions something about themselves **in passing**. Don't interrupt the task. Note the fact, and at a natural pause offer everything noted in one batch: "I picked up 3 things about you: … File them?" One confirm files them like a capture, with the user's words saved to `life/raw/YYYY-MM-DD-learned-<slug>.md` (`source: chat`). Only file what the user actually said. Never ask questions just to fill pages, and never file guesses about them.
+
+❌ Mid-task: "Before I fix that email — you mentioned your sister's wedding. Want me to file that?"
+✅ After the email is done: "Done. I also picked up 2 things about you along the way: your sister's wedding is 14 Dec, and you're cutting caffeine. File them?"
+
+**Learn as you go.** If the user chose the quick start, `life/wiki/self/setup-progress.md` contains `Mode: learn as you go`, and the setup stages are filled from these batches instead of an interview: a mentioned season fills `self/now.md`, stated goals feed `self/north-star.md`, and a business mentioned repeatedly with no folder gets offered a Light folder once.
 
 A plugin hook re-states this convention on every message, so it holds through long sessions and compaction. A second hook re-orients each new or compacted session: it surfaces the current season and any unfiled sources, and offers a Wrap after compaction.
 

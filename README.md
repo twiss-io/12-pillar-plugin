@@ -61,11 +61,13 @@ mkdir -p ~/my-life && cd ~/my-life && claude
 /12-pillars:setup
 ```
 
+In a hurry? Pick **quick start** in setup. It takes two minutes, and the workspace fills in from normal conversation over time.
+
 ## Commands
 
 | Command | What it does |
 |---|---|
-| `/12-pillars:setup` | The guided setup: about you, optional profiles, your vision, where you are now, your businesses (with a recommended folder structure), then the pillar that matters most. Resumable, and every question is skippable. |
+| `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your businesses with a recommended folder structure, then the pillar that matters most) or a **quick start** (~2 min) that learns about you as you go. Resumable, and every question is skippable. |
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
 | `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right business (or your life wiki). Also offered automatically when a session winds down. |
 | `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
@@ -76,6 +78,7 @@ mkdir -p ~/my-life && cd ~/my-life && claude
 ## How filing works
 
 - **Life updates** ("closed a client today", "back's been bad all week") get filed right away, with one confirm.
+- **Things you mention in passing** while asking for something else aren't filed mid-task. They're noted, and at a natural pause you get one card ("I picked up 2 things about you…") to file them all with one confirm. With the quick start, this is how your workspace fills in.
 - **Brainstorms and planning sessions** aren't interrupted. When one winds down, you get a wrap-up card: what was decided, ideas parked, actions, open questions. One confirm files it. Next time you work on that business, the session starts from those decisions instead of from zero.
 - Two small hooks keep this reliable. One re-states the filing convention on every message, so it holds through long sessions and context compaction. The other re-orients each new or compacted session with your current season and any files you dropped in but haven't filed yet. Both do nothing outside a 12-pillar workspace.
 
@@ -96,4 +99,4 @@ MIT © 2026 Twiss / Torch Labs. Free to use, copy, modify and share, including c
 
 ## Status
 
-Version 0.2.0, early release. Feedback and issues welcome.
+Version 0.3.0, early release. Feedback and issues welcome.
