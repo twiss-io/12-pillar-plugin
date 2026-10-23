@@ -90,6 +90,10 @@ Setup can keep an **astrology profile** (Chinese four-pillar chart, computed off
 - The AI is instructed never to put workspace content into web searches, URLs, or external tools.
 - Honest limit: your conversations go through your AI provider, the same as any Claude session.
 
+## License
+
+MIT © 2026 Twiss / Torch Labs. Free to use, copy, modify and share, including commercially. Keep the copyright notice in copies. See [`LICENSE`](LICENSE).
+
 ## Status
 
 Version 0.2.0, early release. Feedback and issues welcome.

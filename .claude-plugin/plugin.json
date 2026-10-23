@@ -6,6 +6,7 @@
     "name": "Twiss / Torch Labs"
   },
   "repository": "https://github.com/twiss-io/12-pillar-plugin",
+  "license": "MIT",
   "keywords": [
     "life-os",
     "12-pillars",
