@@ -1,8 +1,8 @@
 # 12 Pillars — build your own life OS
 
 <p>
-<a href="INSTALL.md#claude-desktop-app"><img alt="Install in Claude Code" src="https://img.shields.io/badge/Install_in-Claude_Code-D97757?style=for-the-badge"></a>
-<a href="INSTALL.md#codex-app"><img alt="Install in Codex" src="https://img.shields.io/badge/Install_in-Codex-111111?style=for-the-badge"></a>
+<a href="https://mcp.johannsenlum.com/12-pillars#claude"><img alt="Install in Claude Code" src="https://img.shields.io/badge/Install_in-Claude_Code-D97757?style=for-the-badge"></a>
+<a href="https://mcp.johannsenlum.com/12-pillars#codex"><img alt="Install in Codex" src="https://img.shields.io/badge/Install_in-Codex-111111?style=for-the-badge"></a>
 </p>
 
 A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life and **your** businesses.
@@ -49,8 +49,8 @@ your-workspace/
 ## Install
 
 <p>
-<a href="INSTALL.md#claude-desktop-app"><img alt="Install in Claude Code" src="https://img.shields.io/badge/Install_in-Claude_Code-D97757?style=for-the-badge"></a>
-<a href="INSTALL.md#codex-app"><img alt="Install in Codex" src="https://img.shields.io/badge/Install_in-Codex-111111?style=for-the-badge"></a>
+<a href="https://mcp.johannsenlum.com/12-pillars#claude"><img alt="Install in Claude Code" src="https://img.shields.io/badge/Install_in-Claude_Code-D97757?style=for-the-badge"></a>
+<a href="https://mcp.johannsenlum.com/12-pillars#codex"><img alt="Install in Codex" src="https://img.shields.io/badge/Install_in-Codex-111111?style=for-the-badge"></a>
 </p>
 
 **One step (Mac / Linux).** Paste this into Terminal. It installs into Claude Code and/or Codex, whichever you have, and creates `~/my-life`:

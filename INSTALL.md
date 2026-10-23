@@ -5,6 +5,8 @@
 - Claude Code: https://claude.com/claude-code
 - Codex: https://developers.openai.com/codex
 
+**Install page with one-click buttons:** https://mcp.johannsenlum.com/12-pillars
+
 ## Option A: one step (Mac / Linux)
 
 Open **Terminal**, paste this line, and press Enter:
