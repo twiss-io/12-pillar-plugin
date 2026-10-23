@@ -62,6 +62,11 @@
 
   <section class="card" id="codex">
     <h2>Codex (CLI and app)</h2>
+    <p><strong>Codex app:</strong> opens a new Codex chat with an install request already typed. Press Enter, then approve the command when Codex asks.</p>
+    <a class="btn" href="codex://new?path=%2Ftmp&prompt=Install%20the%2012%20Pillars%20plugin%20for%20me.%20Run%20this%20in%20the%20terminal%20%28it%20needs%20internet%20access%29%3A%20curl%20-fsSL%20https%3A%2F%2Fraw.githubusercontent.com%2Ftwiss-io%2F12-pillar-plugin%2Fmain%2Finstall.sh%20%7C%20bash%20Then%20tell%20me%20to%20restart%20Codex%2C%20start%20a%20new%20chat%20in%20a%20personal%20folder%20such%20as%20~%2Fmy-life%2C%20and%20type%20%2412-pillars%3Asetup.">Open in Codex app</a>
+    <a class="btn ghost" href="codex://plugins/install/12-pillars?marketplace=12-pillars">Open the plugin page in Codex</a>
+    <p class="note">The second button only finds the plugin after it has been added once (by the first button or the line below); otherwise Codex opens its Plugins page.</p>
+    <p><strong>Terminal:</strong></p>
     <p>Paste this into Terminal. It finds Codex, including the copy built into the ChatGPT app, so you don't need to install anything else:</p>
     <div class="cmd"><code>curl -fsSL https://raw.githubusercontent.com/twiss-io/12-pillar-plugin/main/install.sh | bash</code><button data-copy>Copy</button></div>
     <p class="note">Already have the <code>codex</code> command? These two lines do the same:</p>
@@ -72,7 +77,6 @@
       <li>Type <code>$12-pillars:setup</code>.</li>
       <li>When asked, review and trust the plugin's two hooks in <code>/hooks</code>. They make filing more reliable.</li>
     </ol>
-    <p class="note">There's no one-click link for Codex yet: OpenAI hasn't published one. The commands above take about 10 seconds.</p>
   </section>
 
   <footer>
