@@ -79,6 +79,14 @@
     </ol>
   </section>
 
+  <section class="card" id="update">
+    <h2>Updating</h2>
+    <p>Updates don't arrive on their own. Run the install line again any time; it updates whatever you have:</p>
+    <div class="cmd"><code>curl -fsSL https://raw.githubusercontent.com/twiss-io/12-pillar-plugin/main/install.sh | bash</code><button data-copy>Copy</button></div>
+    <p><strong>Claude Code can update itself:</strong> <code>/plugin</code> → Manage marketplaces → 12-pillars → Enable auto-update.</p>
+    <p class="note">Restart open windows afterwards. If an update brings newer workspace rules, your next session says so, and <code>/12-pillars:lint rules</code> (Codex: <code>$12-pillars:lint rules</code>) refreshes them. Your notes are never touched.</p>
+  </section>
+
   <footer>
     <a href="https://github.com/twiss-io/12-pillar-plugin">Source on GitHub</a> ·
     <a href="https://github.com/twiss-io/12-pillar-plugin/blob/main/INSTALL.md">Full install guide</a> ·

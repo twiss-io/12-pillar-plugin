@@ -75,5 +75,8 @@ Option A needs a Mac or Linux shell. On Windows, use the Option B commands in Po
 
 ## Update or remove
 
-- **Update:** run Option A again, or run `claude plugin update 12-pillars@12-pillars` / `codex plugin marketplace upgrade 12-pillars`.
+- **Update:** run Option A again. It updates Claude Code and Codex, whichever you have.
+- **Claude Code auto-update:** `/plugin` → Manage marketplaces → 12-pillars → Enable auto-update. Off by default for plugins from GitHub.
+- **By hand:** `claude plugin marketplace update 12-pillars` then `claude plugin update 12-pillars@12-pillars` / `codex plugin marketplace upgrade 12-pillars` then `codex plugin add 12-pillars@12-pillars`.
+- **After an update:** restart open windows. If the plugin has newer workspace rules, your next session in your folder says so; `/12-pillars:lint rules` refreshes them. Your notes and anything under `## My additions` stay untouched.
 - **Remove:** `claude plugin uninstall 12-pillars@12-pillars` / `codex plugin remove 12-pillars@12-pillars`. Your `my-life` folder and everything in it stays untouched.

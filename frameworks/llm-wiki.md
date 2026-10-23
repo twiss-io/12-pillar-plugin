@@ -10,7 +10,7 @@ This follows the LLM wiki pattern described by Andrej Karpathy (gist: `karpathy/
 |---|---|---|
 | `raw/` | The source material: notes, voice-note transcripts, documents, screenshots, receipts, exported chats, CVs. This is the source of truth. | The user adds files; the AI saves captures here. **Once saved, a raw file is never edited or deleted.** |
 | `wiki/` | Markdown pages the AI writes from the raw sources: summaries, people, topics, the twelve pillar hubs, the person's goals and current situation. Pages are cross-linked. | The AI maintains it. Meaningful changes are proposed to the user and confirmed first (see Capture). |
-| `AGENTS.md` | The schema (with a `CLAUDE.md` containing `@AGENTS.md`, so Claude Code and Codex read the same rules): who this workspace belongs to, how it's organised, the routing and privacy rules. | Written at setup. The user and AI refine it together over time. |
+| `AGENTS.md` | The schema (with a `CLAUDE.md` containing `@AGENTS.md`, so Claude Code and Codex read the same rules): who this workspace belongs to, how it's organised, the routing and privacy rules. | Written at setup from the plugin template. Your own rules go under `## My additions`, which survives `/12-pillars:lint rules` refreshes when the plugin updates its rules. |
 
 The wiki is a **compiled view** of the raw material. If a wiki page and a raw source disagree, the raw source wins and the wiki gets fixed.
 

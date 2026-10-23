@@ -31,6 +31,15 @@ for b in "$root"/businesses/*/; do
 done
 [ "$unprocessed" -gt 0 ] && lines+=("- $unprocessed file(s) in raw/ not yet filed into the wiki; /12-pillars:capture with no arguments processes them.")
 
+# Workspace rules older than the plugin's template (or kept in CLAUDE.md, pre-v0.4.0).
+rules_ver() { grep -m1 -oE '12-pillars rules: [0-9]+' "$1" 2>/dev/null | grep -oE '[0-9]+$'; }
+plugin_root="${CLAUDE_PLUGIN_ROOT:-${PLUGIN_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}}"
+latest="$(rules_ver "$plugin_root/templates/workspace-AGENTS.md")"
+if [ -n "$latest" ]; then
+  current="$(rules_ver "$root/AGENTS.md")"
+  [ "${current:-0}" -lt "$latest" ] && lines+=("- The workspace rules (AGENTS.md) are older than the installed plugin (v${current:-0}, latest v$latest). Mention once, briefly, that /12-pillars:lint rules refreshes them and leaves their notes untouched.")
+fi
+
 [ "$compacted" = 1 ] && lines+=("- The conversation was just compacted. If a working session was in progress, a /12-pillars:wrap of what was discussed is worth offering so its decisions aren't lost to the summary.")
 
 [ "${#lines[@]}" -eq 0 ] && exit 0

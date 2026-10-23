@@ -119,7 +119,21 @@ In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars
 | `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
 | `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
 | `/12-pillars:add-business` | Add a business, or upgrade a light one, with a recommended structure. |
-| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. |
+| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update. |
+
+## Updating
+
+Updates don't reach you on their own unless you turn that on.
+
+- **Easiest (Claude Code and Codex):** run the install line again. It updates whatever is already installed.
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/twiss-io/12-pillar-plugin/main/install.sh | bash
+  ```
+- **Claude Code, automatically:** `/plugin` → Manage marketplaces → 12-pillars → Enable auto-update. It then updates each time Claude Code starts.
+- **Claude Code, by hand:** `claude plugin marketplace update 12-pillars`, then `claude plugin update 12-pillars@12-pillars`.
+- **Codex, by hand:** `codex plugin marketplace upgrade 12-pillars`, then `codex plugin add 12-pillars@12-pillars`.
+
+Restart any open Claude or Codex window afterwards. Skills and hooks update straight away. Your workspace rules (`AGENTS.md`) are your own copy, so an update never rewrites them. When the plugin ships newer rules, your next session mentions it, and `/12-pillars:lint rules` refreshes them after one confirm. Your notes, wiki and anything you added under `## My additions` stay as they are.
 
 ## How filing works
 
@@ -145,4 +159,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.4.1, early release. Feedback and issues welcome.
+Version 0.4.2, early release. Feedback and issues welcome.
