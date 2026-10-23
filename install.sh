@@ -28,7 +28,19 @@ if command -v claude >/dev/null 2>&1; then
   say ""
 fi
 
-if command -v codex >/dev/null 2>&1; then
+# Codex: the CLI on PATH, or the copy bundled inside the ChatGPT / Codex desktop app.
+CODEX=""; CODEX_ON_PATH=0
+if command -v codex >/dev/null 2>&1; then CODEX="$(command -v codex)"; CODEX_ON_PATH=1
+else
+  for c in "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex" \
+           "$HOME/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex" \
+           "/Applications/Codex.app/Contents/Resources/codex"; do
+    [ -x "$c" ] && { CODEX="$c"; break; }
+  done
+fi
+codex() { "$CODEX" "$@"; }
+
+if [ -n "$CODEX" ]; then
   say "Codex found."
   if codex plugin marketplace list 2>/dev/null | grep -q "^$NAME "; then
     codex plugin marketplace upgrade "$NAME" >/dev/null 2>&1
@@ -55,7 +67,7 @@ for t in "${installed[@]}"; do
   case "$t" in
     claude) say "  Claude Code:  cd \"$WORKSPACE\" && claude      then type  /12-pillars:setup"
             say "  Claude app:   Code tab → open the folder above → type  /12-pillars:setup" ;;
-    codex)  say "  Codex:        cd \"$WORKSPACE\" && codex       then type  \$12-pillars:setup"
+    codex)  [ "$CODEX_ON_PATH" = 1 ] && say "  Codex:        cd \"$WORKSPACE\" && codex       then type  \$12-pillars:setup"
             say "  Codex app:    open the folder above → type  \$12-pillars:setup  (trust the hooks in /hooks when asked)" ;;
   esac
 done
