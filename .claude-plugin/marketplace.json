@@ -1,11 +1,11 @@
 {
   "name": "12-pillars",
   "owner": {
-    "name": "Twiss / Torch Labs"
+    "name": "Twiss"
   },
   "metadata": {
     "description": "The 12-Pillar Life Flywheel plugin for Claude Code.",
-    "version": "0.4.0"
+    "version": "0.4.1"
   },
   "plugins": [
     {

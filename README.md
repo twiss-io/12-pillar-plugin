@@ -43,6 +43,14 @@ your-workspace/
 
 ## Install
 
+**One step (Mac / Linux).** Paste this into Terminal. It installs into Claude Code and/or Codex, whichever you have, and creates `~/my-life`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/twiss-io/12-pillar-plugin/main/install.sh | bash
+```
+
+Prefer clicking through the apps, or on Windows? See the **[install guide](INSTALL.md)**. Manual commands are below.
+
 ### Claude Code
 
 In a [Claude Code](https://claude.com/claude-code) session, run these **one at a time** (wait for each to finish):
@@ -123,8 +131,8 @@ Setup can keep an **astrology profile** (Chinese four-pillar chart, computed off
 
 ## License
 
-MIT © 2026 Twiss / Torch Labs. Free to use, copy, modify and share, including commercially. Keep the copyright notice in copies. See [`LICENSE`](LICENSE).
+Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including commercially. Keep the copyright and [`NOTICE`](NOTICE) in copies, and mark files you change. It also includes a patent grant. See [`LICENSE`](LICENSE).
 
 ## Status
 
-Version 0.4.0, early release. Feedback and issues welcome.
+Version 0.4.1, early release. Feedback and issues welcome.
