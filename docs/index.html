@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install 12 Pillars</title>
+<meta name="description" content="Install the 12 Pillars life OS plugin in Claude Code or Codex.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --card: #f6f8fa; --line: #d0d7de;
+    --accent: #E8833A; --accent-fg: #ffffff; --code: #eaeef2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --card: #151b23; --line: #3d444d; --code: #262c36; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 30px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 28px; }
+  .hero { display: block; margin: 0 auto 28px; max-width: 360px; width: 100%; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin: 0 0 18px; }
+  .card h2 { font-size: 20px; margin: 0 0 4px; }
+  .card p { margin: 6px 0 12px; color: var(--muted); }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-fg); font-weight: 600;
+         padding: 10px 16px; border-radius: 8px; text-decoration: none; margin: 4px 8px 4px 0; border: 0; cursor: pointer; font-size: 15px; }
+  .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+  .cmd { display: flex; align-items: stretch; gap: 8px; margin: 8px 0; }
+  .cmd code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; background: var(--code); border-radius: 8px;
+              padding: 10px 12px; font: 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .cmd button { flex: none; background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 8px;
+                padding: 0 12px; cursor: pointer; font-size: 14px; }
+  ol { padding-left: 20px; margin: 8px 0; }
+  .note { font-size: 14px; color: var(--muted); }
+  a { color: var(--accent); }
+  footer { margin-top: 28px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Install 12 Pillars</h1>
+  <p class="sub">A life OS for Claude Code and Codex: the 12-Pillar Flywheel, a raw/wiki memory, and folders designed around your life and businesses.</p>
+  <img class="hero" src="flywheel.svg" alt="The 12-Pillar Life Flywheel">
+
+  <section class="card" id="any">
+    <h2>Fastest: one line (Mac / Linux)</h2>
+    <p>Installs into Claude Code and/or Codex, whichever you have, and creates <code>~/my-life</code>. Paste into Terminal:</p>
+    <div class="cmd"><code>curl -fsSL https://raw.githubusercontent.com/twiss-io/12-pillar-plugin/main/install.sh | bash</code><button data-copy>Copy</button></div>
+  </section>
+
+  <section class="card" id="claude">
+    <h2>Claude Code</h2>
+    <p>Opens Claude Code with the install command already typed. Check it, then press Enter.</p>
+    <a class="btn" href="claude-cli://open?q=%2Fplugin%20install%2012-pillars%20--marketplace%20twiss-io%2F12-pillar-plugin">Open in Claude Code</a>
+    <p class="note">The button works once you've used Claude Code in a terminal at least once, since that's when it registers itself to open links. Nothing happened? Paste this into a Claude Code session instead:</p>
+    <div class="cmd"><code>/plugin install 12-pillars --marketplace twiss-io/12-pillar-plugin</code><button data-copy>Copy</button></div>
+    <p class="note">The Claude desktop app shares the same plugins, so after installing it shows up in the app's Code tab too. Then type <code>/12-pillars:setup</code> in a personal folder.</p>
+  </section>
+
+  <section class="card" id="codex">
+    <h2>Codex (CLI and app)</h2>
+    <p>Run these two commands in Terminal once. The Codex app uses the same settings.</p>
+    <div class="cmd"><code>codex plugin marketplace add twiss-io/12-pillar-plugin</code><button data-copy>Copy</button></div>
+    <div class="cmd"><code>codex plugin add 12-pillars@12-pillars</code><button data-copy>Copy</button></div>
+    <ol>
+      <li>Open Codex in a personal folder (for example <code>~/my-life</code>).</li>
+      <li>Type <code>$12-pillars:setup</code>.</li>
+      <li>When asked, review and trust the plugin's two hooks in <code>/hooks</code>. They make filing more reliable.</li>
+    </ol>
+    <a class="btn ghost" href="codex://plugins/install/12-pillars?marketplace=12-pillars">Try opening in the Codex app (experimental)</a>
+    <p class="note">This link isn't documented by OpenAI yet and only works after the marketplace has been added. If nothing opens, use the commands above.</p>
+  </section>
+
+  <footer>
+    <a href="https://github.com/twiss-io/12-pillar-plugin">Source on GitHub</a> ·
+    <a href="https://github.com/twiss-io/12-pillar-plugin/blob/main/INSTALL.md">Full install guide</a> ·
+    Apache-2.0 © 2026 Twiss
+  </footer>
+</main>
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.previousElementSibling.textContent;
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done, function () {}); }
+    });
+  });
+</script>
+</body>
+</html>
