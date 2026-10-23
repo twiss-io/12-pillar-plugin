@@ -21,7 +21,13 @@ Bundled instruments, with full paths, for stage 2:
 
 On a fresh start (no `setup-progress.md`), offer one choice with AskUserQuestion before anything else:
 - **Full setup now (~45 min):** the guided interview below, stages 1–7.
+- **Choose parts:** set up only the parts they pick now; the rest is learned as we go.
 - **Quick start (~2 min), learn as we go:** set up the base workspace now, then fill it in from normal conversation over time.
+
+**Choose parts** asks one multi-select AskUserQuestion with the stages and their times: Optional profiles (~5–10 min) · Your vision (~10 min) · Where you are now (~10 min) · Your work and businesses (~5–15 min) · Start where it hurts (~10 min). Stage 1 (About you) always runs, since it builds the workspace. Then:
+1. Run stage 1, then only the chosen stages, in the usual order, with the same interview rules. Show the progress strip counting just the chosen stages.
+2. In `setup-progress.md`, mark unchosen stages 3–6 `learning` (unchosen profiles: `deferred`) and add `Mode: learn as you go`, unless every stage was chosen.
+3. Finish with stage 7, but in its deferred sweep, don't offer the `learning` stages again; say in one line that they fill in from conversation and `/12-pillars:setup` can do any of them later.
 
 **Quick start** runs only stage 1, cut down: ask what the workspace should call them (one question, alias fine), skip the "what for" question, and create the base workspace exactly as stage 1 describes. Then:
 1. In `setup-progress.md`, add the line `Mode: learn as you go` under the title, mark stage 1 `done`, stage 2 (profiles) `deferred`, and stages 3–6 `learning`.
