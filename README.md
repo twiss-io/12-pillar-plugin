@@ -6,6 +6,8 @@ A Claude Code plugin that turns your AI into a personal operating system. It und
 
 **1. The 12-Pillar Life Flywheel.** Your life is one connected system, not twelve separate departments. Each pillar gives something to the next:
 
+<p align="center"><img src="docs/flywheel.svg" alt="The 12-Pillar Life Flywheel: twelve pillars in a loop, each feeding the next" width="560"></p>
+
 > Faith → direction · Identity → clarity · Time → allocation · Health → capacity · Development → skill · Relationships → access · Career → credibility · Brand → opportunity · Opportunities → finance · Finance → lifestyle · Lifestyle → legacy · Legacy → back to faith
 
 When something is stuck, the cause is usually upstream of it. Start with the pillar that hurts most and let momentum carry the rest. The full guide is in [`frameworks/12-pillars.md`](frameworks/12-pillars.md).
@@ -61,7 +63,9 @@ mkdir -p ~/my-life && cd ~/my-life && claude
 /12-pillars:setup
 ```
 
-In a hurry? Pick **quick start** or **choose parts** in setup. It takes two minutes, and the workspace fills in from normal conversation over time.
+<p align="center"><img src="docs/onboarding.svg" alt="Setup: choose full, parts or quick start; pick parts; get a recommended folder tree; then it learns about you as you go" width="720"></p>
+
+In a hurry? Pick **quick start** (about two minutes) or **choose parts** in setup. Whatever you skip fills in from normal conversation over time.
 
 ## Commands
 

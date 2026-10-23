@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="The 12-Pillar Life Flywheel: each pillar feeds the next, in a loop">
+
+<style>
+  .txt { fill: #1f2328; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mut { fill: #59636e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .ring { stroke: #d0d7de; }
+  .node { fill: #f6f8fa; stroke: #afb8c1; }
+  .card { fill: #ffffff; stroke: #d0d7de; }
+  .panel { fill: #f6f8fa; stroke: #d0d7de; }
+  .chip { fill: #eaeef2; }
+  @media (prefers-color-scheme: dark) {
+    .txt { fill: #e6edf3; }
+    .mut { fill: #9198a1; }
+    .ring { stroke: #3d444d; }
+    .node { fill: #151b23; stroke: #3d444d; }
+    .card { fill: #0d1117; stroke: #3d444d; }
+    .panel { fill: #151b23; stroke: #3d444d; }
+    .chip { fill: #262c36; }
+  }
+</style>
+
+<circle cx="400" cy="400" r="230" fill="none" class="ring" stroke-width="2"/>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(459.5,177.8) rotate(15.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="448.7" y="222.4" text-anchor="middle" font-size="13" class="mut" font-style="italic">direction</text>
+<text x="448.7" y="222.4" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">direction<animate attributeName="opacity" dur="12s" begin="0.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(562.6,237.4) rotate(45.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="532.9" y="271.1" text-anchor="middle" font-size="13" class="mut" font-style="italic">clarity</text>
+<text x="532.9" y="271.1" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">clarity<animate attributeName="opacity" dur="12s" begin="1.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(622.2,340.5) rotate(75.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="581.6" y="355.3" text-anchor="middle" font-size="13" class="mut" font-style="italic">allocation</text>
+<text x="581.6" y="355.3" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">allocation<animate attributeName="opacity" dur="12s" begin="2.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(622.2,459.5) rotate(105.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="581.6" y="452.7" text-anchor="middle" font-size="13" class="mut" font-style="italic">capacity</text>
+<text x="581.6" y="452.7" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">capacity<animate attributeName="opacity" dur="12s" begin="3.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(562.6,562.6) rotate(135.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="532.9" y="536.9" text-anchor="middle" font-size="13" class="mut" font-style="italic">skill</text>
+<text x="532.9" y="536.9" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">skill<animate attributeName="opacity" dur="12s" begin="4.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(459.5,622.2) rotate(165.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="448.7" y="585.6" text-anchor="middle" font-size="13" class="mut" font-style="italic">access</text>
+<text x="448.7" y="585.6" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">access<animate attributeName="opacity" dur="12s" begin="5.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(340.5,622.2) rotate(195.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="351.3" y="585.6" text-anchor="middle" font-size="13" class="mut" font-style="italic">credibility</text>
+<text x="351.3" y="585.6" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">credibility<animate attributeName="opacity" dur="12s" begin="6.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(237.4,562.6) rotate(225.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="267.1" y="536.9" text-anchor="middle" font-size="13" class="mut" font-style="italic">opportunity</text>
+<text x="267.1" y="536.9" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">opportunity<animate attributeName="opacity" dur="12s" begin="7.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(177.8,459.5) rotate(255.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="218.4" y="452.7" text-anchor="middle" font-size="13" class="mut" font-style="italic">finance</text>
+<text x="218.4" y="452.7" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">finance<animate attributeName="opacity" dur="12s" begin="8.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(177.8,340.5) rotate(285.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="218.4" y="355.3" text-anchor="middle" font-size="13" class="mut" font-style="italic">lifestyle</text>
+<text x="218.4" y="355.3" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">lifestyle<animate attributeName="opacity" dur="12s" begin="9.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(237.4,237.4) rotate(315.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="267.1" y="271.1" text-anchor="middle" font-size="13" class="mut" font-style="italic">legacy</text>
+<text x="267.1" y="271.1" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">legacy<animate attributeName="opacity" dur="12s" begin="10.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<path d="M -6 -6 L 2 0 L -6 6" transform="translate(340.5,177.8) rotate(345.0)" fill="none" class="ring" stroke-width="2.5" stroke-linecap="round"/>
+<text x="351.3" y="222.4" text-anchor="middle" font-size="13" class="mut" font-style="italic">back to faith</text>
+<text x="351.3" y="222.4" text-anchor="middle" font-size="13" fill="#E8833A" font-weight="700" font-style="italic" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" opacity="0">back to faith<animate attributeName="opacity" dur="12s" begin="11.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.12;1"/></text>
+<g>
+<circle cx="400.0" cy="170.0" r="26" class="node" stroke-width="2"/>
+<circle cx="400.0" cy="170.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="0s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="400.0" y="176.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">1</text>
+<text x="400.0" y="132.0" text-anchor="middle" font-size="17" font-weight="600" class="txt">Faith</text>
+</g>
+<g>
+<circle cx="515.0" cy="200.8" r="26" class="node" stroke-width="2"/>
+<circle cx="515.0" cy="200.8" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="1s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="515.0" y="206.8" text-anchor="middle" font-size="17" font-weight="700" class="txt">2</text>
+<text x="536.0" y="170.4" text-anchor="start" font-size="17" font-weight="600" class="txt">Identity</text>
+</g>
+<g>
+<circle cx="599.2" cy="285.0" r="26" class="node" stroke-width="2"/>
+<circle cx="599.2" cy="285.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="2s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="599.2" y="291.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">3</text>
+<text x="635.6" y="270.0" text-anchor="start" font-size="17" font-weight="600" class="txt">Time</text>
+</g>
+<g>
+<circle cx="630.0" cy="400.0" r="26" class="node" stroke-width="2"/>
+<circle cx="630.0" cy="400.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="630.0" y="406.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">4</text>
+<text x="672.0" y="406.0" text-anchor="start" font-size="17" font-weight="600" class="txt">Health</text>
+</g>
+<g>
+<circle cx="599.2" cy="515.0" r="26" class="node" stroke-width="2"/>
+<circle cx="599.2" cy="515.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="4s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="599.2" y="521.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">5</text>
+<text x="635.6" y="542.0" text-anchor="start" font-size="17" font-weight="600" class="txt">Development</text>
+</g>
+<g>
+<circle cx="515.0" cy="599.2" r="26" class="node" stroke-width="2"/>
+<circle cx="515.0" cy="599.2" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="515.0" y="605.2" text-anchor="middle" font-size="17" font-weight="700" class="txt">6</text>
+<text x="536.0" y="641.6" text-anchor="start" font-size="17" font-weight="600" class="txt">Relationships</text>
+</g>
+<g>
+<circle cx="400.0" cy="630.0" r="26" class="node" stroke-width="2"/>
+<circle cx="400.0" cy="630.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="6s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="400.0" y="636.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">7</text>
+<text x="400.0" y="684.0" text-anchor="middle" font-size="17" font-weight="600" class="txt">Career</text>
+</g>
+<g>
+<circle cx="285.0" cy="599.2" r="26" class="node" stroke-width="2"/>
+<circle cx="285.0" cy="599.2" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="7s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="285.0" y="605.2" text-anchor="middle" font-size="17" font-weight="700" class="txt">8</text>
+<text x="264.0" y="641.6" text-anchor="end" font-size="17" font-weight="600" class="txt">Brand</text>
+</g>
+<g>
+<circle cx="200.8" cy="515.0" r="26" class="node" stroke-width="2"/>
+<circle cx="200.8" cy="515.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="8s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="200.8" y="521.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">9</text>
+<text x="164.4" y="542.0" text-anchor="end" font-size="17" font-weight="600" class="txt">Opportunities</text>
+</g>
+<g>
+<circle cx="170.0" cy="400.0" r="26" class="node" stroke-width="2"/>
+<circle cx="170.0" cy="400.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="9s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="170.0" y="406.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">10</text>
+<text x="128.0" y="406.0" text-anchor="end" font-size="17" font-weight="600" class="txt">Finance</text>
+</g>
+<g>
+<circle cx="200.8" cy="285.0" r="26" class="node" stroke-width="2"/>
+<circle cx="200.8" cy="285.0" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="200.8" y="291.0" text-anchor="middle" font-size="17" font-weight="700" class="txt">11</text>
+<text x="164.4" y="270.0" text-anchor="end" font-size="17" font-weight="600" class="txt">Lifestyle</text>
+</g>
+<g>
+<circle cx="285.0" cy="200.8" r="26" class="node" stroke-width="2"/>
+<circle cx="285.0" cy="200.8" r="26" fill="#E8833A" opacity="0"><animate attributeName="opacity" dur="12s" begin="11s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.03;0.07;0.15;1"/></circle>
+<text x="285.0" y="206.8" text-anchor="middle" font-size="17" font-weight="700" class="txt">12</text>
+<text x="264.0" y="170.4" text-anchor="end" font-size="17" font-weight="600" class="txt">Legacy</text>
+</g>
+<circle r="8" fill="#E8833A"><animateMotion dur="12s" repeatCount="indefinite" path="M 400 170 A 230 230 0 1 1 399.99 170 Z"/></circle>
+<text x="400" y="360" text-anchor="middle" font-size="22" font-weight="700" class="txt">The 12-Pillar Flywheel</text>
+<g opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0;0.0083;0.0375;0.2958;0.325;1.0"/><text x="400" y="402" text-anchor="middle" font-size="16" class="mut">Each pillar gives the next</text><text x="400" y="426" text-anchor="middle" font-size="16" class="mut">what it runs on.</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0;0.3417;0.3708;0.6292;0.6583;1.0"/><text x="400" y="402" text-anchor="middle" font-size="16" class="mut">Stuck somewhere?</text><text x="400" y="426" text-anchor="middle" font-size="16" class="mut">Look one or two pillars upstream.</text></g>
+<g opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0;0.675;0.7042;0.9625;0.9917;1.0"/><text x="400" y="402" text-anchor="middle" font-size="16" class="mut">Start where it hurts.</text><text x="400" y="426" text-anchor="middle" font-size="16" class="mut">Momentum carries the rest.</text></g>
+</svg>
