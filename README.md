@@ -67,7 +67,7 @@ In a hurry? Pick **quick start** or **choose parts** in setup. It takes two minu
 
 | Command | What it does |
 |---|---|
-| `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your businesses with a recommended folder structure, then the pillar that matters most) **only the parts you pick**, or a **quick start** (~2 min). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
+| `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your businesses with a recommended folder structure, then the pillar that matters most), **only the parts you pick**, or a **quick start** (~2 min). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
 | `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right business (or your life wiki). Also offered automatically when a session winds down. |
 | `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
