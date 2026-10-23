@@ -1,6 +1,6 @@
 # The Life Wiki — how memory works in this plugin
 
-> Sources go into `raw/` and are never edited. The AI turns them into a cross-linked `wiki/` it maintains. A schema file (`CLAUDE.md`) holds the rules. Over time the wiki compounds into an accurate, navigable picture of a life or a business.
+> Sources go into `raw/` and are never edited. The AI turns them into a cross-linked `wiki/` it maintains. A schema file (`AGENTS.md`, imported by a one-line `CLAUDE.md`) holds the rules. Over time the wiki compounds into an accurate, navigable picture of a life or a business.
 
 This follows the LLM wiki pattern described by Andrej Karpathy (gist: `karpathy/llm-wiki`), adapted for personal life and for businesses. Read this before writing any file in a user's workspace.
 
@@ -10,7 +10,7 @@ This follows the LLM wiki pattern described by Andrej Karpathy (gist: `karpathy/
 |---|---|---|
 | `raw/` | The source material: notes, voice-note transcripts, documents, screenshots, receipts, exported chats, CVs. This is the source of truth. | The user adds files; the AI saves captures here. **Once saved, a raw file is never edited or deleted.** |
 | `wiki/` | Markdown pages the AI writes from the raw sources: summaries, people, topics, the twelve pillar hubs, the person's goals and current situation. Pages are cross-linked. | The AI maintains it. Meaningful changes are proposed to the user and confirmed first (see Capture). |
-| `CLAUDE.md` | The schema: who this workspace belongs to, how it's organised, the routing and privacy rules. | Written at setup. The user and AI refine it together over time. |
+| `AGENTS.md` | The schema (with a `CLAUDE.md` containing `@AGENTS.md`, so Claude Code and Codex read the same rules): who this workspace belongs to, how it's organised, the routing and privacy rules. | Written at setup. The user and AI refine it together over time. |
 
 The wiki is a **compiled view** of the raw material. If a wiki page and a raw source disagree, the raw source wins and the wiki gets fixed.
 
@@ -18,7 +18,8 @@ The wiki is a **compiled view** of the raw material. If a wiki page and a raw so
 
 ```
 <workspace>/
-├── CLAUDE.md                      schema for the whole workspace
+├── AGENTS.md                      schema for the whole workspace
+├── CLAUDE.md                      @AGENTS.md
 ├── .gitignore                     keeps life/ and businesses/ out of git
 ├── life/                          the person — organised by the 12 pillars
 │   ├── raw/                       immutable sources
@@ -37,7 +38,8 @@ The wiki is a **compiled view** of the raw material. If a wiki page and a raw so
     ├── <light-business>/
     │   └── notes.md               Light tier: one running page, no raw/wiki split
     └── <business>/                Standard/Deep tier
-        ├── CLAUDE.md              schema for this business (incl. its routing tags)
+        ├── AGENTS.md              schema for this business (incl. its routing tags)
+        ├── CLAUDE.md              @AGENTS.md
         ├── raw/
         └── wiki/
             ├── index.md

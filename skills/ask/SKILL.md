@@ -1,7 +1,9 @@
 ---
+name: ask
 description: "Ask your workspace anything — answers come from your wiki with links to the pages used"
-argument-hint: "[your question]"
 ---
+
+> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
 
 Answer: `$ARGUMENTS`
 

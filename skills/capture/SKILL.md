@@ -1,7 +1,9 @@
 ---
+name: capture
 description: "The daily habit: save what happened as a source, propose which pages it updates, confirm once, then file it everywhere it belongs"
-argument-hint: "[what happened, or a file path]"
 ---
+
+> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
 
 You are capturing: `$ARGUMENTS` (text the user wrote, a file path, or empty, in which case process any files in `life/raw/` and `businesses/*/raw/` that no wiki page cites yet, oldest first. Files the user dropped in themselves are left exactly as they are: no rename, no added header).
 
@@ -13,7 +15,7 @@ Read the item. Images count too: a receipt → money figures (#finance), a meal 
 ## 2 · Propose (one message)
 - **Title:** one line.
 - **Tags:** up to 10: pillar tags (`#faith` … `#legacy`), people (`#<name>`), businesses and topics. Reuse existing tags (search the `tags:` frontmatter across the wiki) and existing page names (check `index.md`) before inventing new ones.
-- **Where it goes:** `life/` by default. If it's about a business that has a folder, it goes there. Match the folder name, or an alias listed in the business's `CLAUDE.md` or the `Tags:` line of its `notes.md`. If it's mixed, split it explicitly: the original stays in `life/raw/`, and a business-only excerpt goes to the business.
+- **Where it goes:** `life/` by default. If it's about a business that has a folder, it goes there. Match the folder name, or an alias listed in the business's `AGENTS.md` or the `Tags:` line of its `notes.md`. If it's mixed, split it explicitly: the original stays in `life/raw/`, and a business-only excerpt goes to the business.
 - **What changes:** list each page to create or update with a few words on what changes. Example: "people/marcus-tan.md: daughter started uni; owes you the revised timeline" · "businesses/acme-studio/wiki/proposals/marcus-rebrand.md: new, ~20K budget" · "pillars/09-opportunities.md: link to that proposal". Deal details live in the business folder. The life hub only links to them.
 - **Worth noting:** if it shows an open action in some `actions.md` was done, propose ticking it off. If it records a win someone witnessed, suggest asking for a testimonial now. If it contradicts something in the wiki (a changed job, an ended plan), point it out.
 

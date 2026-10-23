@@ -1,7 +1,9 @@
 ---
+name: wrap
 description: "End-of-session wrap-up: pull the decisions, ideas and actions out of a brainstorm or working session and file them where they belong"
-argument-hint: "[optional: business name or topic]"
 ---
+
+> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
 
 Wrap up the working session in this conversation: `$ARGUMENTS` (an optional business or topic to focus on. If empty, work out what the session was about).
 
@@ -25,7 +27,7 @@ Pull out only what's worth keeping:
 Drop dead ends and back-and-forth. If nothing was decided, say so rather than inventing a decision.
 
 ## 3 · Route
-Work out where each item belongs: which business folder (match the folder name or the aliases in its `CLAUDE.md`), or `life/`. A session can touch several. Split items and keep boundaries: personal content never goes into a business folder, and businesses never get each other's content.
+Work out where each item belongs: which business folder (match the folder name or the aliases in its `AGENTS.md`), or `life/`. A session can touch several. Split items and keep boundaries: personal content never goes into a business folder, and businesses never get each other's content.
 
 Destinations inside a **Standard or Deep business**:
 - Decisions: `wiki/decisions/YYYY-MM-DD-<slug>.md`, one page per real decision, each with decision, reasoning, alternatives rejected, date, and sources. Create `decisions/` if it's missing and add a Decisions section to the index.

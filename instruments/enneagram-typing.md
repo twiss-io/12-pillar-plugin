@@ -4,7 +4,7 @@ A structured typing conversation used by `/12-pillars:setup`. To retype later, t
 
 **Posture:** a type is a working hypothesis, never a verdict. Self-report drifts; record the result with a date and a confidence level, and expect reassessment. If the user already knows their type, take dictation and (optionally) run Round 2 as a light confirmation.
 
-**Mechanics:** use the AskUserQuestion tool for every round — these are choice-shaped questions. Let the user add nuance in free text via "Other" whenever they want.
+**Mechanics:** use clickable options for every round (a choice tool such as AskUserQuestion if available, otherwise a numbered list) — these are choice-shaped questions. Let the user add nuance in free text via "Other" whenever they want.
 
 ## Round 1 — find the center (3 triad questions)
 

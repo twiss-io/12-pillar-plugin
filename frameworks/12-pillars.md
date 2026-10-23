@@ -2,7 +2,7 @@
 
 > A life is one system, not twelve separate departments. Each pillar produces something the next pillar runs on. When an area is stuck, the cause is usually upstream of it — fix that first.
 
-This document is the reference the AI uses to understand, organise, and coach a person's life. Read it fully before running any command in this plugin.
+This document is the reference the AI uses to understand, organise, and coach a person's life. Read it fully before running any skill in this plugin.
 
 ## 1. The core idea
 

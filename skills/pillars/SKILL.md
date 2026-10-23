@@ -1,6 +1,9 @@
 ---
+name: pillars
 description: "See your 12 pillars at a glance, score them, and find the one to work on next"
 ---
+
+> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
 
 Show the user where their 12 pillars stand. Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/12-pillars.md`. Needs a workspace. If `life/wiki/pillars/` doesn't exist, offer `/12-pillars:setup`.
 

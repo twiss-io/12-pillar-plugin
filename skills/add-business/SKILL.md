@@ -1,7 +1,9 @@
 ---
+name: add-business
 description: "Add a business (or upgrade an existing one) — a short interview, a recommended structure, built after you confirm"
-argument-hint: "[business name]"
 ---
+
+> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
 
 Add or upgrade a business: `$ARGUMENTS` (ask for the name if empty).
 
@@ -15,7 +17,7 @@ Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/folder-design.md` and `${CLAUDE_PLUGIN_
 3. **Recommend.** Show the proposed folder tree with the tier, the sections, and one line on why. Get one confirm and accept changes in plain language.
 4. **Build.** This is the single spec for creating a business folder, and setup uses it too.
    - **Standard/Deep:**
-     - Write `CLAUDE.md`: what it is, the user's role, tier, the sections and what goes in each, the routing tags (folder name plus aliases), and the boundary rule.
+     - Write `AGENTS.md` (plus a `CLAUDE.md` containing only `@AGENTS.md`): what it is, the user's role, tier, the sections and what goes in each, the routing tags (folder name plus aliases), and the boundary rule.
      - Create `raw/` and save the interview answers there as `YYYY-MM-DD-setup-interview.md` (the user's words verbatim in a Q&A layout, header `source: setup`).
      - Create `wiki/index.md` with sections: Overview (lines for overview, ideas, actions), one per chosen folder, then Decisions.
      - Create `wiki/ideas.md` (parked ideas) and `wiki/actions.md` (sections `## Open actions` and `## Open questions`), both with standard frontmatter.

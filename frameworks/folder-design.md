@@ -20,7 +20,7 @@ Ask these for each business, one at a time. Use clickable options where the answ
 | Tier | When | Structure |
 |---|---|---|
 | **Light** | Side project, idea stage, occasional notes, little history to look up | `businesses/<name>/notes.md`, a single running page of dated bullets, starting with a one-paragraph summary and a `Tags:` line (folder name plus aliases). No raw/wiki split. |
-| **Standard** | Active business with ongoing information, but one main area of activity | `CLAUDE.md`, `raw/`, `wiki/` with `index.md`, `log.md`, `overview.md`, and one or two sections. |
+| **Standard** | Active business with ongoing information, but one main area of activity | `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/`, `wiki/` with `index.md`, `log.md`, `overview.md`, and one or two sections. |
 | **Deep** | Several areas of activity (clients plus team plus product, for example) and a real need to look things up | Standard plus all the sections that match its archetype below. |
 
 When unsure, go one tier lighter. A business can always be upgraded later (`/12-pillars:add-business <name>` on an existing light folder offers the upgrade). Unused empty folders get ignored and become clutter.
@@ -46,7 +46,7 @@ Sections that apply to almost every business: `decisions/` (what was decided, wh
 
 ## 4. Write the business schema
 
-Each Standard or Deep business gets its own `CLAUDE.md` holding:
+Each Standard or Deep business gets its own `AGENTS.md` (with a one-line `CLAUDE.md`: `@AGENTS.md`, so Claude Code reads it too) holding:
 - what the business is, in one line, and the person's role
 - its tier and chosen sections, and what goes in each
 - the tags that route captures here: the folder name (for example `#acme-studio`) plus any short aliases the person will actually type (`#acme`, `#studio`)
@@ -60,7 +60,7 @@ Example of a recommendation:
 
 ```
 your-workspace/
-├── CLAUDE.md
+├── AGENTS.md
 ├── life/            raw/ + wiki/ — your 12 pillars
 └── businesses/
     ├── acme-studio/ DEEP — agency: clients/ projects/ proposals/ team/ decisions/

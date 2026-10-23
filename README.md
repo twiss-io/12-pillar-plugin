@@ -1,6 +1,6 @@
 # 12 Pillars — build your own life OS
 
-A Claude Code plugin that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life and **your** businesses.
+A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life and **your** businesses.
 
 ## The idea in three parts
 
@@ -15,7 +15,7 @@ When something is stuck, the cause is usually upstream of it. Start with the pil
 **2. A memory that compounds.** Based on Andrej Karpathy's [LLM wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern:
 - `raw/` holds your sources: notes, voice notes, documents, screenshots. They're never edited.
 - `wiki/` holds pages the AI writes and keeps cross-linked: your pillars, people, topics, goals.
-- `CLAUDE.md` holds the rules for how it's all organised.
+- `AGENTS.md` holds the rules for how it's all organised (with a one-line `CLAUDE.md` pointing to it, so Claude Code and Codex read the same rules).
 
 You share something once, and every relevant page stays current. See [`frameworks/llm-wiki.md`](frameworks/llm-wiki.md).
 
@@ -25,7 +25,7 @@ You share something once, and every relevant page stays current. See [`framework
 
 ```
 your-workspace/
-├── CLAUDE.md
+├── AGENTS.md                 the rules (CLAUDE.md just imports it)
 ├── life/                     you, organised by the 12 pillars
 │   ├── raw/                  your sources (never edited)
 │   └── wiki/
@@ -43,7 +43,9 @@ your-workspace/
 
 ## Install
 
-You need [Claude Code](https://claude.com/claude-code). In a Claude Code session, run these **one at a time** (wait for each to finish):
+### Claude Code
+
+In a [Claude Code](https://claude.com/claude-code) session, run these **one at a time** (wait for each to finish):
 
 ```
 /plugin marketplace add twiss-io/12-pillar-plugin
@@ -63,13 +65,35 @@ mkdir -p ~/my-life && cd ~/my-life && claude
 /12-pillars:setup
 ```
 
+### Codex (CLI and app)
+
+In a terminal, add the marketplace and install the plugin:
+
+```bash
+codex plugin marketplace add twiss-io/12-pillar-plugin
+codex plugin add 12-pillars@12-pillars
+```
+
+In the **Codex app**, you can instead open **Plugins**, find **12 Pillars**, and install it there once the marketplace is added. Then start Codex in a personal folder and run setup:
+
+```bash
+mkdir -p ~/my-life && cd ~/my-life && codex
+```
+```
+$12-pillars:setup
+```
+
+Codex asks you to review the plugin's two small hooks before they run. Open `/hooks` and trust them (see [How filing works](#how-filing-works)). Everything works without them; they just make filing more reliable in long sessions.
+
 <p align="center"><img src="docs/onboarding.svg" alt="Setup: choose full, parts or quick start; pick parts; get a recommended folder tree; then it learns about you as you go" width="720"></p>
 
 In a hurry? Pick **quick start** (about two minutes) or **choose parts** in setup. Whatever you skip fills in from normal conversation over time.
 
-## Commands
+## Skills
 
-| Command | What it does |
+In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars:<name>` or pick it from `/skills`. Both can also start a skill on their own when what you ask matches it.
+
+| Skill | What it does |
 |---|---|
 | `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your businesses with a recommended folder structure, then the pillar that matters most), **only the parts you pick**, or a **quick start** (~2 min). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
@@ -84,7 +108,7 @@ In a hurry? Pick **quick start** (about two minutes) or **choose parts** in setu
 - **Life updates** ("closed a client today", "back's been bad all week") get filed right away, with one confirm.
 - **Things you mention in passing** while asking for something else aren't filed mid-task. They're noted, and at a natural pause you get one card ("I picked up 2 things about you…") to file them all with one confirm. With the quick start, this is how your workspace fills in.
 - **Brainstorms and planning sessions** aren't interrupted. When one winds down, you get a wrap-up card: what was decided, ideas parked, actions, open questions. One confirm files it. Next time you work on that business, the session starts from those decisions instead of from zero.
-- Two small hooks keep this reliable. One re-states the filing convention on every message, so it holds through long sessions and context compaction. The other re-orients each new or compacted session with your current season and any files you dropped in but haven't filed yet. Both do nothing outside a 12-pillar workspace.
+- Two small hooks keep this reliable. One re-states the filing convention on every message, so it holds through long sessions and context compaction. The other re-orients each new or compacted session with your current season and any files you dropped in but haven't filed yet. Both do nothing outside a 12-pillar workspace. Claude Code and Codex use the same hook format; in Codex, trust them once in `/hooks`.
 
 ## Optional profiles
 
@@ -103,4 +127,4 @@ MIT © 2026 Twiss / Torch Labs. Free to use, copy, modify and share, including c
 
 ## Status
 
-Version 0.3.1, early release. Feedback and issues welcome.
+Version 0.4.0, early release. Feedback and issues welcome.

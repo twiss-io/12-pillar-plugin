@@ -43,7 +43,7 @@ They are **tools, not verdicts**. The failure mode to avoid is the profile "hold
 
 The place is kept on file for completeness. The calculation uses the local clock date and time.
 
-Compute it **only** with the bundled script `instruments/bazi.py` (the command running this step gives you its full path), never by hand and never with a web calculator, since birth data must not leave the machine. Pass the date as `YYYY-MM-DD` and the time as 24-hour `HH:MM`. Convert "8am" to `08:00` yourself, and omit the time if it's unknown. If the script prints an `ERROR`, fix the input and rerun; never save a partial chart.
+Compute it **only** with the bundled script `instruments/bazi.py` (the skill running this step gives you its full path), never by hand and never with a web calculator, since birth data must not leave the machine. Pass the date as `YYYY-MM-DD` and the time as 24-hour `HH:MM`. Convert "8am" to `08:00` yourself, and omit the time if it's unknown. If the script prints an `ERROR`, fix the input and rerun; never save a partial chart.
 
 Save the inputs and the full output, including any warnings, to `life/wiki/self/instruments/astrology.md`, with the standard wiki frontmatter (`type: self`, `pillars: [faith]`, `sources:` pointing to the raw file of the answers). Then just confirm: "Noted. Ask to see it any time." If Python isn't available, save the inputs and mark the chart pending. The script self-checks with `--selftest`.
 
