@@ -50,12 +50,14 @@
   </section>
 
   <section class="card" id="claude">
-    <h2>Claude Code</h2>
-    <p>Opens Claude Code with the install command already typed. Check it, then press Enter.</p>
-    <a class="btn" href="claude-cli://open?q=%2Fplugin%20install%2012-pillars%20--marketplace%20twiss-io%2F12-pillar-plugin">Open in Claude Code</a>
-    <p class="note">The button works once you've used Claude Code in a terminal at least once, since that's when it registers itself to open links. Nothing happened? Paste this into a Claude Code session instead:</p>
+    <h2>Claude</h2>
+    <p><strong>Claude desktop app:</strong> opens a new Code session with an install request already typed. Press Enter, then allow the command when Claude asks.</p>
+    <a class="btn" href="claude://code/new?q=Install%20the%2012%20Pillars%20plugin%20for%20me.%20Run%20this%20in%20the%20terminal%3A%20claude%20plugin%20install%2012-pillars%20--marketplace%20twiss-io%2F12-pillar-plugin%20%28if%20that%20fails%2C%20run%3A%20claude%20plugin%20marketplace%20add%20twiss-io%2F12-pillar-plugin%2C%20then%3A%20claude%20plugin%20install%2012-pillars%4012-pillars%29.%20Then%20tell%20me%20to%20start%20a%20new%20session%20in%20a%20personal%20folder%20such%20as%20~%2Fmy-life%20and%20type%20%2F12-pillars%3Asetup.">Open in the Claude app</a>
+    <p><strong>Claude Code in a terminal:</strong> opens Claude Code with the install command already typed. Press Enter, then choose <em>Install for you</em>.</p>
+    <a class="btn ghost" href="claude-cli://open?q=%2Fplugin%20install%2012-pillars%20--marketplace%20twiss-io%2F12-pillar-plugin">Open in Claude Code (terminal)</a>
+    <p class="note">The terminal button works once you've used Claude Code in a terminal at least once. If nothing opens, paste this into any Claude Code session instead:</p>
     <div class="cmd"><code>/plugin install 12-pillars --marketplace twiss-io/12-pillar-plugin</code><button data-copy>Copy</button></div>
-    <p class="note">The Claude desktop app shares the same plugins, so after installing it shows up in the app's Code tab too. Then type <code>/12-pillars:setup</code> in a personal folder.</p>
+    <p class="note">The app and the terminal share the same plugins, so installing in one gives you both. Then type <code>/12-pillars:setup</code> in a personal folder.</p>
   </section>
 
   <section class="card" id="codex">
