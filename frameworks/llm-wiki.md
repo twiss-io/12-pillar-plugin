@@ -149,13 +149,14 @@ A plugin hook re-states this convention on every message, so it holds through lo
 Read `index.md` first, then the relevant pages, following links and checking the raw sources when precision matters. Answer with links to the pages used. If the answer is worth keeping (a decision, a synthesis, a comparison), offer to save it as a new wiki page.
 
 ### Lint (health check) — `/12-pillars:lint`
-Look for contradictions between pages, stale claims that newer sources supersede, pages not listed in the index, orphan pages, people mentioned in many places without their own page, broken links, and pillar hubs that haven't been updated in a long time. A page is an **orphan** when nothing links to it except `index.md`; pillar hubs and `self/` pages are never orphans. Report findings first and fix only what the user approves. Light businesses (`notes.md`) are checked too, for stale or contradictory notes.
+Look for contradictions between pages, stale claims that newer sources supersede, pages not listed in the index, orphan pages, people mentioned in many places without their own page, broken links, and pillar hubs that haven't been updated in a long time. A page is an **orphan** when nothing links to it except `index.md`; pillar hubs and `self/` pages are never orphans. Report findings first and fix only what the user approves. Light areas (`notes.md`) are checked too, for stale or contradictory notes.
 
 ## 5. Rules
 
 - **Raw is read-only.** Never edit, rename, or delete anything in `raw/` once saved.
 - **Confirm before meaningful writes.** Capture always shows the proposed changes first. Lint fixes are approved before applying.
 - **Don't invent.** Wiki content comes from raw sources or from what the user said in conversation. An empty pillar or a thin page stays thin until real information arrives.
+- **Work contacts live in their area.** Clients, colleagues and team members get pages in the area (`clients/`, `people/`, `team/`); `life/wiki/people/` is for personal relationships, and may link to an area page when someone is both.
 - **Keep boundaries.** Personal content from `life/` is never copied into an area (a business, `work/`, `study/`, `investing/`), and one area's content is never copied into another. Linking from a person's career or opportunities pillar to an area's overview is fine. Copying content across is not.
 - **Privacy.** Everything stays on this machine. Never put wiki or raw content into web searches, URLs, or external tool calls.
 - **Write for humans.** Pages should read like clear notes a person would want to read, not machine-formatted dumps.

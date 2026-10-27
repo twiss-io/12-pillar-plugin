@@ -33,21 +33,24 @@ Want a different folder? Put `PILLARS_HOME=~/somewhere` in front of `bash`:
 1. Open the **Code** tab and start a session in a personal folder (create one called `my-life`).
 2. In the prompt box, type:
    ```
-   /plugin install 12-pillars --marketplace twiss-io/12-pillar-plugin
+   /plugin marketplace add twiss-io/12-pillar-plugin
    ```
-   Confirm adding the marketplace, then choose **Install for you**.
-   (Or use **+** → **Add plugins** after adding the marketplace.)
+   then
+   ```
+   /plugin install 12-pillars@12-pillars
+   ```
+   and choose **Install for you**. (Or use **+** → **Add plugins** after adding the marketplace.)
 3. Type `/12-pillars:setup`.
 
 ### Claude Code in the terminal
 
 ```bash
-claude plugin install 12-pillars --marketplace twiss-io/12-pillar-plugin
+claude plugin marketplace add twiss-io/12-pillar-plugin
+claude plugin install 12-pillars@12-pillars
 mkdir -p ~/my-life && cd ~/my-life && claude
 ```
 Then type `/12-pillars:setup`.
 
-On an older Claude Code, use two commands instead: `claude plugin marketplace add twiss-io/12-pillar-plugin`, then `claude plugin install 12-pillars@12-pillars`.
 
 ### Codex in the terminal
 

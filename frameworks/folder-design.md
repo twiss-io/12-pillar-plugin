@@ -11,6 +11,8 @@ Studying · Working a job · Running a business · Freelance, agency or client w
 
 If your question tool only allows one choice (as in Codex), offer these combinations instead, and mention that any other mix can be typed in the text box: Running a business · Business + freelance or client work · Freelance, agency or client work · Working a job · A job + a side business · Studying · Studying + working · Creating content · Investing alongside other work · Between things right now.
 
+With Claude's question tool (multi-select, at most 4 options per question), ask it as two questions in one call: "Work and study" (Studying · Working a job · Running a business · Freelance, agency or client work) and "Anything else?" (Creating content · Investing · Between things right now).
+
 Each answer maps to an **area**: a folder next to `life/` that holds that part of their world.
 
 | They chose | Area folder | Archetype (section 4) |
@@ -26,6 +28,8 @@ Each answer maps to an **area**: a folder next to `life/` that holds that part o
 Mix and match freely: an employee with a side shop gets `work/` and `businesses/side-shop/`. Use the person's own words for folder names when they ask (`uni/` instead of `study/`, `job/` instead of `work/`); the area's `AGENTS.md` or `notes.md` and the Areas section of `life/wiki/index.md` record what each folder is, so any name works. Never create an area folder they didn't choose.
 
 ## 2. Interview each area
+
+Ask question 5 (how often) first. If the answer is "occasionally", it's Light: ask only question 1 and its aliases, and skip the rest.
 
 For a business, freelance practice, channel or investing area, ask these one at a time, with clickable options where the answer is a choice:
 

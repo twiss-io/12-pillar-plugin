@@ -1,6 +1,6 @@
 # Enneagram Typing Protocol
 
-A structured typing conversation used by `/12-pillars:setup`. To retype later, the user reruns setup and picks "revisit something I skipped" or asks to redo the profile there, so the command supplies this file's path. Grounded in standard public Enneagram theory (nine types, three centers, core fear/desire, stress behavior). ~5 minutes.
+A structured typing conversation used by `/12-pillars:setup`. To retype later, the user reruns setup and asks to redo the profile, so the skill supplies this file's path. Grounded in standard public Enneagram theory (nine types, three centers, core fear/desire, stress behavior). ~5 minutes.
 
 **Posture:** a type is a working hypothesis, never a verdict. Self-report drifts; record the result with a date and a confidence level, and expect reassessment. If the user already knows their type, take dictation and (optionally) run Round 2 as a light confirmation.
 

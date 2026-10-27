@@ -52,18 +52,19 @@
   <section class="card" id="claude">
     <h2>Claude</h2>
     <p><strong>Claude desktop app:</strong> opens a new Code session with an install request already typed. Press Enter, then allow the command when Claude asks.</p>
-    <a class="btn" href="claude://code/new?q=Install%20the%2012%20Pillars%20plugin%20for%20me.%20Run%20this%20in%20the%20terminal%3A%20claude%20plugin%20install%2012-pillars%20--marketplace%20twiss-io%2F12-pillar-plugin%20%28if%20that%20fails%2C%20run%3A%20claude%20plugin%20marketplace%20add%20twiss-io%2F12-pillar-plugin%2C%20then%3A%20claude%20plugin%20install%2012-pillars%4012-pillars%29.%20Then%20tell%20me%20to%20start%20a%20new%20session%20in%20a%20personal%20folder%20such%20as%20~%2Fmy-life%20and%20type%20%2F12-pillars%3Asetup.">Open in the Claude app</a>
-    <p><strong>Claude Code in a terminal:</strong> opens Claude Code with the install command already typed. Press Enter, then choose <em>Install for you</em>.</p>
-    <a class="btn ghost" href="claude-cli://open?q=%2Fplugin%20install%2012-pillars%20--marketplace%20twiss-io%2F12-pillar-plugin">Open in Claude Code (terminal)</a>
-    <p class="note">The terminal button works once you've used Claude Code in a terminal at least once. If nothing opens, paste this into any Claude Code session instead:</p>
-    <div class="cmd"><code>/plugin install 12-pillars --marketplace twiss-io/12-pillar-plugin</code><button data-copy>Copy</button></div>
+    <a class="btn" href="claude://code/new?q=Install%20the%2012%20Pillars%20plugin%20for%20me.%20Run%20these%20two%20commands%20in%20the%20terminal%3A%20claude%20plugin%20marketplace%20add%20twiss-io%2F12-pillar-plugin%2C%20then%3A%20claude%20plugin%20install%2012-pillars%4012-pillars.%20Then%20tell%20me%20to%20start%20a%20new%20session%20in%20a%20personal%20folder%20such%20as%20~%2Fmy-life%20and%20type%20%2F12-pillars%3Asetup.">Open in the Claude app</a>
+    <p><strong>Claude Code in a terminal:</strong> opens Claude Code with the first command already typed. Press Enter, then run <code>/plugin install 12-pillars@12-pillars</code> and choose <em>Install for you</em>.</p>
+    <a class="btn ghost" href="claude-cli://open?q=%2Fplugin%20marketplace%20add%20twiss-io%2F12-pillar-plugin">Open in Claude Code (terminal)</a>
+    <p class="note">The terminal button works once you've used Claude Code in a terminal at least once. If nothing opens, paste these into any Claude Code session instead, one at a time:</p>
+    <div class="cmd"><code>/plugin marketplace add twiss-io/12-pillar-plugin</code><button data-copy>Copy</button></div>
+    <div class="cmd"><code>/plugin install 12-pillars@12-pillars</code><button data-copy>Copy</button></div>
     <p class="note">The app and the terminal share the same plugins, so installing in one gives you both. Then type <code>/12-pillars:setup</code> in a personal folder.</p>
   </section>
 
   <section class="card" id="codex">
     <h2>Codex (CLI and app)</h2>
     <p><strong>Codex app:</strong> opens a new Codex chat with an install request already typed. Press Enter, then approve the command when Codex asks.</p>
-    <a class="btn" href="codex://new?path=%2Ftmp&prompt=Install%20the%2012%20Pillars%20plugin%20for%20me.%20Run%20this%20in%20the%20terminal%20%28it%20needs%20internet%20access%29%3A%20curl%20-fsSL%20https%3A%2F%2Fraw.githubusercontent.com%2Ftwiss-io%2F12-pillar-plugin%2Fmain%2Finstall.sh%20%7C%20bash%20Then%20tell%20me%20to%20restart%20Codex%2C%20start%20a%20new%20chat%20in%20a%20personal%20folder%20such%20as%20~%2Fmy-life%2C%20and%20type%20%2412-pillars%3Asetup.">Open in Codex app</a>
+    <a class="btn" href="codex://new?path=%2Ftmp&prompt=Install%20the%2012%20Pillars%20plugin%20for%20me.%20Run%20this%20in%20the%20terminal%3A%20curl%20-fsSL%20https%3A%2F%2Fraw.githubusercontent.com%2Ftwiss-io%2F12-pillar-plugin%2Fmain%2Finstall.sh%20%7C%20bash%20It%20needs%20internet%20access%20and%20writes%20outside%20this%20folder%20%28to%20~%2F.codex%20and%20~%2Fmy-life%29%2C%20so%20ask%20me%20for%20full%20access%20for%20this%20one%20command.%20Then%20tell%20me%20to%20restart%20Codex%2C%20start%20a%20new%20chat%20in%20a%20personal%20folder%20such%20as%20~%2Fmy-life%2C%20and%20type%20%2412-pillars%3Asetup.">Open in Codex app</a>
     <a class="btn ghost" href="codex://plugins/install/12-pillars?marketplace=12-pillars">Open the plugin page in Codex</a>
     <p class="note">The second button only finds the plugin after it has been added once (by the first button or the line below); otherwise Codex opens its Plugins page.</p>
     <p><strong>Terminal:</strong></p>

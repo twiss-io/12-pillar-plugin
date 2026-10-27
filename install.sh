@@ -42,11 +42,7 @@ codex() { "$CODEX" "$@"; }
 
 if [ -n "$CODEX" ]; then
   say "Codex found."
-  if codex plugin marketplace list 2>/dev/null | grep -q "^$NAME "; then
-    codex plugin marketplace upgrade "$NAME" >/dev/null 2>&1
-  else
-    codex plugin marketplace add "$REPO" >/dev/null 2>&1
-  fi
+  codex plugin marketplace upgrade "$NAME" >/dev/null 2>&1 || codex plugin marketplace add "$REPO" >/dev/null 2>&1
   if codex plugin add "$NAME@$NAME" >/dev/null 2>&1; then ok "Installed (latest version)"; installed+=("codex"); else bad "Install failed. Try: codex plugin add $NAME@$NAME"; fi
   say ""
 fi
