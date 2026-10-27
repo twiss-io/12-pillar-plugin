@@ -1,5 +1,5 @@
 # <Name>'s Life Workspace
-<!-- 12-pillars rules: 3 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
+<!-- 12-pillars rules: 4 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
 
 This workspace runs on the 12-Pillar Life Flywheel with a raw/wiki memory.
 The plugin's frameworks define the rules: 12-pillars.md, llm-wiki.md, folder-design.md, instruments.md.
@@ -25,6 +25,7 @@ The plugin's frameworks define the rules: 12-pillars.md, llm-wiki.md, folder-des
 - Everything stays on this machine — never put workspace content into web searches, URLs, or external tools.
 - Profiles in life/wiki/self/instruments/ inform quietly; don't bring them up unless asked.
 - Write pages a human would want to read.
+- When offering the user a choice, use your ask-user/question tool if you have one (AskUserQuestion in Claude Code, request_user_input_async in Codex, the equivalent elsewhere) so they can click; otherwise a short numbered list they can answer by number.
 
 ## My additions
 <!-- Your own rules go here. Refreshes keep this section as is. -->
