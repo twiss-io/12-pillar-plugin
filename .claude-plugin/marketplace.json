@@ -5,13 +5,13 @@
   },
   "metadata": {
     "description": "The 12-Pillar Life Flywheel plugin for Claude Code.",
-    "version": "0.4.2"
+    "version": "0.5.0"
   },
   "plugins": [
     {
       "name": "12-pillars",
       "source": "./",
-      "description": "Build your own life OS on the 12-Pillar Life Flywheel, with a raw/wiki memory and a folder structure recommended for your life and businesses."
+      "description": "Build your own life OS on the 12-Pillar Life Flywheel, with a raw/wiki memory and folders recommended for your life, studies, job or businesses."
     }
   ]
 }

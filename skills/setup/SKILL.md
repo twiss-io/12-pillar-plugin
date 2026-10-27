@@ -1,6 +1,6 @@
 ---
 name: setup
-description: "Set up your 12-pillar life workspace: a guided interview, then a folder structure recommended for your life and businesses, built after you confirm"
+description: "Set up your 12-pillar life workspace: a guided interview, then a folder structure recommended for your life, studies, job or businesses, built after you confirm"
 ---
 
 > **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
@@ -8,7 +8,7 @@ description: "Set up your 12-pillar life workspace: a guided interview, then a f
 You are setting up a 12-pillar life workspace for the user. Before starting, read these three files in full. They define everything you build here:
 - `${CLAUDE_PLUGIN_ROOT}/frameworks/12-pillars.md`: the life framework
 - `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md`: the folder layout, file formats, and rules
-- `${CLAUDE_PLUGIN_ROOT}/frameworks/folder-design.md`: how to recommend structure for businesses
+- `${CLAUDE_PLUGIN_ROOT}/frameworks/folder-design.md`: how to recommend folders for their studies, job, businesses and investing
 
 Bundled instruments, with full paths, for stage 2:
 - Astrology script: `${CLAUDE_PLUGIN_ROOT}/instruments/bazi.py`
@@ -29,16 +29,16 @@ On a fresh start (no `setup-progress.md`), offer one choice as clickable options
 - **Choose parts:** set up only the parts they pick now; the rest is learned as we go.
 - **Quick start (~2 min), learn as we go:** set up the base workspace now, then fill it in from normal conversation over time.
 
-**Choose parts** asks one multi-select question (clickable options) with the stages and their times: Optional profiles (~5–10 min) · Your vision (~10 min) · Where you are now (~10 min) · Your work and businesses (~5–15 min) · Start where it hurts (~10 min). Stage 1 (About you) always runs, since it builds the workspace. Then:
+**Choose parts** asks one multi-select question (clickable options) with the stages and their times: Optional profiles (~5–10 min) · Your vision (~10 min) · Where you are now (~10 min) · Your work, studies and businesses (~2–15 min) · Start where it hurts (~10 min). Stage 1 (About you) always runs, since it builds the workspace. Then:
 1. Run stage 1, then only the chosen stages, in the usual order, with the same interview rules. Show the progress strip counting just the chosen stages.
 2. In `setup-progress.md`, mark unchosen stages 3–6 `learning` (unchosen profiles: `deferred`) and add `Mode: learn as you go`, unless every stage was chosen.
 3. Finish with stage 7, but in its deferred sweep, don't offer the `learning` stages again; say in one line that they fill in from conversation and `/12-pillars:setup` can do any of them later.
 
-**Quick start** runs only stage 1, cut down: ask what the workspace should call them (one question, alias fine), skip the "what for" question, and create the base workspace exactly as stage 1 describes. Then:
-1. In `setup-progress.md`, add the line `Mode: learn as you go` under the title, mark stage 1 `done`, stage 2 (profiles) `deferred`, and stages 3–6 `learning`.
-2. Save their answer to `life/raw/YYYY-MM-DD-setup-about-you.md` (`source: setup`).
+**Quick start** runs only stage 1, cut down: ask what the workspace should call them (one question, alias fine), skip the "what for" question, and create the base workspace exactly as stage 1 describes. Then ask the one "What fills your days?" question from `folder-design.md` section 1. If they run a business, practice or channel, ask its name in the same breath (one line, skippable). Show the proposed tree (`life/` plus one **Light** area per answer, no interview) with one line on why, get one confirm, accept renames in plain language, and create those areas as `add-business` step 4 describes for Light, adding each to the Areas section of the index. "Between things right now" adds nothing. Then:
+1. In `setup-progress.md`, add the line `Mode: learn as you go` under the title, mark stage 1 `done`, stage 2 (profiles) `deferred`, stages 3, 4 and 6 `learning`, and stage 5 `done` once they answered (even "between things"), `learning` if they skipped.
+2. Save their answers (what to call them, what fills their days) to `life/raw/YYYY-MM-DD-setup-about-you.md` (`source: setup`).
 3. Log `## [YYYY-MM-DD] setup | Quick start`.
-4. Tell them, in four short lines: just use this folder for anything; when they mention something about themselves along the way, it's noted without interrupting, and offered for filing in one batch when there's a pause; a business they keep mentioning gets offered a folder; `/12-pillars:setup` any time does a stage properly, and `/12-pillars:pillars` shows how much has filled in.
+4. Tell them, in four short lines: just use this folder for anything; when they mention something about themselves along the way, it's noted without interrupting, and offered for filing in one batch when there's a pause; their areas start as one notes page each and get offered a fuller structure once they grow, and anything new they keep mentioning gets offered a folder; `/12-pillars:setup` any time does a stage properly, and `/12-pillars:pillars` shows how much has filled in.
 
 Do not continue to stage 2. Quick start is finished.
 
@@ -56,27 +56,30 @@ Do not continue to stage 2. Quick start is finished.
 ## The stages
 
 ### 1 · About you (~3 min)
-Ask what the workspace should call them. An alias is fine and their real name isn't needed anywhere. Ask, in one or two questions, what they mainly want this for (organising life, running businesses, getting unstuck in one area, keeping track of people, all of it).
+Ask what the workspace should call them. An alias is fine and their real name isn't needed anywhere. Ask, in one or two questions, what they mainly want this for (organising life, studies, work or a business, getting unstuck in one area, keeping track of people, all of it).
 
 Then **create the base workspace** (never overwrite existing files; report anything skipped):
 
 ```
 AGENTS.md               the workspace rules (Codex and other agents read this)
 CLAUDE.md               one line: @AGENTS.md (so Claude Code reads the same rules)
-.gitignore              contains: life/ and businesses/ (keeps private data out of git)
+.gitignore              ignores everything except AGENTS.md, CLAUDE.md and itself (keeps private data out of git)
 life/raw/assets/
-life/wiki/index.md      sections: Self, Pillars, People, Topics, Businesses
+life/wiki/index.md      sections: Self, Pillars, People, Topics, Areas
 life/wiki/log.md        first entry: ## [YYYY-MM-DD] setup | Workspace created
 life/wiki/self/setup-progress.md
 life/wiki/pillars/01-faith.md … 12-legacy.md
 life/wiki/people/
 life/wiki/topics/
-businesses/
 ```
+
+The `.gitignore` is four lines: `/*`, `!/AGENTS.md`, `!/CLAUDE.md`, `!/.gitignore`, so every folder, whatever it's called, stays out of git.
+
+No area folders yet (`study/`, `work/`, `businesses/`…). Those come only from what the user chooses in stage 5, or the quick start question.
 
 Each pillar hub starts with frontmatter (`title`, `type: pillar`, `pillars: [<name>]`, `tags: ["#<name>"]`, `sources: []`, `updated`), then: the pillar's purpose and currency in one line taken from `12-pillars.md`, `**Status:** not yet running`, and empty sections `## Where this stands`, `## Current focus`, `## Open questions`, `## Linked pages`, `## Sources`. Add all 12 hubs to `index.md`.
 
-`setup-progress.md` is a checklist, one line per stage: `- [ ] 1 · About you — pending` (states: pending, in progress, done, learning, deferred, skipped). `learning` means the stage is being filled from everyday conversation (quick start). Mark it `done` once its page exists with real content (for example, `self/now.md` has a `Season:` line, or a business folder exists for every business they've mentioned).
+`setup-progress.md` is a checklist, one line per stage: `- [ ] 1 · About you — pending` (states: pending, in progress, done, learning, deferred, skipped). `learning` means the stage is being filled from everyday conversation (quick start). Mark it `done` once its page exists with real content (for example, `self/now.md` has a `Season:` line, or an area folder exists for every business, job or studies they've mentioned).
 
 Write the workspace `AGENTS.md` by copying `${CLAUDE_PLUGIN_ROOT}/templates/workspace-AGENTS.md` exactly, with `<Name>` replaced by what they want to be called. Keep the `12-pillars rules:` stamp line; it is how later plugin versions notice the rules need a refresh. Write `CLAUDE.md` containing only the line `@AGENTS.md`.
 
@@ -89,8 +92,8 @@ Ask what the life they're building looks like. If they already have a vision boa
 ### 4 · Where you are now (~10 min)
 An honest snapshot: work and money, health, key relationships, what's working, what they're avoiding. Then ask if they're in a particular season (a launch, exams, a sprint, a recovery period) and, if so, until when. Save to `life/wiki/self/now.md` with a `Season:` line, a `Since: YYYY-MM-DD` line, and an `Until: YYYY-MM-DD` line if the season has an end date. Questions they can't answer yet go in an `## Open questions` section, since those point at the areas that need attention. Link it from the relevant pillar hubs.
 
-### 5 · Your work and businesses (~5–15 min)
-Ask what they work on: a job, businesses they run, side projects. For **each business**, follow `folder-design.md`: run its interview, choose the tier and sections, then **show the full proposed workspace tree with a one-line reason per business** and get one confirm. Accept changes in plain language. Only then create each business exactly as `/12-pillars:add-business` step 4 describes. That step is the single source of truth. In short, a Standard/Deep business gets `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/` (with the interview answers), and `wiki/` with `index.md`, `log.md`, `overview.md`, `ideas.md`, `actions.md`, `decisions/` and its chosen sections. A Light business gets only `notes.md`. Add every business to the Businesses section of `life/wiki/index.md`, and link it from the Opportunities hub (`09-opportunities`), and from Career (`07-career`) if it's their main work. A job they don't own gets the Employee archetype.
+### 5 · Your work, studies and businesses (~2–15 min)
+Follow `folder-design.md`. Ask its "What fills your days?" question (multi-select), which gives the areas: `study/`, `work/`, one `businesses/<name>/` per business, practice or channel, `investing/`, or none if they're between things. For **each area**, run its short interview from section 2 and choose the tier and sections. Then **show the full proposed workspace tree with a one-line reason per area** and get one confirm. Accept changes in plain language, including their own folder names ("call it uni"). Only then create each area exactly as `/12-pillars:add-business` step 4 describes; that step is the single source of truth. In short, a Standard/Deep area gets `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/` (with the interview answers), and `wiki/` with `index.md`, `log.md`, `overview.md`, `ideas.md`, `actions.md`, `decisions/` and its chosen sections. A Light area gets only `notes.md`. Add every area to the Areas section of `life/wiki/index.md` and link it from the pillar hubs as `add-business` step 5 describes. If they chose nothing, say in one line that `life/` covers it for now and a folder gets offered when something grows.
 
 ### 6 · Start where it hurts (~10 min per pillar)
 Ask: **"Which area of your life do you most want to get moving?"** Offer 3–4 pillars their answers so far point to, as clickable options, plus Other. For that pillar:

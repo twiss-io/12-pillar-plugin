@@ -5,7 +5,7 @@
 <a href="https://mcp.johannsenlum.com/12-pillars#codex"><img alt="Install in Codex" src="https://img.shields.io/badge/Install_in-Codex-111111?style=for-the-badge"></a>
 </p>
 
-A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life and **your** businesses.
+A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life: your studies, your job, your businesses, whatever applies.
 
 ## The idea in three parts
 
@@ -24,7 +24,7 @@ When something is stuck, the cause is usually upstream of it. Start with the pil
 
 You share something once, and every relevant page stays current. See [`frameworks/llm-wiki.md`](frameworks/llm-wiki.md).
 
-**3. Folders designed for you.** Setup interviews you about your life and each business you run (what it does, your role, what it runs on) and **recommends** a structure. A side project gets one notes page. An agency gets clients, projects, proposals, and team. Nothing is created until you confirm. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
+**3. Folders designed for you.** Setup asks what fills your days (studying, a job, a business, freelance or agency work, content, investing, or between things, in any mix) and **recommends** folders for just those. A student gets `study/`, an employee `work/`, a founder one folder per business, and someone between things just `life/`. Each is sized to fit: a side project gets one notes page, an agency gets clients, projects, proposals and team. Nothing is created until you confirm, and you can rename anything. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
 
 ## What your workspace looks like
 
@@ -40,11 +40,12 @@ your-workspace/
 │       ├── pillars/          12 hub pages, 01-faith … 12-legacy
 │       ├── people/
 │       └── topics/
-└── businesses/
-    ├── my-agency/            Deep: raw/ + wiki/ with clients/ projects/ team/
-    ├── my-product/           Standard: raw/ + wiki/ with product/ decisions/
-    └── side-shop/            Light: notes.md
+├── work/                     only if you have a job: role/ projects/ people/ wins/
+└── businesses/               only if you run something
+    └── side-shop/            Light: just notes.md
 ```
+
+That's one example (a job plus a side shop). A student would see `study/` instead, an agency owner `businesses/my-agency/` with clients/ projects/ team/, and someone between things only `life/`.
 
 ## Install
 
@@ -113,12 +114,12 @@ In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars
 
 | Skill | What it does |
 |---|---|
-| `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your businesses with a recommended folder structure, then the pillar that matters most), **only the parts you pick**, or a **quick start** (~2 min). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
+| `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your work, studies or businesses with recommended folders, then the pillar that matters most), **only the parts you pick**, or a **quick start** (~2 min). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
-| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right business (or your life wiki). Also offered automatically when a session winds down. |
+| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right place: a business, your job or studies, or your life wiki. Also offered automatically when a session winds down. |
 | `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
 | `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
-| `/12-pillars:add-business` | Add a business, or upgrade a light one, with a recommended structure. |
+| `/12-pillars:add-business` | Add a business, your job, your studies or investing as its own folder, or upgrade a light one, with a recommended structure. |
 | `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update. |
 
 ## Updating
@@ -139,7 +140,7 @@ Restart any open Claude or Codex window afterwards. Skills and hooks update stra
 
 - **Life updates** ("closed a client today", "back's been bad all week") get filed right away, with one confirm.
 - **Things you mention in passing** while asking for something else aren't filed mid-task. They're noted, and at a natural pause you get one card ("I picked up 2 things about you…") to file them all with one confirm. With the quick start, this is how your workspace fills in.
-- **Brainstorms and planning sessions** aren't interrupted. When one winds down, you get a wrap-up card: what was decided, ideas parked, actions, open questions. One confirm files it. Next time you work on that business, the session starts from those decisions instead of from zero.
+- **Brainstorms and planning sessions** aren't interrupted. When one winds down, you get a wrap-up card: what was decided, ideas parked, actions, open questions. One confirm files it. Next time you work on that business or project, the session starts from those decisions instead of from zero.
 - Two small hooks keep this reliable. One re-states the filing convention on every message, so it holds through long sessions and context compaction. The other re-orients each new or compacted session with your current season and any files you dropped in but haven't filed yet. Both do nothing outside a 12-pillar workspace. Claude Code and Codex use the same hook format; in Codex, trust them once in `/hooks`.
 
 ## Optional profiles
@@ -149,7 +150,7 @@ Setup can keep an **astrology profile** (Chinese four-pillar chart, computed off
 ## Privacy
 
 - The plugin ships no personal data. Your workspace exists only on your machine.
-- Setup writes a `.gitignore` covering `life/` and `businesses/`, so your data stays out of git by default.
+- Setup writes a `.gitignore` that keeps every folder out of git (only the rules files are tracked), so your data stays out of git by default.
 - The AI is instructed never to put workspace content into web searches, URLs, or external tools.
 - Honest limit: your conversations go through your AI provider, the same as any Claude session.
 
@@ -159,4 +160,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.4.2, early release. Feedback and issues welcome.
+Version 0.5.0, early release. Feedback and issues welcome.

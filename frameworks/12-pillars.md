@@ -85,7 +85,7 @@ Each entry gives the pillar's purpose, its currency (what it gives the next pill
 - **Healthy:** there are clear rules for which opportunities to take, and the pipeline is visible.
 - **Stalled:** chasing everything, or nothing in the pipeline.
 - **Ask:** "What are you working on right now?" · "What kind of opportunity do you say no to?"
-- **Note:** businesses the person runs get their own folder (see `folder-design.md`).
+- **Note:** businesses the person runs, and their job, studies or investing if they chose them, get their own area folder (see `folder-design.md`).
 
 ### 10 · Finance & Wealth — funds **Lifestyle**
 - **Purpose:** money in, money out, and what it's building.

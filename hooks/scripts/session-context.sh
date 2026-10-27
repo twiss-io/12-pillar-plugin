@@ -16,7 +16,7 @@ if [ -f "$now" ] && [ ! -L "$now" ]; then
 fi
 
 # Sources in raw/ that nothing in the SAME area cites yet (life raw vs life wiki,
-# a business's raw vs that business's wiki), so same-named files can't mask each other.
+# an area's raw vs that area's wiki), so same-named files can't mask each other.
 unprocessed=0; checked=0
 count_area() {  # $1 = raw dir, $2 = wiki dir
   [ -d "$1" ] || return
@@ -26,8 +26,10 @@ count_area() {  # $1 = raw dir, $2 = wiki dir
   done < <(find "$1" -type f ! -name '.*' 2>/dev/null)
 }
 count_area "$root/life/raw" "$root/life/wiki"
-for b in "$root"/businesses/*/; do
-  [ -d "${b}raw" ] && count_area "${b}raw" "${b}wiki"
+# Areas: any folder up to two levels down with raw/ + wiki/ (study/, work/, businesses/<name>/, ...).
+for b in "$root"/*/ "$root"/*/*/; do
+  [ "$b" = "$root/life/" ] && continue
+  [ -d "${b}raw" ] && [ -d "${b}wiki" ] && [ ! -L "${b%/}" ] && count_area "${b}raw" "${b}wiki"
 done
 [ "$unprocessed" -gt 0 ] && lines+=("- $unprocessed file(s) in raw/ not yet filed into the wiki; /12-pillars:capture with no arguments processes them.")
 

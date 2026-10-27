@@ -145,7 +145,7 @@ def onboarding():
 
     # scene 2: checklist
     parts = [("Optional profiles", "5–10 min", False), ("Your vision", "10 min", False),
-             ("Where you are now", "10 min", True), ("Your work and businesses", "5–15 min", True),
+             ("Where you are now", "10 min", True), ("Your work, studies, businesses", "2–15 min", True),
              ("Start where it hurts", "10 min", False)]
     s = [t(36, y0, "Which parts now? The rest is learned as you go.", 17, "txt", "600")]
     for k, (a, b, on) in enumerate(parts):
@@ -160,10 +160,10 @@ def onboarding():
     o.append(scene(5, 9.5, "".join(s)))
 
     # scene 3: recommended tree
-    tree = [("businesses/", 0, ""), ("acme-studio/", 1, "Deep · clients, projects, team"),
-            ("raw/   wiki/   clients/   projects/", 2, ""), ("side-shop/", 1, "Light · one notes page"),
-            ("notes.md", 2, "")]
-    s = [t(36, y0, "Here's what I recommend:", 17, "txt", "600")]
+    tree = [("life/", 0, "always · your 12 pillars"), ("work/", 0, "Standard · role, projects, people"),
+            ("raw/   wiki/   role/   projects/", 1, ""), ("businesses/side-shop/", 0, "Light · one notes page"),
+            ("notes.md", 1, "")]
+    s = [t(36, y0, "A job + a side shop? Here's what I recommend:", 17, "txt", "600")]
     for k, (a, ind, why) in enumerate(tree):
         yy = y0 + 40 + k * 36
         body = t(56 + ind * 26, yy, a, 16, "txt mono")
