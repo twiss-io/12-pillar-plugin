@@ -3,7 +3,7 @@ name: ask
 description: "Ask your workspace anything — answers come from your wiki with links to the pages used"
 ---
 
-> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool if you have one (AskUserQuestion in Claude Code), otherwise a short numbered list.
+> **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. "Clickable options" means a choice tool whenever one is available: AskUserQuestion in Claude Code; in Codex, request_user_input_async (or request_user_input in Plan mode), and after asking with the async one, end your turn and wait for the answer. Only without any such tool, a short numbered list (one option per line) the user can answer by number.
 
 Answer: `$ARGUMENTS`
 
