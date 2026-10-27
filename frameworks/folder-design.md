@@ -9,6 +9,8 @@ Use this during `/12-pillars:setup` and `/12-pillars:add-business`. The goal is 
 Ask one multi-select question (clickable options): **"What fills your days right now?"**
 Studying · Working a job · Running a business · Freelance, agency or client work · Creating content · Investing · Between things right now.
 
+If your question tool only allows one choice (as in Codex), offer these combinations instead, and mention that any other mix can be typed in the text box: Running a business · Business + freelance or client work · Freelance, agency or client work · Working a job · A job + a side business · Studying · Studying + working · Creating content · Investing alongside other work · Between things right now.
+
 Each answer maps to an **area**: a folder next to `life/` that holds that part of their world.
 
 | They chose | Area folder | Archetype (section 4) |
