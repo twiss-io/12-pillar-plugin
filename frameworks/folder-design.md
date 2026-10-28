@@ -6,16 +6,13 @@ Use this during `/12-pillars:setup` and `/12-pillars:add-business`. The goal is 
 
 ## 1. Start from what fills their days
 
-Ask one multi-select question (clickable options): **"What fills your days right now?"**
-Studying · Working a job · Running a business · Freelance, agency or client work · Creating content · Investing · Between things right now.
+Ask one **open question** in plain text (no buttons): **"In a sentence or two, what fills your days right now? Studies, a job, businesses you run, clients, content, investing, anything goes."** Show one example answer so they know the level of detail: "I'm in my final year of uni, intern three days a week, and run a small design agency on the side with a friend."
 
-If your question tool only allows one choice (as in Codex), ask five Yes / No questions in the same call so any mix works: "Studying?" · "Working a job?" · "Running a business, freelance or client work?" · "Creating content?" · "Investing?". No to all means between things right now. Don't offer a single list of combinations instead.
+Read the answer for every part of their world, including ones they mention in passing ("and I post on YouTube" is a content area). Pick up names (the business, the employer, the school) so folders can use them. If something is unclear, ask one short follow-up (for example "Is the agency yours, or are you freelancing for one?"), then propose. Don't run through a checklist of roles they didn't mention.
 
-With Claude's question tool (multi-select, at most 4 options per question), ask it as two questions in one call: "Work and study" (Studying · Working a job · Running a business · Freelance, agency or client work) and "Anything else?" (Creating content · Investing · Between things right now).
+Each part of their world maps to an **area**: a folder next to `life/` that holds that part of their world.
 
-Each answer maps to an **area**: a folder next to `life/` that holds that part of their world.
-
-| They chose | Area folder | Archetype (section 4) |
+| They mentioned | Area folder | Archetype (section 4) |
 |---|---|---|
 | Studying | `study/` | Student |
 | Working a job | `work/` (two jobs at once: `work/<employer>/` each) | Employee |
@@ -25,7 +22,7 @@ Each answer maps to an **area**: a folder next to `life/` that holds that part o
 | Investing | `investing/` | Investing / holding |
 | Between things right now | nothing yet; `life/` covers it (Career and Opportunities pillars) | — |
 
-Mix and match freely: an employee with a side shop gets `work/` and `businesses/side-shop/`. Use the person's own words for folder names when they ask (`uni/` instead of `study/`, `job/` instead of `work/`); the area's `AGENTS.md` or `notes.md` and the Areas section of `life/wiki/index.md` record what each folder is, so any name works. Never create an area folder they didn't choose.
+Mix and match freely: an employee with a side shop gets `work/` and `businesses/side-shop/`. Use the person's own words for folder names when they ask (`uni/` instead of `study/`, `job/` instead of `work/`); the area's `AGENTS.md` or `notes.md` and the Areas section of `life/wiki/index.md` record what each folder is, so any name works. Never create an area folder for something they didn't mention.
 
 ## 2. Interview each area
 

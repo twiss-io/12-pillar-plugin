@@ -24,7 +24,7 @@ When something is stuck, the cause is usually upstream of it. Start with the pil
 
 You share something once, and every relevant page stays current. See [`frameworks/llm-wiki.md`](frameworks/llm-wiki.md).
 
-**3. Folders designed for you.** Setup asks what fills your days (studying, a job, a business, freelance or agency work, content, investing, or between things, in any mix) and **recommends** folders for just those. A student gets `study/`, an employee `work/`, a founder one folder per business, and someone between things just `life/`. Each is sized to fit: a side project gets one notes page, an agency gets clients, projects, proposals and team. Nothing is created until you confirm, and you can rename anything. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
+**3. Folders designed for you.** Setup asks you to describe, in your own words, what fills your days (studying, a job, a business, freelance or agency work, content, investing, or between things, in any mix) and **recommends** folders for just those. A student gets `study/`, an employee `work/`, a founder one folder per business, and someone between things just `life/`. Each is sized to fit: a side project gets one notes page, an agency gets clients, projects, proposals and team. Nothing is created until you confirm, and you can rename anything. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
 
 ## What your workspace looks like
 
@@ -160,4 +160,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.5.5, early release. Feedback and issues welcome.
+Version 0.5.6, early release. Feedback and issues welcome.
