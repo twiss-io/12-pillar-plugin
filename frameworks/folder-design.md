@@ -9,7 +9,7 @@ Use this during `/12-pillars:setup` and `/12-pillars:add-business`. The goal is 
 Ask one multi-select question (clickable options): **"What fills your days right now?"**
 Studying · Working a job · Running a business · Freelance, agency or client work · Creating content · Investing · Between things right now.
 
-If your question tool only allows one choice (as in Codex), offer these combinations instead, and mention that any other mix can be typed in the text box: Running a business · Business + freelance or client work · Freelance, agency or client work · Working a job · A job + a side business · Studying · Studying + working · Creating content · Investing alongside other work · Between things right now.
+If your question tool only allows one choice (as in Codex), ask five Yes / No questions in the same call so any mix works: "Studying?" · "Working a job?" · "Running a business, freelance or client work?" · "Creating content?" · "Investing?". No to all means between things right now. Don't offer a single list of combinations instead.
 
 With Claude's question tool (multi-select, at most 4 options per question), ask it as two questions in one call: "Work and study" (Studying · Working a job · Running a business · Freelance, agency or client work) and "Anything else?" (Creating content · Investing · Between things right now).
 
@@ -36,7 +36,7 @@ For a business, freelance practice, channel or investing area, ask these one at 
 1. **What does it do, and for whom?** (one line)
 2. **Your role:** founder / partner / freelancer / investor / advisor
 3. **Stage:** idea · building · launched · growing · established · winding down
-4. **What does it run on?** Pick all that apply: clients · customers (many, small) · products · projects · deals/sales pipeline · content · a team · suppliers/partners · physical locations · research
+4. **What does it run on?** Pick all that apply: clients · customers (many, small) · products · projects · deals/sales pipeline · content · a team · suppliers/partners · physical locations · research. (With a one-choice tool, ask five Yes / No questions: "Clients or customers?" · "Products?" · "Projects, deals or a sales pipeline?" · "Content?" · "A team, suppliers, partners or locations?"; research-only areas say no to all.)
 5. **How often will you add information?** daily · weekly · occasionally
 6. **Do you need to look things up later** (past decisions, client history, what was promised), **or is it mostly a to-do list?**
 
