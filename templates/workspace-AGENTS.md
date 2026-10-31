@@ -1,12 +1,12 @@
 # <Name>'s Life Workspace
-<!-- 12-pillars rules: 4 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
+<!-- 12-pillars rules: 5 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
 
 This workspace runs on the 12-Pillar Life Flywheel with a raw/wiki memory.
 The plugin's frameworks define the rules: 12-pillars.md, llm-wiki.md, folder-design.md, instruments.md.
 
 ## Layout
 - life/ — the person, organised by the 12 pillars. raw/ is read-only source material; wiki/ is maintained by the AI.
-- Areas: one folder per part of their world beyond life/, only those they chose: study/, work/, investing/, businesses/<name>/ (folder names may be their own; the Areas section of life/wiki/index.md lists each one). Each has its own AGENTS.md, or just a notes.md if it's Light.
+- Areas: one folder per part of their world beyond life/, only those they chose: study/, work/, content/, investing/, businesses/<name>/ (folder names may be their own; the Areas section of life/wiki/index.md lists each one). Each has its own AGENTS.md, or just a notes.md if it's Light.
 
 ## Routing
 - Skills are named /12-pillars:<name> here (Claude Code form). In Codex, the same skills are invoked with $ or picked from /skills.

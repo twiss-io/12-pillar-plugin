@@ -8,7 +8,7 @@ Use this during `/12-pillars:setup` and `/12-pillars:add-business`. The goal is 
 
 Ask one **open question** in plain text (no buttons): **"In a sentence or two, what fills your days right now? Studies, a job, businesses you run, clients, content, investing, anything goes."** Show one example answer so they know the level of detail: "I'm in my final year of uni, intern three days a week, and run a small design agency on the side with a friend."
 
-Read the answer for every part of their world, including ones they mention in passing ("and I post on YouTube" is a content area). Pick up names (the business, the employer, the school) so folders can use them. If something is unclear, ask one short follow-up (for example "Is the agency yours, or are you freelancing for one?"), then propose. Don't run through a checklist of roles they didn't mention.
+Read the answer for every part of their world, including ones they mention in passing ("and I post on YouTube" is a content area). Pick up names (the business, the employer, the school) so folders can use them. If something is unclear, ask one short follow-up, then propose. Always ask it when it's unclear whether they **own** a business or **work for** one ("I work full time in an agency" could be either): "Is the agency yours (or part yours), or are you employed there?" Owner or partner → `businesses/<name>/`; employee → `work/`. Don't run through a checklist of roles they didn't mention.
 
 Each part of their world maps to an **area**: a folder next to `life/` that holds that part of their world.
 
@@ -18,11 +18,12 @@ Each part of their world maps to an **area**: a folder next to `life/` that hold
 | Working a job | `work/` (two jobs at once: `work/<employer>/` each) | Employee |
 | Running a business | `businesses/<name>/`, one per business | the closest business archetype |
 | Freelance, agency or client work | `businesses/<name>/` for their practice | Agency / services or Consulting / coaching |
-| Creating content | `businesses/<channel-or-brand>/` | Content / media / creator |
+| Creating content as a channel or media business | `businesses/<channel-or-brand>/` | Content / media / creator |
+| Building their own personal brand or posting their own content | `content/` (ideas, drafts, what was posted, what worked); who they want to be known for stays in `life/` on the Brand pillar (8) | Content / media / creator |
 | Investing | `investing/` | Investing / holding |
 | Between things right now | nothing yet; `life/` covers it (Career and Opportunities pillars) | — |
 
-Mix and match freely: an employee with a side shop gets `work/` and `businesses/side-shop/`. Use the person's own words for folder names when they ask (`uni/` instead of `study/`, `job/` instead of `work/`); the area's `AGENTS.md` or `notes.md` and the Areas section of `life/wiki/index.md` record what each folder is, so any name works. Never create an area folder for something they didn't mention.
+Mix and match freely: an employee with a side shop gets `work/` and `businesses/side-shop/`; a final-year student who also runs an agency and wants to build a personal brand gets `study/`, `businesses/<agency>/` and `content/`. Use the person's own words for folder names when they ask (`uni/` instead of `study/`, `job/` instead of `work/`); the area's `AGENTS.md` or `notes.md` and the Areas section of `life/wiki/index.md` record what each folder is, so any name works. Never create an area folder for something they didn't mention.
 
 ## 2. Interview each area
 
@@ -41,7 +42,7 @@ For **study/**: what they study and where, the year or stage, what they're juggl
 
 For **work/**: the employer and role in one line, how long they've been there, what the job runs on (projects · a team they lead · stakeholders · clients · targets/reviews), and questions 5–6.
 
-In the quick start, skip the interview: every area starts **Light** and gets upgraded when it grows.
+In the quick start, skip the interview and choose the tier from what they already said (section 3).
 
 ## 3. Choose the tier
 
@@ -50,6 +51,8 @@ In the quick start, skip the interview: every area starts **Light** and gets upg
 | **Light** | Side project, idea stage, occasional notes, little history to look up | `<area>/notes.md`, a single running page of dated bullets, starting with a one-paragraph summary and a `Tags:` line (folder name plus aliases). No raw/wiki split. |
 | **Standard** | Ongoing information, but one main area of activity | `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/`, `wiki/` with `index.md`, `log.md`, `overview.md`, and one or two sections. |
 | **Deep** | Several areas of activity (clients plus team plus product, for example) and a real need to look things up | Standard plus all the sections that match its archetype below. |
+
+**Tier from a quick-start answer** (no interview): make an area **Standard** when the answer already shows things they'll need to look up later: named clients, customers or partners; a team; several live deliverables or deadlines (exams, projects, presentations); or it's full time. Give it the sections those things need, from section 4 (for example an agency with named clients: `clients/` `projects/`; a final-year student with exams and projects: `courses/` `projects/` `exams/`). Make it **Light** when it's mentioned in passing, is a side interest, or is something they only *want* to start. Each named client or partner gets its own page under `clients/` once something is captured about it, not empty pages up front.
 
 When unsure, go one tier lighter. An area can always be upgraded later (`/12-pillars:add-business <name>` on an existing light folder offers the upgrade). Unused empty folders get ignored and become clutter.
 

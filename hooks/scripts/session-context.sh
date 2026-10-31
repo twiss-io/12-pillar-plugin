@@ -26,7 +26,7 @@ count_area() {  # $1 = raw dir, $2 = wiki dir
   done < <(find "$1" -type f ! -name '.*' 2>/dev/null)
 }
 count_area "$root/life/raw" "$root/life/wiki"
-# Areas: any folder up to two levels down with raw/ + wiki/ (study/, work/, businesses/<name>/, ...).
+# Areas: any folder up to two levels down with raw/ + wiki/ (study/, work/, content/, businesses/<name>/, ...).
 for b in "$root"/*/ "$root"/*/*/; do
   [ "$b" = "$root/life/" ] && continue
   [ -d "${b}raw" ] && [ -d "${b}wiki" ] && [ ! -L "${b%/}" ] && count_area "${b}raw" "${b}wiki"
