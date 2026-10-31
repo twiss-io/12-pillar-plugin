@@ -160,4 +160,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.5.11, early release. Feedback and issues welcome.
+Version 0.5.12, early release. Feedback and issues welcome.
