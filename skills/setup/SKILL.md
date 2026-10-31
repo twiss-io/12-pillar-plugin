@@ -51,7 +51,7 @@ Do not continue to stage 2. Quick start is finished.
 - **Templates for structured answers.** When you need several specific facts (dates, numbers, names), give a short fill-in template instead of a prose question.
 - **Visible progress.** After each stage, update `life/wiki/self/setup-progress.md`, show a one-line progress strip (e.g. `About you ▓ · Profiles ▓ · Vision ▓ · Now ░ · Work ░ · Pillars ░ — 3 of 6, then wrap-up`), and give a short "Here's what I've got" recap (3–6 bullets) for them to confirm.
 - **Facts over stories.** If an answer sounds polished, gently ask what's actually going on.
-- **Keep a source for everything.** At the end of each stage from 2 onward, save the user's answers (their words verbatim, laid out as Q&A) to `life/raw/YYYY-MM-DD-setup-<stage>.md` with the raw header (`source: setup`), and list that file in the `sources:` of every page the stage writes. An area's answers go to that area's own `raw/` (or, for a Light area, are summarised in its `notes.md` summary), never to `life/raw/`.
+- **Keep a source for everything.** At the end of each stage from 2 onward, save the user's answers (their words verbatim, laid out as Q&A) to `life/raw/YYYY-MM-DD-setup-<stage>.md` with the raw header (`source: setup`), and list that file in the `sources:` of every page the stage writes. An area's answers go to that area's own `raw/`, never to `life/raw/`.
 
 ## The stages
 
