@@ -90,9 +90,9 @@ Every area gets its own `AGENTS.md` (with a one-line `CLAUDE.md`: `@AGENTS.md`, 
 
 ## 6. Show it before building it
 
-Always render the proposed tree for the whole workspace before creating anything, with a one-line reason per area ("Light — studies, notes for now" · "Deep — agency: clients and projects, weekly updates"). Ask for one confirm. Accept changes in plain language ("call it uni", "drop investing", "make App Lab light", "add a team section"). Only then create the folders and files.
+Always show the proposed tree for the whole workspace before creating anything, in the short style of the quick-start example in the setup skill: one line per area in the person's own words, its section folders with the names they gave, no plumbing files or tier labels, and one sentence saying every folder also gets raw/ and wiki/. Ask for one confirm. Accept changes in plain language ("call it uni", "drop investing", "make App Lab light", "add a team section"). Only then create the folders and files.
 
-Examples:
+Examples of what gets built (the tier labels are for you, not for the proposal):
 
 ```
 student/

@@ -34,27 +34,23 @@ On a fresh start (no `setup-progress.md`), offer one choice as clickable options
 2. In `setup-progress.md`, mark unchosen stages 3–6 `learning` (unchosen profiles: `skipped`, so the close doesn't offer them again) and add `Mode: learn as you go`, unless every stage was chosen.
 3. Finish with stage 7, but in its deferred sweep, don't offer the `learning` stages again; say in one line that they fill in from conversation and `/12-pillars:setup` can do any of them later.
 
-**Quick start** runs only stage 1, cut down: ask what the workspace should call them (one question, alias fine), skip the "what for" question, and create the base workspace exactly as stage 1 describes. Then ask the open "What fills your days?" question from `folder-design.md` section 1 (free text, not buttons), with at most one follow-up if something is unclear. Choose each area's tier from what they already said, with no interview (`folder-design.md` section 3, "Tier from a quick-start answer"). Then show the **full proposed tree as a code block** in your message: `AGENTS.md`, `life/` with its `raw/` and `wiki/`, and every area with its own `raw/` + `wiki/` and its sections (none yet for Light), each with one line on why. Every part of their world they mentioned must appear in the tree (as an area, or as a line saying it lives in `life/` on a pillar); never drop one silently. Never ask for the confirm with only a list of folder names or a sentence. Never quote these instructions or name the skill to the user ("the setup skill requires…"); just ask.
+**Quick start** runs only stage 1, cut down: ask what the workspace should call them (one question, alias fine), skip the "what for" question, and create the base workspace exactly as stage 1 describes. Then ask the open "What fills your days?" question from `folder-design.md` section 1 (free text, not buttons), with at most one follow-up if something is unclear. Choose each area's tier from what they already said, with no interview (`folder-design.md` section 3, "Tier from a quick-start answer"). Then show the **proposed tree as a short code block** in your message, in the style of the example below. Every part of their world they mentioned must appear in the tree (as an area, or as a line saying it lives in `life/` on a pillar); never drop one silently. Never ask for the confirm with only a list of folder names or a sentence. Never quote these instructions or name the skill to the user ("the setup skill requires…"); just ask.
 
    ❌ "Proposed: work/ for clients and projects, and study/ for submissions and exams, each with source notes and a wiki. The setup skill requires one confirm."
 
    ✅ Here's what I'd set up for you:
    ```
-   your-folder/
-   ├── AGENTS.md              rules the AI follows here
-   ├── life/                  you: your 12 pillars, people, goals
-   │   ├── raw/               everything you share, saved as-is
-   │   └── wiki/              pillars/ self/ people/ topics/
-   ├── work/                  STANDARD: tech lead at Twiss, 4 clients
-   │   ├── raw/
-   │   └── wiki/              clients/ projects/  + overview, actions, decisions
-   ├── study/                 STANDARD: final sem at NUS, 1 exam, 2 projects, 2 presentations
-   │   ├── raw/
-   │   └── wiki/              courses/ projects/ exams/  + overview, actions, decisions
-   └── content/               LIGHT: your personal brand, just starting
-       ├── raw/
-       └── wiki/              overview, ideas, actions (sections added as it grows)
+   life/        you: 12 pillars, people, goals
+   study/       final sem at NUS (Y4S1)
+     courses/  projects/  exams/
+   work/        tech lead at Twiss
+     clients/   Supercane, Esperanza, Axcel
+     projects/  Torchie, Noted
+   content/     your personal brand, starting small
    ```
+   Every folder also gets its own raw/ (your originals, kept as-is) and wiki/ (pages I keep organised).
+
+   Keep the tree short and plain: one line per area saying what it is in their words, its section folders on the next line with the names they gave (clients, projects, courses) so they recognise their own world. Leave out the plumbing (`AGENTS.md`, `CLAUDE.md`, `.gitignore`, `raw/`, `wiki/`, `assets/`, tier labels): the one sentence under the tree covers it. Keep lines under about 50 characters so nothing wraps in a narrow chat window.
    Then the confirm question: "Create this?" with options "Create it" and "Change something" (changes can be typed, e.g. "call study uni").
 
    Get one confirm, accept changes in plain language, and create those areas as `add-business` step 4 describes for their tier, adding each to the Areas section of the index. If they're between things, it adds nothing beyond `life/`. Then:
