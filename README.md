@@ -42,7 +42,7 @@ your-workspace/
 │       └── topics/
 ├── work/                     only if you have a job: role/ projects/ people/ wins/
 └── businesses/               only if you run something
-    └── side-shop/            Light: just notes.md
+    └── side-shop/            Light: raw/ + wiki/, no sections yet
 ```
 
 That's one example (a job plus a side shop). A student would see `study/` instead, an agency owner `businesses/my-agency/` with clients/ projects/ team/, and someone between things only `life/`.
@@ -160,4 +160,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.5.7, early release. Feedback and issues welcome.
+Version 0.5.8, early release. Feedback and issues welcome.

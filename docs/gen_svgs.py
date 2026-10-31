@@ -161,8 +161,8 @@ def onboarding():
 
     # scene 3: recommended tree
     tree = [("life/", 0, "always · your 12 pillars"), ("work/", 0, "Standard · role, projects, people"),
-            ("raw/   wiki/   role/   projects/", 1, ""), ("businesses/side-shop/", 0, "Light · one notes page"),
-            ("notes.md", 1, "")]
+            ("raw/   wiki/   role/   projects/", 1, ""), ("businesses/side-shop/", 0, "Light · raw + wiki, no sections"),
+            ("raw/   wiki/", 1, "")]
     s = [t(36, y0, "A job + a side shop? Here's what I recommend:", 17, "txt", "600")]
     for k, (a, ind, why) in enumerate(tree):
         yy = y0 + 40 + k * 36

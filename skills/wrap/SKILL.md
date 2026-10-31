@@ -27,7 +27,7 @@ Pull out only what's worth keeping:
 Drop dead ends and back-and-forth. If nothing was decided, say so rather than inventing a decision.
 
 ## 3 · Route
-Work out where each item belongs: which area folder (a business, `study/`, `work/`, `investing/`: match the folder name or the aliases in its `AGENTS.md` or `notes.md`), or `life/`. A session can touch several. Split items and keep boundaries: personal content never goes into an area folder, and areas never get each other's content.
+Work out where each item belongs: which area folder (a business, `study/`, `work/`, `content/`, `investing/`: match the folder name or the aliases in its `AGENTS.md` or `notes.md`), or `life/`. A session can touch several. Split items and keep boundaries: personal content never goes into an area folder, and areas never get each other's content.
 
 Destinations inside a **Standard or Deep area**:
 - Decisions: `wiki/decisions/YYYY-MM-DD-<slug>.md`, one page per real decision, each with decision, reasoning, alternatives rejected, date, and sources. Create `decisions/` if it's missing and add a Decisions section to the index.
@@ -37,7 +37,7 @@ Destinations inside a **Standard or Deep area**:
 - Facts: update the matching section page (a client in `clients/`, a product in `product/`, and so on).
 - If `ideas.md` or `actions.md` is missing (an older folder), create it and link it from `overview.md`.
 
-**Light area:** dated bullets in the `## Notes` list of its `notes.md`, each prefixed `Decided:`, `Idea:`, `To do:` or `Open:`.
+**Older notes-only area:** dated bullets in the `## Notes` list of its `notes.md`, each prefixed `Decided:`, `Idea:`, `To do:` or `Open:`.
 **Personal (`life/`):** decisions and ideas go in `topics/`, and open questions go in the relevant pillar hub's `## Open questions`. Updates go to the relevant pillar hubs and people pages, as a normal capture would.
 
 ## 4 · Propose (one message)
@@ -56,10 +56,10 @@ Wrap-up: <session title>
 Accept corrections in plain language ("that wasn't decided, park it", "move the pricing bit to the other business", "that's for work, not the shop").
 
 ## 5 · File (after confirm)
-1. **Session note:** save to each Standard/Deep destination's `raw/` with the header `source: session-summary`. Contents: a short summary of the discussion plus the user's key statements quoted verbatim, and an area's note holds only that area's part. Names: `YYYY-MM-DD-session-<slug>.md` in an area, and `YYYY-MM-DD-session-<slug>-personal.md` in `life/raw/`. If the name is taken, add `-2`, `-3`, and so on. A Light area gets no session note; its bullets are the record.
+1. **Session note:** save to each destination's `raw/` with the header `source: session-summary`. Contents: a short summary of the discussion plus the user's key statements quoted verbatim, and an area's note holds only that area's part. Names: `YYYY-MM-DD-session-<slug>.md` in an area, and `YYYY-MM-DD-session-<slug>-personal.md` in `life/raw/`. If the name is taken, add `-2`, `-3`, and so on. A Light area gets no session note; its bullets are the record.
 2. Write the decision, idea, action and fact pages with standard frontmatter, citing the session note in `sources:` and `## Sources`.
 3. Link from the relevant life pillar hubs (usually Opportunities, Finance, Career). Links only: a hub's "Where this stands" may say that a decision exists and link to it ("pricing decided, see link"), but never repeats business details.
-4. Update each touched `index.md`. Append `## [YYYY-MM-DD] wrap | <session title>` to each touched area `log.md`, and to `life/wiki/log.md` for anything filed in `life/` or in a Light area.
+4. Update each touched `index.md`. Append `## [YYYY-MM-DD] wrap | <session title>` to each touched area `log.md`, and to `life/wiki/log.md` for anything filed in `life/` or in an older notes-only area.
 
 ## 6 · Report
 One line per page written. Then one line on where the next session picks up (for example, "Next session on this area starts from 2 open questions and 3 actions").

@@ -48,13 +48,17 @@ In the quick start, skip the interview and choose the tier from what they alread
 
 | Tier | When | Structure |
 |---|---|---|
-| **Light** | Side project, idea stage, occasional notes, little history to look up | `<area>/notes.md`, a single running page of dated bullets, starting with a one-paragraph summary and a `Tags:` line (folder name plus aliases). No raw/wiki split. |
-| **Standard** | Ongoing information, but one main area of activity | `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/`, `wiki/` with `index.md`, `log.md`, `overview.md`, and one or two sections. |
-| **Deep** | Several areas of activity (clients plus team plus product, for example) and a real need to look things up | Standard plus all the sections that match its archetype below. |
+Every area has the same core structure, whatever its tier: `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/`, and `wiki/` with `index.md`, `log.md`, `overview.md`, `ideas.md`, `actions.md` and `decisions/`. The tier only decides how many section folders it gets.
+
+| Tier | When | Sections |
+|---|---|---|
+| **Light** | Side project, idea stage, occasional notes, little history to look up | None yet: the core only. |
+| **Standard** | Ongoing information, but one main area of activity | One or two sections. |
+| **Deep** | Several areas of activity (clients plus team plus product, for example) and a real need to look things up | All the sections that match its archetype below. |
 
 **Tier from a quick-start answer** (no interview): make an area **Standard** when the answer already shows things they'll need to look up later: named clients, customers or partners; a team; several live deliverables or deadlines (exams, projects, presentations); or it's full time. Give it the sections those things need, from section 4 (for example an agency with named clients: `clients/` `projects/`; a final-year student with exams and projects: `courses/` `projects/` `exams/`). Make it **Light** when it's mentioned in passing, is a side interest, or is something they only *want* to start. Each named client or partner gets its own page under `clients/` once something is captured about it, not empty pages up front.
 
-When unsure, go one tier lighter. An area can always be upgraded later (`/12-pillars:add-business <name>` on an existing light folder offers the upgrade). Unused empty folders get ignored and become clutter.
+When unsure, go one tier lighter. An area can always grow later (`/12-pillars:add-business <name>` on an existing area offers to add sections). Unused empty section folders get ignored and become clutter.
 
 ## 4. Sections by archetype
 
@@ -78,7 +82,7 @@ Sections that apply to almost every area: `decisions/` (what was decided, when, 
 
 ## 5. Write the area schema
 
-Each Standard or Deep area gets its own `AGENTS.md` (with a one-line `CLAUDE.md`: `@AGENTS.md`, so Claude Code reads it too) holding:
+Every area gets its own `AGENTS.md` (with a one-line `CLAUDE.md`: `@AGENTS.md`, so Claude Code reads it too) holding:
 - what the area is, in one line, and the person's role
 - its tier and chosen sections, and what goes in each
 - the tags that route captures here: the folder name (for example `#acme-studio`, `#study`) plus any short aliases the person will actually type (`#acme`, `#uni`)
@@ -94,14 +98,14 @@ Examples:
 student/
 ├── AGENTS.md
 ├── life/              raw/ + wiki/ — your 12 pillars
-└── study/             LIGHT — notes.md: courses, exams, internship hunt
+└── study/             LIGHT — raw/ + wiki/ core, no sections yet
 
 employee-with-a-side-shop/
 ├── AGENTS.md
 ├── life/
 ├── work/              STANDARD — role/ projects/ people/ wins/
 └── businesses/
-    └── side-shop/     LIGHT — notes.md only, occasional updates
+    └── side-shop/     LIGHT — raw/ + wiki/ core, occasional updates
 
 agency-owner/
 ├── AGENTS.md

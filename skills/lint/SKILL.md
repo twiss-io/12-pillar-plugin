@@ -20,14 +20,14 @@ Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md`. **Report first, change no
 8. **Quiet pillars:** pillar hubs not updated in over 60 days, and people pages for close contacts with no contact in a long time or with an important date coming up in the next 14 days.
 9. **Boundary leaks:** personal content copied into an area folder, content copied between areas, or deal, job or course details sitting in the life wiki when that area has its own folder.
 10. **Stale actions:** open `- [ ]` items in any `actions.md` (or `To do:` bullets in a `notes.md`) past their due date, or more than 30 days old with no date. Suggest ticking them off, re-dating them, or dropping them.
-11. **Light and empty areas:** empty area folders (older setups always created an empty `businesses/`; suggest removing it, or asking what fills their days), stale or contradictory bullets in any area's `notes.md`, and Light areas whose notes have grown big enough to suggest an upgrade (`/12-pillars:add-business <name>`).
+11. **Light and empty areas:** empty area folders (older setups always created an empty `businesses/`; suggest removing it, or asking what fills their days), older notes-only areas (just `notes.md`, from before 0.5.8: offer to give them the full raw/ + wiki/ structure), and areas whose pages have grown big enough to suggest adding a section (`/12-pillars:add-business <name>`).
 12. **Outdated rules:** the workspace `AGENTS.md` is missing, has no `12-pillars rules:` stamp, or its number is lower than the one in `${CLAUDE_PLUGIN_ROOT}/templates/workspace-AGENTS.md`. The fix is **Refresh the rules**.
 
 ## Report
 Group findings by type, most important first, each with the file and a proposed fix in one line. Then ask which to apply (all · pick · none) using clickable options.
 
 ## Apply (only what's approved)
-Edit wiki pages and Light `notes.md` files only (plus `AGENTS.md`/`CLAUDE.md` for an approved rules refresh, and removing an empty area folder when approved). Never touch `raw/`. Append to each affected `log.md`: `## [YYYY-MM-DD] lint | <n> fixes` with a one-line summary.
+Edit wiki pages and older notes-only `notes.md` files only (plus `AGENTS.md`/`CLAUDE.md` for an approved rules refresh, and removing an empty area folder when approved). Never touch `raw/`. Append to each affected `log.md`: `## [YYYY-MM-DD] lint | <n> fixes` with a one-line summary.
 
 ## Refresh the rules
 Bring the workspace `AGENTS.md` up to the plugin's current template, `${CLAUDE_PLUGIN_ROOT}/templates/workspace-AGENTS.md`. This touches only `AGENTS.md` and `CLAUDE.md`, never `life/`, any area folder, or anything in `raw/`.

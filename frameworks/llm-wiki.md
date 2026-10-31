@@ -34,13 +34,11 @@ The wiki is a **compiled view** of the raw material. If a wiki page and a raw so
 │       ├── pillars/               one hub page per pillar, 01-faith.md … 12-legacy.md
 │       ├── people/                one page per person who matters
 │       └── topics/                everything else: projects, ideas, places, recurring themes
-├── study/                         an area, only if they study (Light: just notes.md)
+├── study/                         an area, only if they study
 ├── work/                          an area, only if they have a job
 ├── investing/                     an area, only if they invest
 └── businesses/                    only if they run a business, practice or channel
-    ├── <light-business>/
-    │   └── notes.md               Light tier: one running page, no raw/wiki split
-    └── <business>/                Standard/Deep tier (every area can be either)
+    └── <business>/                every area has this same core; tiers differ only in sections
         ├── AGENTS.md              schema for this area (incl. its routing tags)
         ├── CLAUDE.md              @AGENTS.md
         ├── raw/
@@ -103,7 +101,7 @@ A pillar is **running** once "Where this stands" has been filled from at least o
 
 **People pages** contain: who they are and how the person knows them, family, work, interests, what they're working toward, health if relevant, important dates (birthdays, anniversaries), how often to stay in touch, last contact, and open threads (promises either way).
 
-**`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Areas (one line per area folder, saying what it is and linking its overview or `notes.md`; older workspaces call it Businesses). In an area wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
+**`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Areas (one line per area folder, saying what it is and linking its overview; older workspaces call it Businesses). In an area wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
 `- [Marcus Tan](people/marcus-tan.md) — friend from uni, now runs a bakery; rebrand prospect`
 
 **`log.md`** is append-only, newest at the bottom, one heading per operation:
@@ -117,7 +115,7 @@ followed by 1–3 lines of what changed. Never rewrite past entries.
 2. Read it and propose, in **one message**: a one-line title, up to 10 tags (pillar tags plus people and topics), the destination (`life/` or an area), and exactly which wiki pages will be created or updated.
    - **Deals and business facts** go into the business's folder when that business has one. The life wiki only gets a **link** (for example, `09-opportunities` links to the business's deal page). Without a business folder, they go in the life wiki.
    - **Job, study and investing facts** follow the same rule: into `work/`, `study/` or `investing/` when that area exists, otherwise the life wiki (Career, Growth, Finance).
-   - **Light areas** have no `raw/` or `wiki/`: append a dated bullet to the area's `notes.md` and log it in `life/wiki/log.md`.
+   - **Older notes-only areas** (just `notes.md`) get a dated bullet in `notes.md`, logged in `life/wiki/log.md`, with a one-time offer to give the area the full structure.
 3. Wait for one confirm. Accept corrections in plain language.
 4. Write the changes: update pillar hubs, people, and topic pages; add new pages if needed; update `index.md`; append to `log.md`.
 
@@ -138,7 +136,7 @@ A plugin hook re-states this convention on every message, so it holds through lo
 
 ### Wrap (end of a working session) — `/12-pillars:wrap`
 1. Extract the outcome: decisions (with reasoning and rejected alternatives), parked ideas, actions, open questions, facts learned, and any personal parts.
-2. Route each item: an area's decisions go to `wiki/decisions/`, ideas to `wiki/ideas.md`, actions and open questions to `wiki/actions.md`, facts to the matching section. Light areas get prefixed `notes.md` bullets. Personal parts go to `life/`, with open questions in the relevant pillar hub. Captures already made during the session are skipped.
+2. Route each item: an area's decisions go to `wiki/decisions/`, ideas to `wiki/ideas.md`, actions and open questions to `wiki/actions.md`, facts to the matching section. Older notes-only areas get prefixed `notes.md` bullets. Personal parts go to `life/`, with open questions in the relevant pillar hub. Captures already made during the session are skipped.
 3. Propose it as one card, confirm once, then save a session note to each destination's `raw/`, write the pages, link them from the relevant pillar hubs, and update index and log (`## [YYYY-MM-DD] wrap | <title>`).
 
 **Actions get closed, not just added.** When a capture shows an action happened, propose ticking it (`- [x]`, with the date). Lint reports open actions past their due date.
