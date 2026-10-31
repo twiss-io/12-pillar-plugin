@@ -46,14 +46,12 @@ In the quick start, skip the interview and choose the tier from what they alread
 
 ## 3. Choose the tier
 
-| Tier | When | Structure |
-|---|---|---|
 Every area has the same core structure, whatever its tier: `AGENTS.md` (+ `CLAUDE.md` importing it), `raw/`, and `wiki/` with `index.md`, `log.md`, `overview.md`, `ideas.md`, `actions.md` and `decisions/`. The tier only decides how many section folders it gets.
 
 | Tier | When | Sections |
 |---|---|---|
 | **Light** | Side project, idea stage, occasional notes, little history to look up | None yet: the core only. |
-| **Standard** | Ongoing information, but one main area of activity | One or two sections. |
+| **Standard** | Ongoing information, but one main area of activity | A few sections, only those it already has things for. |
 | **Deep** | Several areas of activity (clients plus team plus product, for example) and a real need to look things up | All the sections that match its archetype below. |
 
 **Tier from a quick-start answer** (no interview): make an area **Standard** when the answer already shows things they'll need to look up later: named clients, customers or partners; a team; several live deliverables or deadlines (exams, projects, presentations); or it's full time. Give it the sections those things need, from section 4 (for example an agency with named clients: `clients/` `projects/`; a final-year student with exams and projects: `courses/` `projects/` `exams/`). Make it **Light** when it's mentioned in passing, is a side interest, or is something they only *want* to start. Each named client or partner gets its own page under `clients/` once something is captured about it, not empty pages up front.

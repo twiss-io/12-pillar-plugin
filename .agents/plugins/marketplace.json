@@ -11,7 +11,7 @@
         "url": "https://github.com/twiss-io/12-pillar-plugin.git"
       },
       "description": "Build your own life OS on the 12-Pillar Life Flywheel, with a raw/wiki memory (the LLM wiki pattern) and folders recommended for your life and whatever fills your days: studies, a job, businesses.",
-      "version": "0.5.10",
+      "version": "0.5.11",
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"

@@ -30,6 +30,6 @@ Ask for one confirm. Accept corrections in plain language ("drop the last tag", 
 5. For every pillar hub that got a new link, refresh its "Where this stands" summary. If it was `not yet running`, set `**Status:** running`.
 
 ## 4 · Report
-One short line per page changed. Nothing more.
+One short line per page changed. If the capture shows a pillar under strain (poor sleep, money stress, an empty pipeline), add one line naming the upstream pillar worth checking, per `12-pillars.md` ("Short sleep cuts Health's capacity, which everything after it runs on. Want to look at Time?"). Nothing more.
 
 **Rules:** never write before the confirm; never more than 10 tags; never edit an existing raw file; never copy personal content into an area folder or between areas; never put workspace content into web searches or external tools.

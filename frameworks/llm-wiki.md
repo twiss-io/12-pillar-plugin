@@ -111,13 +111,12 @@ followed by 1–3 lines of what changed. Never rewrite past entries.
 ## 4. The three operations
 
 ### Capture (ingest) — `/12-pillars:capture`
-1. Save the source to `raw/` (unchanged).
-2. Read it and propose, in **one message**: a one-line title, up to 10 tags (pillar tags plus people and topics), the destination (`life/` or an area), and exactly which wiki pages will be created or updated.
+1. Read it and propose, in **one message**: a one-line title, up to 10 tags (pillar tags plus people and topics), the destination (`life/` or an area), and exactly which wiki pages will be created or updated.
    - **Deals and business facts** go into the business's folder when that business has one. The life wiki only gets a **link** (for example, `09-opportunities` links to the business's deal page). Without a business folder, they go in the life wiki.
    - **Job, study and investing facts** follow the same rule: into `work/`, `study/` or `investing/` when that area exists, otherwise the life wiki (Career, Growth, Finance).
    - **Older notes-only areas** (just `notes.md`) get a dated bullet in `notes.md`, logged in `life/wiki/log.md`, with a one-time offer to give the area the full structure.
-3. Wait for one confirm. Accept corrections in plain language.
-4. Write the changes: update pillar hubs, people, and topic pages; add new pages if needed; update `index.md`; append to `log.md`.
+2. Wait for one confirm. Accept corrections in plain language. Nothing is written before it.
+3. Save the source to `raw/` (unchanged), then write the changes: update pillar hubs, people, and topic pages; add new pages if needed; update `index.md`; append to `log.md`.
 
 One source often touches several pages. A single conversation note can update a person page, two pillar hubs, and a topic page. That's the point: capture once, and every relevant page stays current.
 
