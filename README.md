@@ -15,7 +15,7 @@ A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into
 
 > Faith → direction · Identity → clarity · Time → allocation · Health → capacity · Development → skill · Relationships → access · Career → credibility · Brand → opportunity · Opportunities → finance · Finance → lifestyle · Lifestyle → legacy · Legacy → back to faith
 
-When something is stuck, the cause is usually upstream of it. Start with the pillar that hurts most and let momentum carry the rest. The full guide is in [`frameworks/12-pillars.md`](frameworks/12-pillars.md).
+When something is stuck, the cause is usually upstream of it. Start with the pillar that hurts most and let momentum carry the rest. The short map is in [`frameworks/12-pillars.md`](frameworks/12-pillars.md); the full method for each pillar (the 168-hour budget, seasons, gifting → stacking, FORM, deal cards, the four finance tiers, declarations and more) is in [`frameworks/pillar-playbook.md`](frameworks/pillar-playbook.md).
 
 **2. A memory that compounds.** Based on Andrej Karpathy's [LLM wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern:
 - `raw/` holds your sources: notes, voice notes, documents, screenshots. They're never edited.
@@ -160,4 +160,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.5.12, early release. Feedback and issues welcome.
+Version 0.6.0, early release. Feedback and issues welcome.

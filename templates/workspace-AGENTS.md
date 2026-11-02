@@ -1,8 +1,8 @@
 # <Name>'s Life Workspace
-<!-- 12-pillars rules: 7 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
+<!-- 12-pillars rules: 8 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
 
 This workspace runs on the 12-Pillar Life Flywheel with a raw/wiki memory.
-The plugin's frameworks define the rules: 12-pillars.md, llm-wiki.md, folder-design.md, instruments.md.
+The plugin's frameworks define the rules: 12-pillars.md (with pillar-playbook.md for each pillar's full method), llm-wiki.md, folder-design.md, instruments.md.
 
 ## Layout
 - life/ — the person, organised by the 12 pillars. raw/ is read-only source material; wiki/ is maintained by the AI.

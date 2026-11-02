@@ -28,6 +28,7 @@ The wiki is a **compiled view** of the raw material. If a wiki page and a raw so
 │       ├── index.md               catalog: Self, Pillars, People, Topics, Areas
 │       ├── log.md                 append-only history
 │       ├── self/
+│       │   ├── history.md         their story so far: roots, turning points (once they share it)
 │       │   ├── north-star.md      the vision, written as declarations
 │       │   ├── now.md             current situation and season
 │       │   └── instruments/       optional profiles (astrology, personality type)
@@ -99,7 +100,7 @@ The body is written in plain sentences that another human could read. Link with 
 
 A pillar is **running** once "Where this stands" has been filled from at least one real source. Whenever a capture adds a link to a hub, it also refreshes "Where this stands" and, the first time, flips the status from `not yet running` to `running`.
 
-**People pages** contain: who they are and how the person knows them, family, work, interests, what they're working toward, health if relevant, important dates (birthdays, anniversaries), how often to stay in touch, last contact, and open threads (promises either way).
+**People pages** contain: who they are and how the person knows them; their circle (inner, close, wider: the wedding-and-funeral test in `pillar-playbook.md`); **FORM** (Family, Occupation, Recreation, Money) plus **Health** and **Dreams** (what they're working toward); important dates (birthdays, anniversaries); how often to stay in touch (at least four times a year for anyone who matters) and last contact; and open threads (promises either way, any deal cards linked). Fill only what is known; leave the rest out rather than guessing.
 
 **`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Areas (one line per area folder, saying what it is and linking its overview; older workspaces call it Businesses). In an area wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
 `- [Marcus Tan](people/marcus-tan.md) — friend from uni, now runs a bakery; rebrand prospect`

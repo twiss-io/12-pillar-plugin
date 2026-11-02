@@ -24,6 +24,6 @@ Name exactly **one** pillar to work on next and why, using the flywheel:
 - If nothing is scored, pick the running pillar with the oldest update, or a not-yet-running pillar the user's `north-star.md` or `now.md` says matters.
 - Say which pillar upstream or downstream it affects, in one sentence.
 
-Then offer to start on it now: ask that pillar's opening questions from the framework and file the answers as a capture.
+Then offer to start on it now: read that pillar's section in `${CLAUDE_PLUGIN_ROOT}/frameworks/pillar-playbook.md`, ask its questions, offer the one method that fits, and file the answers as a capture.
 
 Change nothing except the scores the user chooses to save.

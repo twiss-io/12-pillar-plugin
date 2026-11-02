@@ -10,6 +10,8 @@ You are setting up a 12-pillar life workspace for the user. Before starting, rea
 - `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md`: the folder layout, file formats, and rules
 - `${CLAUDE_PLUGIN_ROOT}/frameworks/folder-design.md`: how to recommend folders for their studies, job, businesses and investing
 
+Read `${CLAUDE_PLUGIN_ROOT}/frameworks/pillar-playbook.md` only for the pillar you're working on in stage 6 (its section, not the whole file).
+
 Bundled instruments, with full paths, for stage 2:
 - Astrology script: `${CLAUDE_PLUGIN_ROOT}/instruments/bazi.py`
 - Enneagram protocol: `${CLAUDE_PLUGIN_ROOT}/instruments/enneagram-typing.md`
@@ -118,9 +120,9 @@ Follow `folder-design.md`. Ask its open "What fills your days?" question (free t
 
 ### 6 · Start where it hurts (~10 min per pillar)
 Ask: **"Which area of your life do you most want to get moving?"** Offer 3–4 pillars their answers so far point to, as clickable options, plus Other. For that pillar:
-- Ask 2–4 of its opening questions from `12-pillars.md`, adapted to what you already know.
+- Read that pillar's section in `pillar-playbook.md`. Ask 2–4 of its questions, adapted to what you already know, and offer the one method from it that fits their answers (e.g. a first 168-hour budget for Time, the base number for Finance, the wedding-and-funeral test for Relationships). Fill it only from what they tell you.
 - Save their answers to `life/raw/` as a capture, then update the hub page: fill in "Where this stands", "Current focus", and mark it `**Status:** running`. Log it as `## [YYYY-MM-DD] capture | <pillar> — setup` so it counts like any other capture.
-- Shortcuts if relevant: for **Career**, invite them to paste their CV or LinkedIn profile (save to raw, summarise into the hub and a `topics/track-record.md` page). For **Relationships**, ask who the 3–5 most important people are and create their people pages.
+- Shortcuts if relevant: for **Career**, invite them to paste their CV or LinkedIn profile (save to raw, summarise into the hub and a `topics/track-record.md` page). For **Relationships**, ask who the 3–5 most important people are and create their people pages (FORM + Health + Dreams, only what they know).
 
 Offer one more pillar, or move to the close.
 
