@@ -15,11 +15,11 @@ Each part of their world maps to an **area**: a folder next to `life/` that hold
 | They mentioned | Area folder | Archetype (section 4) |
 |---|---|---|
 | Studying | `study/` | Student |
-| Working a job | `work/` (two jobs at once: `work/<employer>/` each) | Employee |
+| Working a job | `work/` (two jobs at once: `work/<employer>/` each; a new job after an old one: a new `work-<employer>/`, and the old folder is archived as it is, never moved) | Employee |
 | Running a business | `businesses/<name>/`, one per business | the closest business archetype |
 | Freelance, agency or client work | `businesses/<name>/` for their practice | Agency / services or Consulting / coaching |
 | Creating content as a channel or media business | `businesses/<channel-or-brand>/` | Content / media / creator |
-| Building their own personal brand or posting their own content | `content/` (ideas, drafts, what was posted, what worked); who they want to be known for stays in `life/` on the Brand pillar (8) | Content / media / creator |
+| Building their own personal brand or posting their own content | `content/` (ideas, drafts, and `posts/`: one page per published post with its text and results); who they want to be known for stays in `life/` on the Brand pillar (8) | Content / media / creator |
 | Investing | `investing/` | Investing / holding |
 | Between things right now | nothing yet; `life/` covers it (Career and Opportunities pillars) | — |
 

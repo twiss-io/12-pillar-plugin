@@ -22,6 +22,7 @@ Pull out only what's worth keeping:
 - **Actions:** what needs doing, by whom, and by when if it was said.
 - **Open questions:** things raised but not resolved.
 - **Facts learned:** new information about a client, person, market or numbers.
+- **Deliverables:** anything finished in the session (a proposal, plan, email, post): its final text is saved as is to that folder's `raw/YYYY-MM-DD-draft-<slug>.md` (`source: draft`) and linked from the page it concerns.
 - **Personal parts:** anything about the user's own life (stress, time, money, health) goes to `life/`, not to the business, job or studies.
 
 Drop dead ends and back-and-forth. If nothing was decided, say so rather than inventing a decision.
@@ -32,13 +33,13 @@ Work out where each item belongs: which area folder (a business, `study/`, `work
 Destinations inside a **Standard or Deep area**:
 - Decisions: `wiki/decisions/YYYY-MM-DD-<slug>.md`, one page per real decision, each with decision, reasoning, alternatives rejected, date, and sources. Create `decisions/` if it's missing and add a Decisions section to the index.
 - Ideas: append to `wiki/ideas.md`.
-- Actions: append to `wiki/actions.md` under `## Open actions` as `- [ ] <action> — <owner>, <due date if said>`.
+- Actions: append to `wiki/actions.md` under `## Open actions` as `- [ ] <action> — <owner>, due YYYY-MM-DD` (the due part only if said).
 - Open questions: append to `wiki/actions.md` under `## Open questions`.
 - Facts: update the matching section page (a client in `clients/`, a product in `product/`, and so on).
 - If `ideas.md` or `actions.md` is missing (an older folder), create it and link it from `overview.md`.
 
 **Older notes-only area:** dated bullets in the `## Notes` list of its `notes.md`, each prefixed `Decided:`, `Idea:`, `To do:` or `Open:`.
-**Personal (`life/`):** decisions and ideas go in `topics/`, and open questions go in the relevant pillar hub's `## Open questions`. Updates go to the relevant pillar hubs and people pages, as a normal capture would.
+**Personal (`life/`):** decisions and ideas go in `topics/`, actions in `life/wiki/actions.md`, and open questions in the relevant pillar hub's `## Open questions`. Updates go to the relevant pillar hubs and people pages, as a normal capture would.
 
 ## 4 · Propose (one message)
 Show the wrap as a compact card, then ask for one confirm:
@@ -56,7 +57,7 @@ Wrap-up: <session title>
 Accept corrections in plain language ("that wasn't decided, park it", "move the pricing bit to the other business", "that's for work, not the shop").
 
 ## 5 · File (after confirm)
-1. **Session note:** save to each destination's `raw/` with the header `source: session-summary`. Contents: a short summary of the discussion plus the user's key statements quoted verbatim, and an area's note holds only that area's part. Names: `YYYY-MM-DD-session-<slug>.md` in an area, and `YYYY-MM-DD-session-<slug>-personal.md` in `life/raw/`. If the name is taken, add `-2`, `-3`, and so on. A Light area gets no session note; its bullets are the record.
+1. **Session note:** save to each destination's `raw/` with the header `source: session-summary`. Contents: a short summary of the discussion plus the user's key statements quoted verbatim, and an area's note holds only that area's part. Names: `YYYY-MM-DD-session-<slug>.md` in an area, and `YYYY-MM-DD-session-<slug>-personal.md` in `life/raw/`. If the name is taken, add `-2`, `-3`, and so on. An older notes-only area gets no session note; its bullets are the record.
 2. Write the decision, idea, action and fact pages with standard frontmatter, citing the session note in `sources:` and `## Sources`.
 3. Link from the relevant life pillar hubs (usually Opportunities, Finance, Career). Links only: a hub's "Where this stands" may say that a decision exists and link to it ("pricing decided, see link"), but never repeats business details.
 4. Update each touched `index.md`. Append `## [YYYY-MM-DD] wrap | <session title>` to each touched area `log.md`, and to `life/wiki/log.md` for anything filed in `life/` or in an older notes-only area.

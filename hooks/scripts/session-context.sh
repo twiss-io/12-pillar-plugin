@@ -15,6 +15,31 @@ if [ -f "$now" ] && [ ! -L "$now" ]; then
   while IFS= read -r l; do lines+=("- ${l:0:160}"); done < <(grep -E '^(Season|Since|Until):' "$now" 2>/dev/null | head -3)
 fi
 
+# Deadlines: open "- [ ] ... due YYYY-MM-DD" lines in any wiki/actions.md, overdue or due within 7 days.
+today="$(date +%F)"
+soon="$(date -v+7d +%F 2>/dev/null || date -d '+7 days' +%F 2>/dev/null)"
+if [ -n "$soon" ]; then
+  due=0
+  while IFS= read -r f; do
+    [ -L "$f" ] && continue
+    rel="${f#"$root"/}"; area="${rel%%/wiki/actions.md}"
+    [ "$area" != life ] && grep -F -- "$area/" "$root/life/wiki/index.md" 2>/dev/null | grep -qi '(archived)' && continue
+    while IFS= read -r l; do
+      d="$(printf '%s' "$l" | grep -oE 'due [0-9]{4}-[0-9]{2}-[0-9]{2}' | head -1 | cut -c5-)"
+      [ -z "$d" ] && continue
+      if [[ ! "$d" > "$soon" ]]; then
+        [[ "$d" < "$today" ]] && tag="OVERDUE" || tag="due $d"
+        item="$(printf '%s' "$l" | sed -E 's/^[[:space:]]*- \[ \][[:space:]]*//; s/(,|—|[[:space:]])*due [0-9-]{10}//')"
+        due=$((due+1)); [ "$due" -le 8 ] && lines+=("- [$tag] ${item:0:140} ($area)")
+      fi
+    done < <(grep -E '^[[:space:]]*- \[ \]' "$f" 2>/dev/null)
+  done < <(find "$root" -maxdepth 4 -path '*/wiki/actions.md' -type f 2>/dev/null)
+  [ "${due:-0}" -gt 0 ] && lines+=("- Mention these deadlines briefly at the start, once.")
+fi
+
+# Refresh the local dashboard if the user has made one.
+[ -f "$root/dashboard.html" ] && command -v python3 >/dev/null && python3 "$(cd "$(dirname "$0")/../.." && pwd)/scripts/dashboard.py" "$root" >/dev/null 2>&1
+
 # Sources in raw/ that nothing in the SAME area cites yet (life raw vs life wiki,
 # an area's raw vs that area's wiki), so same-named files can't mask each other.
 unprocessed=0; checked=0

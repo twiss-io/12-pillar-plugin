@@ -58,7 +58,7 @@ On a fresh start (no `setup-progress.md`), offer one choice as clickable options
    Then the confirm question: "Create this?" with options "Create it" and "Change something" (changes can be typed, e.g. "call study uni").
 
    Get one confirm, accept changes in plain language, and create those areas as `add-business` step 4 describes for their tier, adding each to the Areas section of the index. For each area, save their own words about it as its `raw/YYYY-MM-DD-setup-interview.md`, and list the names they gave (clients, projects, school, employer) as routing aliases in its `AGENTS.md`, so "Supercane" routes to `work/`. If they're between things, it adds nothing beyond `life/`. Then:
-1. In `setup-progress.md`, add the line `Mode: learn as you go` under the title, mark stage 1 `done`, stage 2 (profiles) `deferred`, stages 3, 4 and 6 `learning`, and stage 5 `done` once they answered (even "between things"), `learning` if they skipped.
+1. In `setup-progress.md`, add the line `Mode: learn as you go` under the title, mark stage 1 `done`, stage 2 (profiles) `deferred`, stages 3 and 6 `learning`, stage 4 `done` if `now.md` got a `Season:` line (otherwise `learning`), and stage 5 `done` once they answered (even "between things"), `learning` if they skipped.
 2. Save their answers (what to call them, what fills their days) to `life/raw/YYYY-MM-DD-setup-about-you.md` (`source: setup`), and add a `Sources: YYYY-MM-DD-setup-about-you.md` line to `setup-progress.md` so it counts as filed.
 3. Log `## [YYYY-MM-DD] setup | Quick start`.
 4. Tell them, in four short lines: just use this folder for anything; when they mention something about themselves along the way, it's noted without interrupting, and offered for filing in one batch when there's a pause; their areas start small and get more sections once they grow, and anything new they keep mentioning gets offered a folder; `/12-pillars:setup` any time does a stage properly, and `/12-pillars:pillars` shows how much has filled in.
@@ -90,6 +90,7 @@ CLAUDE.md               one line: @AGENTS.md (so Claude Code reads the same rule
 life/raw/assets/
 life/wiki/index.md      sections: Self, Pillars, People, Topics, Areas
 life/wiki/log.md        first entry: ## [YYYY-MM-DD] setup | Workspace created
+life/wiki/actions.md    personal to-dos and deadlines: ## Open actions, ## Open questions
 life/wiki/self/setup-progress.md
 life/wiki/pillars/01-faith.md … 12-legacy.md
 life/wiki/people/

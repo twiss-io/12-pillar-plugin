@@ -118,6 +118,7 @@ In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
 | `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right place: a business, your job or studies, or your life wiki. Also offered automatically when a session winds down. |
 | `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
+| `/12-pillars:dashboard` | Opens a dashboard of your life in the browser: the 12 pillars, deadlines, your season, people and recent activity. Built from your own files, on your computer, and refreshed at the start of each session. |
 | `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
 | `/12-pillars:add-business` | Add a business, your job, your studies or investing as its own folder, or upgrade a light one, with a recommended structure. |
 | `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update. |
@@ -160,4 +161,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.6.1, early release. Feedback and issues welcome.
+Version 0.7.0, early release. Feedback and issues welcome.

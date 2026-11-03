@@ -1,5 +1,5 @@
 # <Name>'s Life Workspace
-<!-- 12-pillars rules: 8 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
+<!-- 12-pillars rules: 9 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
 
 This workspace runs on the 12-Pillar Life Flywheel with a raw/wiki memory.
 The plugin's frameworks define the rules: 12-pillars.md (with pillar-playbook.md for each pillar's full method), llm-wiki.md, folder-design.md, instruments.md.
@@ -13,7 +13,8 @@ The plugin's frameworks define the rules: 12-pillars.md (with pillar-playbook.md
 - Life updates (short facts) are filed right away. Working sessions (brainstorming, planning) are not interrupted; when one winds down, offer /12-pillars:wrap to file its decisions, ideas and actions.
 - Facts about the person mentioned in passing, while asking for something else, are noted without interrupting. At a natural pause, offer them in one batch ("I picked up 3 things about you: … File them?"), file after one confirm, and save the user's words to life/raw/YYYY-MM-DD-learned-<slug>.md (`source: chat`). Never ask the user questions just to fill pages.
 - If life/wiki/self/setup-progress.md says `Mode: learn as you go`, learned facts also fill self/now.md, self/north-star.md and the pillar hubs; mark a `learning` stage `done` when its page has real content. A business, job, studies or investing that comes up repeatedly with no folder gets offered its own area folder once.
-- Before a working session on an area, read its overview.md (or notes.md in an older notes-only area), recent decisions/, ideas.md and actions.md, so the session builds on what was decided.
+- Before a working session or a task on an area (a draft, a message, a plan), read its overview.md (or notes.md in an older notes-only area), recent decisions/, ideas.md and actions.md, and the page of each person or client involved, so the work builds on what is known.
+- Deadlines and to-dos live in each folder's wiki/actions.md as `- [ ] <what> — due YYYY-MM-DD` (personal ones in life/wiki/actions.md). When a task produces something worth keeping (a proposal, plan, email, post), offer to save its final text to that folder's raw/YYYY-MM-DD-draft-<slug>.md.
 - Anything shared as a life update is a capture. Handle it exactly as /12-pillars:capture does: propose in one message the title, ≤10 tags and every page that will change, wait for one confirm, then save the source to raw/ (with a `captured:`/`source:` header), write the pages, update index.md, and append `## [YYYY-MM-DD] capture | <title>` to log.md.
 - A capture about an area (its folder name or an alias in its AGENTS.md) goes to that area's folder; an older notes-only area gets a dated bullet in its notes.md. Mixed captures are split: the original in life/raw/, an area-only excerpt in the area's raw/.
 - Every wiki page has frontmatter (title, type, pillars, tags, sources, updated) and ends with a ## Sources list.

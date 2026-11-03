@@ -27,6 +27,7 @@ The wiki is a **compiled view** of the raw material. If a wiki page and a raw so
 │   └── wiki/
 │       ├── index.md               catalog: Self, Pillars, People, Topics, Areas
 │       ├── log.md                 append-only history
+│       ├── actions.md             personal to-dos and deadlines
 │       ├── self/
 │       │   ├── history.md         their story so far: roots, turning points (once they share it)
 │       │   ├── north-star.md      the vision, written as declarations
@@ -62,7 +63,7 @@ Only the areas the person chose exist, and they don't all get the same shape. `f
 ```markdown
 ---
 captured: 2026-10-21
-source: voice-note | chat | manual | import | setup | session-summary | <original filename>
+source: voice-note | chat | manual | import | setup | session-summary | draft | <original filename>
 ---
 <the user's words, unedited>
 ```
@@ -119,7 +120,7 @@ A pillar is **running** once "Where this stands" has been filled from at least o
 | Lifestyle goals with budgets and timing | `topics/lifestyle-goals.md`, linked from `pillars/11-lifestyle.md` |
 | Legacy declarations | `self/north-star.md`, linked from `pillars/12-legacy.md` |
 
-**`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Areas (one line per area folder, saying what it is and linking its overview; older workspaces call it Businesses). In an area wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
+**`index.md`** is grouped by section. In `life/` the sections are Self (with a line for `actions.md`), Pillars, People, Topics, and Areas (one line per area folder, saying what it is and linking its overview; older workspaces call it Businesses). In an area wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
 `- [Marcus Tan](people/marcus-tan.md) — friend from uni, now runs a bakery; rebrand prospect`
 
 **`log.md`** is append-only, newest at the bottom, one heading per operation:
@@ -142,7 +143,7 @@ One source often touches several pages. A single conversation note can update a 
 
 - **Life updates** (short facts: an event, health, money, a person, a plan) are filed **right away** via Capture, so nothing is waiting when a long session gets compacted.
 - **Working sessions** (brainstorming, planning, strategy) are **not interrupted**. Most of what's said is exploration. When the session winds down, the AI offers a **Wrap**, which files only the outcome.
-- **Other tasks** (writing an email, fixing code, planning a trip) where the person mentions something about themselves **in passing**. Don't interrupt the task. Note the fact, and at a natural pause offer everything noted in one batch: "I picked up 3 things about you: … File them?" One confirm files them like a capture, with the user's words saved to `life/raw/YYYY-MM-DD-learned-<slug>.md` (`source: chat`). Only file what the user actually said. Never ask questions just to fill pages, and never file guesses about them.
+- **Other tasks** (writing an email, fixing code, planning a trip) where the person mentions something about themselves **in passing**. Don't interrupt the task. Note the fact, and at a natural pause offer everything noted in one batch: "I picked up 3 things about you: … File them?" One confirm files them like a capture, with the user's words saved to `life/raw/YYYY-MM-DD-learned-<slug>.md` (`source: chat`). Only file what the user actually said. Never ask questions just to fill pages, and never file guesses about them. When the task produced something worth keeping (a proposal, plan, email, post), offer at the end to save its final text to that folder's `raw/YYYY-MM-DD-draft-<slug>.md` (`source: draft`), linked from the page it concerns (the client, the project, the pillar), and logged as `## [YYYY-MM-DD] draft | <title>`. Before drafting for a person or client, read their page first.
 
 ❌ Mid-task: "Before I fix that email — you mentioned your sister's wedding. Want me to file that?"
 ✅ After the email is done: "Done. I also picked up 2 things about you along the way: your sister's wedding is 14 Dec, and you're cutting caffeine. File them?"
@@ -172,6 +173,6 @@ Look for contradictions between pages, stale claims that newer sources supersede
 - **Confirm before meaningful writes.** Capture always shows the proposed changes first. Lint fixes are approved before applying.
 - **Don't invent.** Wiki content comes from raw sources or from what the user said in conversation. An empty pillar or a thin page stays thin until real information arrives.
 - **Work contacts live in their area.** Clients, colleagues and team members get pages in the area (`clients/`, `people/`, `team/`); `life/wiki/people/` is for personal relationships, and may link to an area page when someone is both.
-- **Keep boundaries.** Personal content from `life/` is never copied into an area (a business, `work/`, `study/`, `investing/`), and one area's content is never copied into another. Linking from a person's career or opportunities pillar to an area's overview is fine. Copying content across is not.
+- **Keep boundaries.** Personal content from `life/` is never copied into an area (a business, `work/`, `study/`, `investing/`), and one area's content is never copied into another. Linking from a person's career or opportunities pillar to an area's overview is fine. Copying content across is not. A published post in `content/` may mention any area; it is public already.
 - **Privacy.** Everything stays on this machine. Never put wiki or raw content into web searches, URLs, or external tool calls.
 - **Write for humans.** Pages should read like clear notes a person would want to read, not machine-formatted dumps.
