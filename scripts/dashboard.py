@@ -16,6 +16,8 @@ import sys
 ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
 TODAY = dt.date.today()
 DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
+if not os.path.isfile(os.path.join(ROOT, "life/wiki/index.md")):
+    sys.exit("Not a 12-pillar workspace (no life/wiki/index.md): " + ROOT)
 
 
 def read(path):
@@ -381,6 +383,11 @@ window.addEventListener("hashchange", show); show();
 </script></body></html>"""
 
 out = os.path.join(ROOT, "dashboard.html")
-with open(out, "w", encoding="utf-8") as f:
+if os.path.islink(out):
+    sys.exit("dashboard.html is a symlink; not writing through it.")
+tmp = out + ".tmp"
+fd = os.open(tmp, os.O_WRONLY | os.O_CREAT | os.O_TRUNC | getattr(os, "O_NOFOLLOW", 0), 0o600)
+with os.fdopen(fd, "w", encoding="utf-8") as f:
     f.write(page)
+os.replace(tmp, out)
 print(out)

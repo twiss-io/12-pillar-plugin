@@ -21,7 +21,7 @@ soon="$(date -v+7d +%F 2>/dev/null || date -d '+7 days' +%F 2>/dev/null)"
 if [ -n "$soon" ]; then
   due=0
   while IFS= read -r f; do
-    [ -L "$f" ] && continue
+    { [ -f "$f" ] && [ ! -L "$f" ]; } || continue
     rel="${f#"$root"/}"; area="${rel%%/wiki/actions.md}"
     [ "$area" != life ] && grep -F -- "$area/" "$root/life/wiki/index.md" 2>/dev/null | grep -qi '(archived)' && continue
     while IFS= read -r l; do
@@ -29,16 +29,22 @@ if [ -n "$soon" ]; then
       [ -z "$d" ] && continue
       if [[ ! "$d" > "$soon" ]]; then
         [[ "$d" < "$today" ]] && tag="OVERDUE" || tag="due $d"
-        item="$(printf '%s' "$l" | sed -E 's/^[[:space:]]*- \[ \][[:space:]]*//; s/(,|—|[[:space:]])*due [0-9-]{10}//')"
+        item="$(printf '%s' "$l" | sed -E 's/^[[:space:]]*- \[ \][[:space:]]*//; s/(,|—|[[:space:]])*due [0-9-]{10}//' | tr -d '\000-\037\140<>')"
         due=$((due+1)); [ "$due" -le 8 ] && lines+=("- [$tag] ${item:0:140} ($area)")
       fi
     done < <(grep -E '^[[:space:]]*- \[ \]' "$f" 2>/dev/null)
-  done < <(find "$root" -maxdepth 4 -path '*/wiki/actions.md' -type f 2>/dev/null)
+  done < <(  # only life/ and real areas (raw/ + wiki/, not symlinks), never anything under raw/
+    printf '%s\n' "$root/life/wiki/actions.md"
+    for b in "$root"/*/ "$root"/*/*/; do
+      [ "$b" = "$root/life/" ] && continue
+      [[ "$b" == */raw/* ]] && continue
+      [ -d "${b}raw" ] && [ -f "${b}wiki/actions.md" ] && [ ! -L "${b%/}" ] && printf '%s\n' "${b}wiki/actions.md"
+    done)
   [ "${due:-0}" -gt 0 ] && lines+=("- Mention these deadlines briefly at the start, once.")
 fi
 
 # Refresh the local dashboard if the user has made one.
-[ -f "$root/dashboard.html" ] && command -v python3 >/dev/null && python3 "$(cd "$(dirname "$0")/../.." && pwd)/scripts/dashboard.py" "$root" >/dev/null 2>&1
+[ -f "$root/dashboard.html" ] && [ ! -L "$root/dashboard.html" ] && command -v python3 >/dev/null && python3 "$(cd "$(dirname "$0")/../.." && pwd)/scripts/dashboard.py" "$root" >/dev/null 2>&1
 
 # Sources in raw/ that nothing in the SAME area cites yet (life raw vs life wiki,
 # an area's raw vs that area's wiki), so same-named files can't mask each other.
