@@ -9,22 +9,7 @@
 - The methods are tools, not homework. Empty is fine: never invent content to fill a method's template.
 - Facts over stories: fill each template from what the person actually tells you, and save their words to `raw/` first, as every capture does.
 
-**Where each method lives in the workspace** (all under `life/wiki/` unless it belongs to an area):
-
-| Method | Page |
-|---|---|
-| History, North Star (declarations), Current Season | `self/history.md`, `self/north-star.md`, `self/now.md` |
-| Self-awareness instruments (MBTI, Enneagram, DISC…) | `self/instruments/` (see `instruments.md`) |
-| 168-hour budget, seasons of war | `topics/168-budget.md`, linked from `pillars/03-time.md`; the current season also goes in `self/now.md` |
-| Health baseline, thresholds, tracking | `pillars/04-health.md` and `topics/` pages it links |
-| Capability inventory, gifting → stacking | `topics/capabilities.md`, linked from `pillars/05-development.md` |
-| FORM + Health + Dreams, circle, cadence, last contact | each person's `people/<name>.md` (format in `llm-wiki.md`) |
-| Rolodex circles and service cadence | `topics/rolodex.md`, linked from `pillars/06-relationships.md` |
-| Evidence file, position cards | `topics/track-record.md` and `topics/position-<role>.md`, linked from `pillars/07-career.md`; job detail stays in `work/` |
-| Deal cards (BANT), deal filter | in the area folder the deal belongs to (`clients/`, `pipeline/`, `proposals/`); a personal one in `topics/`; linked from `pillars/09-opportunities.md` |
-| Four tiers, base number, net worth | `topics/finances.md`, linked from `pillars/10-finance.md`; detail on holdings stays in `investing/` |
-| Lifestyle goals with budgets and timing | `topics/lifestyle-goals.md`, linked from `pillars/11-lifestyle.md` |
-| Legacy declarations | `self/north-star.md`, linked from `pillars/12-legacy.md` |
+Where each method's notes are kept is listed in `llm-wiki.md` section 3.
 
 ## The flywheel as a whole
 

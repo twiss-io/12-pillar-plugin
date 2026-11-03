@@ -71,7 +71,7 @@ Binary files go in `raw/assets/` with the same date prefix.
 
 **Files the user drops into `raw/` themselves** keep whatever name they have and are never renamed or edited. Instead of adding a header, capture records them by citing them from wiki pages and logging them.
 
-**Mixed captures** (area and personal content in one item, e.g. a business, the job, or studies): the original goes to `life/raw/`, unedited. The area's `raw/` gets a separate file containing **only the area's sentences**, with `source: excerpt of life/raw/<file>` in its header. This excerpt is one of **two exceptions** to "unedited" (the other is session notes, below), and it exists so personal content never enters an area folder. If the area is Light (no `raw/`), the area's part becomes a dated bullet in its `notes.md` instead.
+**Mixed captures** (area and personal content in one item, e.g. a business, the job, or studies): the original goes to `life/raw/`, unedited. The area's `raw/` gets a separate file containing **only the area's sentences** (where one sentence mixes both, keep just the area's part as a whole clause, never a fragment), with `source: excerpt of life/raw/<file>` in its header. This excerpt is one of **two exceptions** to "unedited" (the other is session notes, below), and it exists so personal content never enters an area folder. If the area is Light (no `raw/`), the area's part becomes a dated bullet in its `notes.md` instead.
 
 Setup answers are saved the same way, as the user's own words in a Q&A layout with `source: setup`.
 
@@ -98,9 +98,26 @@ The body is written in plain sentences that another human could read. Link with 
 
 **Pillar hub pages** (`wiki/pillars/NN-<name>.md`) have the standard frontmatter (`sources: []` and `tags: ["#<pillar>"]` to start), a `**Status:**` line, and these sections: `## Where this stands` (2–4 sentences), `## Current focus`, `## Open questions`, `## Linked pages` (dated lines), `## Sources`. Keep them short. Detail lives in the linked pages.
 
-A pillar is **running** once "Where this stands" has been filled from at least one real source. Whenever a capture adds a link to a hub, it also refreshes "Where this stands" and, the first time, flips the status from `not yet running` to `running`.
+A pillar is **running** once "Where this stands" has been filled from at least one source with real detail about that pillar. A passing line in a broad snapshot (like `now.md`) earns a link, not the status. Whenever a capture touches a hub, it refreshes "Where this stands" and, the first time it brings real detail, flips the status from `not yet running` to `running`.
 
-**People pages** contain: who they are and how the person knows them; their circle (inner, close, wider: the wedding-and-funeral test in `pillar-playbook.md`); **FORM** (Family, Occupation, Recreation, Money) plus **Health** and **Dreams** (what they're working toward); important dates (birthdays, anniversaries); how often to stay in touch (at least four times a year for anyone who matters) and last contact; and open threads (promises either way, any deal cards linked). Fill only what is known; leave the rest out rather than guessing.
+**People pages** contain: who they are and how the person knows them; **FORM** (Family, Occupation, Recreation, Money) plus **Health** and **Dreams** (what they're working toward); important dates (birthdays, anniversaries); and open threads (promises either way, any deal cards linked). Personal contacts in `life/wiki/people/` also get their circle (inner, close, wider: the wedding-and-funeral test in `pillar-playbook.md`), how often they want to stay in touch (suggest at least four times a year for anyone who matters; write only what they choose) and last contact; work contacts in an area get their role instead. Fill only what is known; leave the rest out rather than guessing.
+
+**Where each method's notes go** (the methods are in `pillar-playbook.md`; all under `life/wiki/` unless it belongs to an area):
+
+| Method | Page |
+|---|---|
+| History, North Star (declarations), Current Season | `self/history.md`, `self/north-star.md`, `self/now.md` |
+| Self-awareness instruments (MBTI, Enneagram, DISC…) | `self/instruments/` (see `instruments.md`) |
+| 168-hour budget, seasons of war | `topics/168-budget.md`, linked from `pillars/03-time.md`; the current season also goes in `self/now.md` |
+| Health baseline, thresholds, tracking | `pillars/04-health.md` and `topics/` pages it links |
+| Capability inventory, gifting → stacking | `topics/capabilities.md`, linked from `pillars/05-development.md` |
+| FORM + Health + Dreams, circle, cadence, last contact | each person's page (format above) |
+| Rolodex circles and service cadence | `topics/rolodex.md`, linked from `pillars/06-relationships.md` |
+| Evidence file, position cards | `topics/track-record.md` and `topics/position-<role>.md`, linked from `pillars/07-career.md`; job detail stays in `work/` |
+| Deal cards (BANT), deal filter | in the area folder the deal belongs to (`clients/`, `pipeline/`, `proposals/`); a personal one in `topics/`; linked from `pillars/09-opportunities.md` |
+| Four tiers, base number, net worth | `topics/finances.md`, linked from `pillars/10-finance.md`; detail on holdings stays in `investing/` |
+| Lifestyle goals with budgets and timing | `topics/lifestyle-goals.md`, linked from `pillars/11-lifestyle.md` |
+| Legacy declarations | `self/north-star.md`, linked from `pillars/12-legacy.md` |
 
 **`index.md`** is grouped by section. In `life/` the sections are Self, Pillars, People, Topics, and Areas (one line per area folder, saying what it is and linking its overview; older workspaces call it Businesses). In an area wiki they are: Overview (with lines for `overview.md`, `ideas.md` and `actions.md`), then one section per chosen folder, then Decisions, always last. One line per page:
 `- [Marcus Tan](people/marcus-tan.md) — friend from uni, now runs a bakery; rebrand prospect`

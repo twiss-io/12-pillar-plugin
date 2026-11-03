@@ -7,7 +7,7 @@ description: "The daily habit: save what happened as a source, propose which pag
 
 You are capturing: `$ARGUMENTS` (text the user wrote, a file path, or empty, in which case process any files in `life/raw/` and every area's `raw/` (each folder in the Areas section of `life/wiki/index.md`, e.g. `study/`, `work/`, `businesses/*/`) that no wiki page cites yet, oldest first. Files the user dropped in themselves are left exactly as they are: no rename, no added header).
 
-Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md` for formats and rules, and `${CLAUDE_PLUGIN_ROOT}/frameworks/12-pillars.md` for which pillars a piece of information touches. If there is no workspace yet (no `life/wiki/index.md`), offer `/12-pillars:setup` instead.
+Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md` for formats and rules (including which page each method's notes go on), and `${CLAUDE_PLUGIN_ROOT}/frameworks/12-pillars.md` for which pillars a piece of information touches. If there is no workspace yet (no `life/wiki/index.md`), offer `/12-pillars:setup` instead.
 
 ## 1 · Read
 Read the item. Images count too: a receipt → money figures (#finance), a meal or workout → #health, a screenshot of a chat → the people and what was agreed. If you can't read a file (audio, unreadable image), ask for a one-line summary rather than guessing.
@@ -27,7 +27,7 @@ Ask for one confirm. Accept corrections in plain language ("drop the last tag", 
 2. Make the confirmed page changes, keeping each page's frontmatter (`updated`, `sources`, `tags`) and `## Sources` list current.
 3. Add any new pages to that folder's `wiki/index.md`.
 4. Append to that folder's `wiki/log.md`: `## [YYYY-MM-DD] capture | <title>` plus 1–2 lines naming the pages touched.
-5. For every pillar hub that got a new link, refresh its "Where this stands" summary. If it was `not yet running`, set `**Status:** running`.
+5. For every pillar hub this capture touched, refresh its "Where this stands" summary. If it was `not yet running` and this source gives real detail about that pillar, set `**Status:** running`.
 
 ## 4 · Report
 One short line per page changed. If the records show a real change from the person's normal (sleep well below what they usually get, spending above their base number, a pipeline that has gone empty), add one plain question about what might be driving it, per `12-pillars.md` section 3 ("That's two weeks well under your usual sleep. Anything changed in how your weeks are going?"). Nothing more.

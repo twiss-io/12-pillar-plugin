@@ -13,7 +13,7 @@ Read the 12 hub pages in `life/wiki/pillars/` and render one compact table:
 | # | Pillar | Status | Last updated | Linked pages | One-line state |
 |---|---|---|---|---|---|
 
-Status comes from each hub's `**Status:**` line (not yet running / running). "One-line state" comes from its "Where this stands" section, or "—" if it's empty. Add one line below the table: how many pillars are running, and how many captures and wraps were logged this month (count `capture` and `wrap` headings in `life/wiki/log.md` and every area's `wiki/log.md`, the areas being those in the Areas section of `life/wiki/index.md`; count a wrap logged in several places once). If `life/wiki/self/setup-progress.md` says `Mode: learn as you go`, add one more line: which setup stages are still `learning`, and that `/12-pillars:setup` can do any of them properly in a few minutes.
+Status comes from each hub's `**Status:**` line (not yet running / running). "One-line state" comes from its "Where this stands" section, or "—" if it's empty. Add one line below the table: how many pillars are running, and how many captures and wraps were logged this month (count `capture` and `wrap` headings in `life/wiki/log.md` and every area's `wiki/log.md`, the areas being those in the Areas section of `life/wiki/index.md`; count a capture or wrap logged in several places once). If `life/wiki/self/setup-progress.md` says `Mode: learn as you go`, add one more line: which setup stages are still `learning`, and that `/12-pillars:setup` can do any of them properly in a few minutes.
 
 ## 2 · Optional self-score
 Offer (clickable: score them now · skip): the user rates **all 12** pillars 1–10 (or "don't know" for one they haven't thought about), as a fill-in template. Save the scores with today's date in a `## Scores` section of `life/wiki/self/now.md`, placed just above `## Sources`. Keep earlier scores, since the trend is useful.
@@ -24,6 +24,6 @@ Name exactly **one** pillar to work on next and why, using the flywheel:
 - If nothing is scored, pick the running pillar with the oldest update, or a not-yet-running pillar the user's `north-star.md` or `now.md` says matters.
 - Say which pillar upstream or downstream it affects, in one sentence.
 
-Then offer to start on it now: read that pillar's section in `${CLAUDE_PLUGIN_ROOT}/frameworks/pillar-playbook.md`, ask its questions, offer the one method that fits, and file the answers as a capture.
+Then offer to start on it now: read that pillar's section in `${CLAUDE_PLUGIN_ROOT}/frameworks/pillar-playbook.md`, ask its questions, offer the one method that fits (not one they already have a page for), and file the answers as a capture.
 
 Change nothing except the scores the user chooses to save.
