@@ -126,7 +126,7 @@ In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars
 | `/12-pillars:dashboard` | Opens a dashboard of your life in the browser: the 12 pillars (click one to see everything in it), deadlines, your season, people and recent activity. Built from your own files, on your computer, and refreshed at the start of each session. |
 | `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
 | `/12-pillars:add-business` | Add your studies, your job, a business or investing as a folder inside its pillar, or grow an existing one with more sections. |
-| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update, and moves a workspace from before 0.8.0 into the pillar folders. |
+| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update, and moves a workspace from before 0.8.1 into the pillar folders. |
 
 ## Updating
 
@@ -166,4 +166,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.8.0, early release. Feedback and issues welcome.
+Version 0.8.1, early release. Feedback and issues welcome.

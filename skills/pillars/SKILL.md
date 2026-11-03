@@ -16,7 +16,7 @@ Read the 12 pillar READMEs (`NN-<name>/README.md`) and render one compact table:
 Status comes from each hub's `**Status:**` line (not yet running / running). "One-line state" comes from its "Where this stands" section, or "—" if it's empty. Add one line below the table: how many pillars are running, and how many captures and wraps were logged this month (count `capture` and `wrap` headings in `log.md`). If `setup-progress.md` says `Mode: learn as you go`, add one more line: which setup stages are still `learning`, and that `/12-pillars:setup` can do any of them properly in a few minutes.
 
 ## 2 · Optional self-score
-Offer (clickable: score them now · skip): the user rates **all 12** pillars 1–10 (or "don't know" for one they haven't thought about), as a fill-in template. Save the scores with today's date in a `## Scores` section of `02-identity/now.md`, placed just above `## Sources`. Keep earlier scores, since the trend is useful.
+Offer (clickable: score them now · skip): the user rates **all 12** pillars 1–10 (or "don't know" for one they haven't thought about), as a fill-in template. Save them in a `## Scores` section of `02-identity/now.md`, placed just above `## Sources`, as a `### YYYY-MM-DD` heading with one line per pillar (`- Faith: 7`, `- Health: don't know`). The dashboard reads the latest block. Keep earlier scores, since the trend is useful.
 
 ## 3 · One recommendation
 Name exactly **one** pillar to work on next and why, using the flywheel:

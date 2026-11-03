@@ -48,7 +48,8 @@ Do not continue past this. Quick start is finished.
 - **One question at a time.** Converse, don't interrogate. Follow up on what they actually said.
 - **Clickable options for choices.** When the answer is one of a few options, use clickable options. Keep open questions (who they are, their vision, their situation, their story) as free conversation.
 - **Templates for structured answers.** When you need several specific facts (dates, numbers, names), give a short fill-in template instead of a prose question.
-- **Visible progress.** After each stage, update `setup-progress.md`, show a one-line progress strip (e.g. `About you ▓ · Identity ▓ · Your days ░ · Now ░ · Pillars ░ — 2 of 5, then wrap-up`), and give a short "Here's what I've got" recap (3–6 bullets) for them to confirm.
+- **Save as you go.** Setup answers are the user answering your own questions, so they need no save confirm: write them as each stage goes. After each stage, update `setup-progress.md`, show a one-line progress strip (e.g. `About you ▓ · Identity ▓ · Your days ░ · Now ░ · Pillars ░ — 2 of 5, then wrap-up`), and give a short "Here's what I've got" recap (3–6 bullets) they can correct. Only the proposed tree in stage 3 waits for a confirm before folders are created.
+- **Stopping early.** "I'll answer the rest later" (or similar): save what they've said, mark the rest `deferred`, and say in one line what was kept and how to pick up ("continue setup"). No buttons.
 - **Facts over stories.** If an answer sounds polished, gently ask what's actually going on.
 - **Keep a source for everything.** At the end of each stage, save the user's answers (their words verbatim, laid out as Q&A) to `raw/YYYY-MM-DD-setup-<stage>.md` with the raw header (`source: setup`), and list that file in the `sources:` of every page the stage writes (if it writes none, on the `Sources:` line of `setup-progress.md`).
 
