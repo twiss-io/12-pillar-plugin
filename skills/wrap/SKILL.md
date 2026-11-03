@@ -5,9 +5,9 @@ description: "End-of-session wrap-up: pull the decisions, ideas and actions out 
 
 > **Works in Claude Code and Codex.** Plugin folder: `${CLAUDE_PLUGIN_ROOT}`. If that shows a variable name rather than a real path, the plugin folder is two levels above this SKILL.md; plugin paths below resolve from it. If a dollar-sign ARGUMENTS placeholder shows up unreplaced, use what the user wrote when asking for this. **"Clickable options" means: if you have any tool for asking the user a question with choices, use it** (Claude Code: AskUserQuestion. Codex: request_user_input_async, or request_user_input in Plan mode. Other assistants: their ask-user or question tool). After asking, wait for the answer before going on; with an async tool, end your turn. **Pick-several questions with a one-choice tool** (Codex's lets the user click only one option): for up to 5 items, ask one Yes / No question per item, all in the same call; for more, group related items so there are at most 5 Yes / No questions (the skill groups them where it matters). Never collapse a pick-several question into one single-choice list of combinations. Only if you have no such tool, write a short numbered list, one option per line, and say they can reply with the number. **Limits:** Claude's tool takes 2–4 options per question and up to 4 questions per call, so split a longer list across questions in the same call (each saying other answers can be typed). **Naming skills to the user:** this text writes them as `/12-pillars:<name>` (Claude Code); in Codex, say `$12-pillars:<name>` instead.
 
-Wrap up the working session in this conversation: `$ARGUMENTS` (an optional area, such as a business, `work` or `study`, or a topic to focus on. If empty, work out what the session was about).
+Wrap up the working session in this conversation: `$ARGUMENTS` (an optional unit, pillar or topic to focus on. If empty, work out what the session was about).
 
-Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md` for formats and boundaries. Needs a workspace (`life/wiki/index.md`). If there isn't one, offer `/12-pillars:setup`.
+Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md` for formats. Needs a workspace (`index.md` and the pillar folders). If there isn't one, offer `/12-pillars:setup`.
 
 ## Why this exists
 Brainstorms and planning sessions aren't filed message by message, because most of what's said is exploration. What's worth keeping is the **outcome**. Wrap turns a session into a few durable pages so the next session starts from what was decided, not from zero.
@@ -21,25 +21,18 @@ Pull out only what's worth keeping:
 - **Ideas parked:** ideas worth revisiting, each with one line on why.
 - **Actions:** what needs doing, by whom, and by when if it was said.
 - **Open questions:** things raised but not resolved.
-- **Facts learned:** new information about a client, person, market or numbers.
-- **Deliverables:** anything finished in the session (a proposal, plan, email, post): its final text is saved as is to that folder's `raw/YYYY-MM-DD-draft-<slug>.md` (`source: draft`) and linked from the page it concerns.
-- **Personal parts:** anything about the user's own life (stress, time, money, health) goes to `life/`, not to the business, job or studies.
+- **Facts learned:** new information about a client, person, market, numbers, or the user themselves (stress, time, money, health).
+- **Deliverables:** anything finished in the session (a proposal, plan, email, post): its final text is saved as is to `raw/YYYY-MM-DD-draft-<slug>.md` (`source: draft`) and linked from the page it concerns.
 
 Drop dead ends and back-and-forth. If nothing was decided, say so rather than inventing a decision.
 
 ## 3 · Route
-Work out where each item belongs: which area folder (a business, `study/`, `work/`, `content/`, `investing/`: match the folder name or the aliases in its `AGENTS.md` or `notes.md`), or `life/`. A session can touch several. Split items and keep boundaries: personal content never goes into an area folder, and areas never get each other's content.
-
-Destinations inside a **Standard or Deep area**:
-- Decisions: `wiki/decisions/YYYY-MM-DD-<slug>.md`, one page per real decision, each with decision, reasoning, alternatives rejected, date, and sources. Create `decisions/` if it's missing and add a Decisions section to the index.
-- Ideas: append to `wiki/ideas.md`.
-- Actions: append to `wiki/actions.md` under `## Open actions` as `- [ ] <action> — <owner>, due YYYY-MM-DD` (the due part only if said).
-- Open questions: append to `wiki/actions.md` under `## Open questions`.
-- Facts: update the matching section page (a client in `clients/`, a product in `product/`, and so on).
-- If `ideas.md` or `actions.md` is missing (an older folder), create it and link it from `overview.md`.
-
-**Older notes-only area:** dated bullets in the `## Notes` list of its `notes.md`, each prefixed `Decided:`, `Idea:`, `To do:` or `Open:`.
-**Personal (`life/`):** decisions and ideas go in `topics/`, actions in `life/wiki/actions.md`, and open questions in the relevant pillar hub's `## Open questions`. Updates go to the relevant pillar hubs and people pages, as a normal capture would.
+Each item goes to the pillar it belongs to, or to the unit inside it (match the unit's name or routing names in the Units section of `index.md`). A session can touch several pillars.
+- Decisions: `decisions/YYYY-MM-DD-<slug>.md` in the unit or pillar folder, one page per real decision, each with decision, reasoning, alternatives rejected, date, and sources. Create `decisions/` if it's missing.
+- Ideas: append to that unit's or pillar's `ideas.md` (created if missing).
+- Actions: `actions.md` under `## Open actions` as `- [ ] <action> — <owner>, due YYYY-MM-DD #<pillar>` (the due part only if said).
+- Open questions: `actions.md` under `## Open questions`, and the relevant pillar README's `## Open questions` when it's about the person's own life.
+- Facts: update the matching page (a client in the unit's `clients/`, a person in `06-relationships/people/`, the user's own state in the pillar README it touches).
 
 ## 4 · Propose (one message)
 Show the wrap as a compact card, then ask for one confirm:
@@ -48,19 +41,20 @@ Show the wrap as a compact card, then ask for one confirm:
 Wrap-up: <session title>
 ✅ Decided: <decision> → <page>
 💡 Ideas parked: <idea>, <idea> → <page>
-📋 Actions: <action, owner, date> → <page>
+📋 Actions: <action, owner, date> → actions.md
 ❓ Open: <question>
-🔗 Pillars: <which life pillar hubs get a link>
-📄 Session note saved to: <folder>/raw/YYYY-MM-DD-session-<slug>.md
+📝 Saved draft: <deliverable> → raw/…-draft-<slug>.md
+🔗 Pillars: <which pillar READMEs get a link>
+📄 Session note: raw/YYYY-MM-DD-session-<slug>.md
 ```
 
 Accept corrections in plain language ("that wasn't decided, park it", "move the pricing bit to the other business", "that's for work, not the shop").
 
 ## 5 · File (after confirm)
-1. **Session note:** save to each destination's `raw/` with the header `source: session-summary`. Contents: a short summary of the discussion plus the user's key statements quoted verbatim, and an area's note holds only that area's part. Names: `YYYY-MM-DD-session-<slug>.md` in an area, and `YYYY-MM-DD-session-<slug>-personal.md` in `life/raw/`. If the name is taken, add `-2`, `-3`, and so on. An older notes-only area gets no session note; its bullets are the record.
-2. Write the decision, idea, action and fact pages with standard frontmatter, citing the session note in `sources:` and `## Sources`.
-3. Link from the relevant life pillar hubs (usually Opportunities, Finance, Career). Links only: a hub's "Where this stands" may say that a decision exists and link to it ("pricing decided, see link"), but never repeats business details.
-4. Update each touched `index.md`. Append `## [YYYY-MM-DD] wrap | <session title>` to each touched area `log.md`, and to `life/wiki/log.md` for anything filed in `life/` or in an older notes-only area.
+1. **Session note:** save to `raw/YYYY-MM-DD-session-<slug>.md` with the header `source: session-summary`: a short summary of the discussion plus the user's key statements quoted verbatim. If the name is taken, add `-2`, `-3`, and so on. Save any deliverables as drafts.
+2. Write the decision, idea and fact pages with standard frontmatter, citing the session note in `sources:` and `## Sources`, and add the actions.
+3. Link from the relevant pillar READMEs. A README's "Where this stands" may say that a decision exists and link to it ("pricing decided, see link"), but never repeats its details.
+4. Update `index.md` for new pages. Append `## [YYYY-MM-DD] wrap | <session title>` to `log.md`.
 
 ## 6 · Report
-One line per page written. Then one line on where the next session picks up (for example, "Next session on this area starts from 2 open questions and 3 actions").
+One line per page written. Then one line on where the next session picks up (for example, "Next session on Twiss starts from 2 open questions and 3 actions").

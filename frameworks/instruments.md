@@ -24,7 +24,7 @@ They are **tools, not verdicts**. The failure mode to avoid is the profile "hold
 
 ## 3. The quiet rule
 
-- Results live in `life/wiki/self/instruments/`. They inform how the AI reads the person, but the AI does **not** bring up chart terms, type numbers, or readings in conversation unless the user does first.
+- Results live in `02-identity/instruments/`. They inform how the AI reads the person, but the AI does **not** bring up chart terms, type numbers, or readings in conversation unless the user does first.
 - Quiet is not secret. Tell the user what the information is for when collecting it. Show the full profile whenever they ask ("show my profile"). If profile-based reasoning shaped a piece of advice and they ask why, say so.
 - Record every result with a date and treat it as a working read that can be revisited, not a permanent label.
 
@@ -45,8 +45,8 @@ The place is kept on file for completeness. The calculation uses the local clock
 
 Compute it **only** with the bundled script `instruments/bazi.py` (the skill running this step gives you its full path), never by hand and never with a web calculator, since birth data must not leave the machine. Pass the date as `YYYY-MM-DD` and the time as 24-hour `HH:MM`. Convert "8am" to `08:00` yourself, and omit the time if it's unknown. If the script prints an `ERROR`, fix the input and rerun; never save a partial chart.
 
-Save the inputs and the full output, including any warnings, to `life/wiki/self/instruments/astrology.md`, with the standard wiki frontmatter (`type: self`, `pillars: [faith]`, `sources:` pointing to the raw file of the answers). Then just confirm: "Noted. Ask to see it any time." If Python isn't available, save the inputs and mark the chart pending. The script self-checks with `--selftest`.
+Save the inputs and the full output, including any warnings, to `02-identity/instruments/astrology.md`, with the standard wiki frontmatter (`type: self`, `pillars: [faith]`, `sources:` pointing to the raw file of the answers). Then just confirm: "Noted. Ask to see it any time." If Python isn't available, save the inputs and mark the chart pending. The script self-checks with `--selftest`.
 
-**Personality type (Enneagram).** Ask if they already know their type (offer clickable options: yes, I know it · no, help me find it · skip). If they don't know it, run the bundled protocol `instruments/enneagram-typing.md` (the skill running this step gives you its full path; about 5 minutes, all multiple choice). Save the result with a confidence level and date to `life/wiki/self/instruments/enneagram.md`, with the standard wiki frontmatter and a `## Sources` section.
+**Personality type (Enneagram).** Ask if they already know their type (offer clickable options: yes, I know it · no, help me find it · skip). If they don't know it, run the bundled protocol `instruments/enneagram-typing.md` (the skill running this step gives you its full path; about 5 minutes, all multiple choice). Save the result with a confidence level and date to `02-identity/instruments/enneagram.md`, with the standard wiki frontmatter and a `## Sources` section.
 
 **Others** (MBTI, DISC, numerology, other astrology systems): if the user already has results, record them the same way. Don't run new tests for them.

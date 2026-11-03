@@ -5,7 +5,7 @@
 <a href="https://mcp.johannsenlum.com/12-pillars#codex"><img alt="Install in Codex" src="https://img.shields.io/badge/Install_in-Codex-111111?style=for-the-badge"></a>
 </p>
 
-A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises your folders around **your** life: your studies, your job, your businesses, whatever applies.
+A plugin for **Claude Code** and **Codex** (CLI and app) that turns your AI into a personal operating system. It understands your life through the **12-Pillar Life Flywheel**, remembers it with a **raw/wiki memory**, and organises everything into **twelve pillar folders** that together are your whole second brain: your studies, your job and your businesses included.
 
 ## The idea in three parts
 
@@ -19,33 +19,38 @@ When something is stuck, the cause is usually upstream of it. Start with the pil
 
 **2. A memory that compounds.** Based on Andrej Karpathy's [LLM wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern:
 - `raw/` holds your sources: notes, voice notes, documents, screenshots. They're never edited.
-- `wiki/` holds pages the AI writes and keeps cross-linked: your pillars, people, topics, goals.
+- The twelve pillar folders hold the pages the AI writes and keeps cross-linked: who you are, your people, your health, your job, your goals.
 - `AGENTS.md` holds the rules for how it's all organised (with a one-line `CLAUDE.md` pointing to it, so Claude Code and Codex read the same rules).
 
 You share something once, and every relevant page stays current. See [`frameworks/llm-wiki.md`](frameworks/llm-wiki.md).
 
-**3. Folders designed for you.** Setup asks you to describe, in your own words, what fills your days (studying, a job, a business, freelance or agency work, content, investing, or between things, in any mix) and **recommends** folders for just those. A student gets `study/`, an employee `work/`, a founder one folder per business, and someone between things just `life/`. Each is sized to fit: a side project starts with just the core pages, an agency gets clients, projects, proposals and team. Nothing is created until you confirm, and you can rename anything. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
+**3. The 12 pillars are the folders.** There is no separate "work" or "study" folder: everything lives in the pillar it belongs to. Your studies go in Development, your job in Career, each business in Opportunities, your investing in Finance, your posts in Brand. Setup starts with who you are (Identity), then asks what fills your days and gives each part its own small folder inside its pillar, sized to fit. Open a chat inside any pillar folder and it becomes that pillar's advisor. See [`frameworks/folder-design.md`](frameworks/folder-design.md).
 
 ## What your workspace looks like
 
 ```
 your-workspace/
-├── AGENTS.md                 the rules (CLAUDE.md just imports it)
-├── life/                     you, organised by the 12 pillars
-│   ├── raw/                  your sources (never edited)
-│   └── wiki/
-│       ├── index.md          catalog of every page
-│       ├── log.md            history of every change
-│       ├── self/             your vision, where you are now, optional profiles
-│       ├── pillars/          12 hub pages, 01-faith … 12-legacy
-│       ├── people/
-│       └── topics/
-├── work/                     only if you have a job: role/ projects/ people/ wins/
-└── businesses/               only if you run something
-    └── side-shop/            Light: raw/ + wiki/, no sections yet
+├── AGENTS.md            the rules (CLAUDE.md just imports it)
+├── raw/                 your sources, never edited
+├── index.md  log.md  actions.md   catalog, history, every deadline
+├── 01-faith/
+├── 02-identity/         who you are, north star, current season
+├── 03-time/             168-hour budget, planning
+├── 04-health/
+├── 05-development/
+│   └── nus/             your studies: courses/ exams/ projects/
+├── 06-relationships/    people/ (one page each)
+├── 07-career/
+│   └── twiss/           your job: clients/ projects/
+├── 08-brand/            posts/
+├── 09-opportunities/
+│   └── side-shop/       a business you run
+├── 10-finance/
+├── 11-lifestyle/
+└── 12-legacy/
 ```
 
-That's one example (a job plus a side shop). A student would see `study/` instead, an agency owner `businesses/my-agency/` with clients/ projects/ team/, and someone between things only `life/`.
+Every pillar folder has a README (where it stands, current focus, open questions). A student with a job and a side shop looks like the example above; someone between things just has the twelve pillars.
 
 ## Install
 
@@ -104,9 +109,9 @@ $12-pillars:setup
 
 Codex asks you to review the plugin's two small hooks before they run. Open `/hooks` and trust them (see [How filing works](#how-filing-works)). Everything works without them; they just make filing more reliable in long sessions.
 
-<p align="center"><img src="docs/onboarding.svg" alt="Setup: choose full, parts or quick start; pick parts; get a recommended folder tree; then it learns about you as you go" width="720"></p>
+<p align="center"><img src="docs/onboarding.svg" alt="Setup: choose full or quick start; tell it who you are; your job, studies and business go inside their pillars; then it learns about you as you go" width="720"></p>
 
-In a hurry? Pick **quick start** (about two minutes) or **choose parts** in setup. Whatever you skip fills in from normal conversation over time.
+In a hurry? Pick **quick start** in setup (about five minutes: who you are and what fills your days). Whatever you skip fills in from normal conversation over time.
 
 ## Skills
 
@@ -114,14 +119,14 @@ In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars
 
 | Skill | What it does |
 |---|---|
-| `/12-pillars:setup` | Choose a **full setup** (~45 min guided interview: about you, optional profiles, your vision, where you are now, your work, studies or businesses with recommended folders, then the pillar that matters most), **only the parts you pick**, or a **quick start** (~2 min). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
+| `/12-pillars:setup` | Choose a **full setup** (~30–40 min: who you are and your vision, optional profiles, what fills your days, where you are now, then the pillar that matters most) or a **quick start** (~5 min: who you are and what fills your days). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
 | `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
-| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right place: a business, your job or studies, or your life wiki. Also offered automatically when a session winds down. |
-| `/12-pillars:ask` | Ask anything. Answers come from your wiki, with links to the pages used. |
-| `/12-pillars:dashboard` | Opens a dashboard of your life in the browser: the 12 pillars, deadlines, your season, people and recent activity. Built from your own files, on your computer, and refreshed at the start of each session. |
+| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right pillar, or into your job, studies or a business inside it. Also offered automatically when a session winds down. |
+| `/12-pillars:ask` | Ask anything. Answers come from your pillars, with links to the pages used. |
+| `/12-pillars:dashboard` | Opens a dashboard of your life in the browser: the 12 pillars (click one to see everything in it), deadlines, your season, people and recent activity. Built from your own files, on your computer, and refreshed at the start of each session. |
 | `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
-| `/12-pillars:add-business` | Add a business, your job, your studies or investing as its own folder, or upgrade a light one, with a recommended structure. |
-| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update. |
+| `/12-pillars:add-business` | Add your studies, your job, a business or investing as a folder inside its pillar, or grow an existing one with more sections. |
+| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update, and moves a workspace from before 0.8.0 into the pillar folders. |
 
 ## Updating
 
@@ -161,4 +166,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.7.0, early release. Feedback and issues welcome.
+Version 0.8.0, early release. Feedback and issues welcome.

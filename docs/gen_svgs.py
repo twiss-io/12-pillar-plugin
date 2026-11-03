@@ -100,7 +100,7 @@ def onboarding():
     W, H = 800, 420
     T = 20
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-         f'role="img" aria-label="Setup walkthrough: choose full, parts or quick start; pick parts; get a recommended folder tree; then the AI learns as you go">', STYLE]
+         f'role="img" aria-label="Setup walkthrough: choose full or quick start; tell it who you are; your job, studies and business go inside their pillars; then the AI learns as you go">', STYLE]
     o.append(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="12" class="card" stroke-width="1.5"/>')
     o.append(f'<path d="M1 13 a12 12 0 0 1 12 -12 H{W - 13} a12 12 0 0 1 12 12 V40 H1 Z" class="panel"/>')
     for k, col in enumerate(["#ff5f57", "#febc2e", "#28c840"]):
@@ -118,7 +118,7 @@ def onboarding():
         return f'<g opacity="0">{show(t0, t1, T, 0.25)}{body}</g>'
 
     # step label chips
-    steps = ["1 · Choose", "2 · Pick parts", "3 · Your folders", "4 · Learns as you go"]
+    steps = ["1 · Choose", "2 · Who you are", "3 · Your pillars", "4 · Learns as you go"]
     spans = [(0.2, 5), (5, 9.5), (9.5, 14.5), (14.5, 19.8)]
     for k, (lab, (a, b)) in enumerate(zip(steps, spans)):
         x = 30 + k * 190
@@ -130,9 +130,8 @@ def onboarding():
     # scene 1: command + three choices
     s = [t(36, y0, "> /12-pillars:setup", 17, "txt mono", "600"),
          appear(1.0, 5, t(36, y0 + 42, "How do you want to start?", 17, "txt", "600"))]
-    opts = [("Full setup", "~45 min guided interview"),
-            ("Choose parts", "set up only what you pick, learn the rest"),
-            ("Quick start", "~2 min, learns about you as you go")]
+    opts = [("Full setup", "~30–40 min: who you are, your days, one pillar"),
+            ("Quick start", "~5 min: who you are and your days, learn the rest")]
     for k, (a, b) in enumerate(opts):
         yy = y0 + 70 + k * 52
         body = (f'<rect x="36" y="{yy}" width="560" height="42" rx="8" class="panel" stroke-width="1.5"/>'
@@ -143,27 +142,23 @@ def onboarding():
         s.append(appear(1.4 + k * 0.4, 5, body))
     o.append(scene(0.2, 5, "".join(s)))
 
-    # scene 2: checklist
-    parts = [("Optional profiles", "5–10 min", False), ("Your vision", "10 min", False),
-             ("Where you are now", "10 min", True), ("Your work, studies, businesses", "2–15 min", True),
-             ("Start where it hurts", "10 min", False)]
-    s = [t(36, y0, "Which parts now? The rest is learned as you go.", 17, "txt", "600")]
-    for k, (a, b, on) in enumerate(parts):
-        yy = y0 + 28 + k * 46
-        body = (f'<rect x="36" y="{yy}" width="22" height="22" rx="5" fill="none" class="ring" stroke-width="2"/>'
-                + t(72, yy + 17, a, 16) + t(330, yy + 17, b, 14, "mut"))
-        if on:
-            tk = 6.5 + (0.6 if k == 4 else 0) + (k - 2) * 0.7
-            body += appear(tk, 9.5, f'<rect x="36" y="{yy}" width="22" height="22" rx="5" fill="{ACCENT}"/>'
-                                    f'<path d="M41 {yy + 11} l4 5 l8 -10" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>')
-        s.append(body)
+    # scene 2: identity first
+    qa = [("Who are you, in a sentence or two?", "Final-year student, tech lead, building a brand."),
+          ("Where do you want to be in 3–5 years?", "Leading engineering, my own studio on the side.")]
+    s = []
+    for k, (q, a) in enumerate(qa):
+        yy = y0 + k * 100
+        s.append(appear(5.2 + k * 1.6, 9.5, t(36, yy, q, 17, "txt", "600")))
+        s.append(appear(5.8 + k * 1.6, 9.5, t(56, yy + 32, "> " + a, 15, "mut mono")))
+    s.append(appear(8.4, 9.5, f'<rect x="36" y="{y0 + 196}" width="520" height="38" rx="8" fill="{ACCENT}"/>'
+                    + t(56, y0 + 221, "✓ 02-identity: north star written, running", 15, "txt", "700", 'style="fill:#fff"')))
     o.append(scene(5, 9.5, "".join(s)))
 
     # scene 3: recommended tree
-    tree = [("life/", 0, "always · your 12 pillars"), ("work/", 0, "Standard · role, projects, people"),
-            ("raw/   wiki/   role/   projects/", 1, ""), ("businesses/side-shop/", 0, "Light · raw + wiki, no sections"),
-            ("raw/   wiki/", 1, "")]
-    s = [t(36, y0, "A job + a side shop? Here's what I recommend:", 17, "txt", "600")]
+    tree = [("01 … 12", 0, "your 12 pillars, the whole brain"), ("05-development/nus/", 0, "your studies"),
+            ("07-career/twiss/", 0, "your job · clients, projects"), ("09-opportunities/side-shop/", 0, "a business you run"),
+            ("raw/  actions.md", 0, "sources · every deadline")]
+    s = [t(36, y0, "Studies, a job + a side shop? Here's the plan:", 17, "txt", "600")]
     for k, (a, ind, why) in enumerate(tree):
         yy = y0 + 40 + k * 36
         body = t(56 + ind * 26, yy, a, 16, "txt mono")
@@ -171,7 +166,7 @@ def onboarding():
             body += t(380, yy, "← " + why, 14, "mut")
         s.append(appear(10.0 + k * 0.45, 14.5, body))
     s.append(appear(12.6, 14.5, f'<rect x="36" y="{y0 + 228}" width="200" height="38" rx="8" fill="{ACCENT}"/>'
-                    + t(56, y0 + 253, "✓ Build it", 16, "txt", "700", 'style="fill:#fff"')))
+                    + t(56, y0 + 253, "✓ Create it", 16, "txt", "700", 'style="fill:#fff"')))
     o.append(scene(9.5, 14.5, "".join(s)))
 
     # scene 4: learns as you go
@@ -180,7 +175,7 @@ def onboarding():
          appear(16.0, 19.8,
                 f'<rect x="36" y="{y0 + 60}" width="700" height="132" rx="10" class="panel" stroke-width="1.5"/>'
                 + t(56, y0 + 90, "Done. I also picked up 2 things about you:", 16, "txt", "600")
-                + t(70, y0 + 120, "• Exam season until Dec 4  → now.md, Time pillar", 15)
+                + t(70, y0 + 120, "• Exam season until Dec 4  → 02-identity/now.md, Time", 15)
                 + t(70, y0 + 148, "• Quit coffee  → Health pillar", 15)
                 + t(56, y0 + 178, "File them?  [yes]", 15, "mut")),
          appear(17.6, 19.8, f'<rect x="36" y="{y0 + 210}" width="420" height="38" rx="8" fill="{ACCENT}"/>'

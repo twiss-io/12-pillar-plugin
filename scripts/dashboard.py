@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build dashboard.html for a 12-pillar workspace: pillars, deadlines, season,
-people, areas and recent activity, read from the workspace's markdown files.
+people, units and recent activity, read from the workspace's twelve pillar folders.
 
 Usage: python3 dashboard.py [workspace]   (default: current directory)
 
@@ -16,8 +16,12 @@ import sys
 ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
 TODAY = dt.date.today()
 DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
-if not os.path.isfile(os.path.join(ROOT, "life/wiki/index.md")):
-    sys.exit("Not a 12-pillar workspace (no life/wiki/index.md): " + ROOT)
+if not (os.path.isfile(os.path.join(ROOT, "index.md")) and os.path.isdir(os.path.join(ROOT, "02-identity"))):
+    if os.path.isfile(os.path.join(ROOT, "life/wiki/index.md")):
+        sys.exit("This workspace uses the layout from before 0.8.0. Run the 12-pillars lint skill with 'rules' to move it into the pillar folders first.")
+    sys.exit("Not a 12-pillar workspace (no index.md and pillar folders): " + ROOT)
+PILLAR_DIR = re.compile(r"^(\d\d)-[a-z-]+$")
+SKIP = {"README.md", "AGENTS.md", "CLAUDE.md"}
 
 
 def read(path):
@@ -65,21 +69,32 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
-def areas():
-    """Folders with raw/ + wiki/ up to two levels down, besides life/."""
+def units():
+    """Unit folders (an overview.md) inside the pillar folders, with their archived state."""
     found = []
-    index = read(os.path.join(ROOT, "life/wiki/index.md"))
+    index = read(os.path.join(ROOT, "index.md"))
     for entry in sorted(os.listdir(ROOT)):
-        p = os.path.join(ROOT, entry)
-        if entry.startswith(".") or entry == "life" or not os.path.isdir(p) or os.path.islink(p):
+        if not PILLAR_DIR.match(entry):
             continue
-        cands = [p] + [os.path.join(p, e) for e in sorted(os.listdir(p)) if os.path.isdir(os.path.join(p, e))]
-        for c in cands:
-            if os.path.isdir(os.path.join(c, "raw")) and os.path.isdir(os.path.join(c, "wiki")):
+        p = os.path.join(ROOT, entry)
+        for sub in sorted(os.listdir(p)):
+            c = os.path.join(p, sub)
+            if os.path.isdir(c) and not os.path.islink(c) and os.path.isfile(os.path.join(c, "overview.md")):
                 rel = os.path.relpath(c, ROOT)
-                line = next((l for l in index.splitlines() if rel + "/" in l or "(" + rel in l), "")
+                line = next((l for l in index.splitlines() if rel + "/" in l), "")
                 found.append((rel, "(archived)" in line.lower()))
     return found
+
+
+def pages_in(folder):
+    """Every page in a pillar folder (units included), README and agent files left out."""
+    out = []
+    for dirpath, dirnames, files in os.walk(folder):
+        dirnames[:] = sorted(d for d in dirnames if not d.startswith(".") and not os.path.islink(os.path.join(dirpath, d)))
+        for f in sorted(files):
+            if f.endswith(".md") and not (dirpath == folder and f in SKIP) and f not in ("AGENTS.md", "CLAUDE.md"):
+                out.append(os.path.join(dirpath, f))
+    return out
 
 
 LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
@@ -156,80 +171,63 @@ def md_to_html(body, base_dir, known):
 
 # ---------- gather ----------
 pillars = []
-pdir = os.path.join(ROOT, "life/wiki/pillars")
+for name in sorted(os.listdir(ROOT)):
+    folder = os.path.join(ROOT, name)
+    if not PILLAR_DIR.match(name) or not os.path.isdir(folder) or os.path.islink(folder):
+        continue
+    readme = os.path.join(folder, "README.md")
+    fm, body = frontmatter(read(readme))
+    status = re.search(r"\*\*Status:\*\*\s*(.+)", body)
+    pillars.append({
+        "num": name[:2],
+        "title": fm.get("title") or name[3:].replace("-", " ").title(),
+        "running": bool(status and status.group(1).strip().lower().startswith("running")),
+        "updated": fm.get("updated", ""),
+        "state": plain(section(body, "Where this stands"), 160),
+        "pages": pages_in(folder),
+        "path": readme,
+        "body": body,
+    })
+    pillars[-1]["links"] = len(pillars[-1]["pages"])
+
+now_text = read(os.path.join(ROOT, "02-identity/now.md"))
+season = {k: (re.search(r"^" + k + r":\s*(.+)$", now_text, re.M) or [None, ""])[1].strip() for k in ("Season", "Since", "Until")}
+
+unit_list = units()
+actions = []
+for line in read(os.path.join(ROOT, "actions.md")).splitlines():
+    m = re.match(r"\s*- \[ \]\s*(.+)", line)
+    if not m:
+        continue
+    due = re.search(r"due (\d{4}-\d{2}-\d{2})", m.group(1))
+    d = to_date(due.group(1)) if due else None
+    tags = re.findall(r"#([\w-]+)", m.group(1))
+    text = re.sub(r"(?:,|—|\s)*due \d{4}-\d{2}-\d{2}", "", re.sub(r"\s*#[\w-]+", "", m.group(1)))
+    actions.append({"text": plain(text, 140), "due": d, "where": " · ".join(tags)})
+actions.sort(key=lambda a: (a["due"] is None, a["due"] or TODAY))
+
+people = []
+pdir = os.path.join(ROOT, "06-relationships/people")
 for name in sorted(os.listdir(pdir)) if os.path.isdir(pdir) else []:
     if not name.endswith(".md"):
         continue
     fm, body = frontmatter(read(os.path.join(pdir, name)))
-    status = re.search(r"\*\*Status:\*\*\s*(.+)", body)
-    linked = [l for l in section(body, "Linked pages").splitlines() if l.strip().startswith("- ")]
-    pillars.append({
-        "num": name[:2],
-        "title": fm.get("title") or name[3:-3].replace("-", " ").title(),
-        "running": bool(status and status.group(1).strip().lower().startswith("running")),
-        "updated": fm.get("updated", ""),
-        "state": plain(section(body, "Where this stands"), 160),
-        "links": len(linked),
-        "path": os.path.join(pdir, name),
-        "body": body,
+    def field(label):
+        m = re.search(r"\*\*" + label + r":\*\*\s*(.+)", body, re.I)
+        return plain(m.group(1), 80) if m else ""
+    lc = DATE.search(field("Last contact"))
+    last = to_date(lc.group(0)) if lc else None
+    people.append({
+        "name": fm.get("title") or name[:-3].replace("-", " ").title(),
+        "where": "", "circle": re.split(r"[(;,—]", field("Circle"))[0].strip()[:30],
+        "role": field("Role"), "last": last, "cadence": field("Stay in touch"),
     })
 
-now_text = read(os.path.join(ROOT, "life/wiki/self/now.md"))
-season = {k: (re.search(r"^" + k + r":\s*(.+)$", now_text, re.M) or [None, ""])[1].strip() for k in ("Season", "Since", "Until")}
-
-area_list = areas()
-action_files = [("life", os.path.join(ROOT, "life/wiki/actions.md"))] + [
-    (rel, os.path.join(ROOT, rel, "wiki/actions.md")) for rel, archived in area_list if not archived]
-actions = []
-for where, path in action_files:
-    for line in read(path).splitlines():
-        m = re.match(r"\s*- \[ \]\s*(.+)", line)
-        if not m:
-            continue
-        due = re.search(r"due (\d{4}-\d{2}-\d{2})", m.group(1))
-        d = to_date(due.group(1)) if due else None
-        text = re.sub(r"(?:,|—|\s)*due \d{4}-\d{2}-\d{2}", "", m.group(1))
-        actions.append({"text": plain(text, 140), "due": d, "where": where})
-actions.sort(key=lambda a: (a["due"] is None, a["due"] or TODAY))
-
-people = []
-for where, d in [("life", os.path.join(ROOT, "life/wiki/people"))] + [
-        (rel, os.path.join(ROOT, rel, "wiki", s)) for rel, _ in area_list for s in ("people", "team")]:
-    if not os.path.isdir(d):
-        continue
-    for name in sorted(os.listdir(d)):
-        if not name.endswith(".md"):
-            continue
-        fm, body = frontmatter(read(os.path.join(d, name)))
-        def field(label):
-            m = re.search(r"\*\*" + label + r":\*\*\s*(.+)", body, re.I)
-            return plain(m.group(1), 80) if m else ""
-        lc = DATE.search(field("Last contact"))
-        last = to_date(lc.group(0)) if lc else None
-        people.append({
-            "name": fm.get("title") or name[:-3].replace("-", " ").title(),
-            "where": where, "circle": field("Circle").split(" ")[0] if field("Circle") else "",
-            "role": field("Role"), "last": last, "cadence": field("Stay in touch"),
-        })
-
-activity = []
-for where, path in [("life", os.path.join(ROOT, "life/wiki/log.md"))] + [
-        (rel, os.path.join(ROOT, rel, "wiki/log.md")) for rel, _ in area_list]:
-    for m in re.finditer(r"^## \[(\d{4}-\d{2}-\d{2})\]\s*(\w+)\s*\|\s*(.+)$", read(path), re.M):
-        activity.append((m.group(1), m.group(2), plain(m.group(3), 100), where))
-seen, recent = set(), []
-for a in sorted(activity, key=lambda x: x[0], reverse=True):
-    if (a[0], a[2]) in seen:
-        continue
-    seen.add((a[0], a[2]))
-    recent.append(a)
+activity = [(m.group(1), m.group(2), plain(m.group(3), 100), "")
+            for m in re.finditer(r"^## \[(\d{4}-\d{2}-\d{2})\]\s*(\w+)\s*\|\s*(.+)$", read(os.path.join(ROOT, "log.md")), re.M)]
+recent = sorted(activity, key=lambda x: x[0], reverse=True)
 month = TODAY.strftime("%Y-%m")
-# One operation is logged in every folder it touched, under that folder's own title: count life's
-# log, plus area entries on days life has no entry of that kind.
-ops = [a for a in activity if a[0].startswith(month) and a[1] in ("capture", "wrap")]
-life_ops = [a for a in ops if a[3] == "life"]
-life_keys = {(a[0], a[1]) for a in life_ops}
-month_count = len(life_ops) + len({(a[0], a[1], a[3]) for a in ops if a[3] != "life" and (a[0], a[1]) not in life_keys})
+month_count = sum(1 for a in activity if a[0].startswith(month) and a[1] in ("capture", "wrap"))
 
 owner = (re.match(r"#\s*(.+?)'s Life Workspace", read(os.path.join(ROOT, "AGENTS.md"))) or [None, ""])[1]
 
@@ -255,7 +253,7 @@ def pillar_card(p):
     if p["running"] and p["updated"]:
         meta += " · updated " + esc(p["updated"])
     if p["links"]:
-        meta += " · %d linked" % p["links"]
+        meta += " · %d page%s" % (p["links"], "" if p["links"] == 1 else "s")
     state = "<p>%s</p>" % esc(p["state"]) if p["state"] else ""
     return ('<a class="pillar %s" href="#p-%s"><div class="ph"><span class="pn">%s</span><span class="pt">%s</span></div>%s<div class="pm">%s</div></a>'
             % ("on" if p["running"] else "off", esc(p["num"]), esc(p["num"]), esc(p["title"]), state, meta))
@@ -267,12 +265,12 @@ pillar_cards = "".join(pillar_card(p) for p in pillars)
 details = []
 for p in pillars:
     base = os.path.dirname(p["path"])
-    linked_pages = []
+    linked_pages = list(p["pages"])
     for m in LINK.finditer(p["body"]):
         t = resolve(base, m.group(2))
         if t and t not in linked_pages and t != p["path"]:
             linked_pages.append(t)
-    linked_pages = linked_pages[:25]
+    linked_pages = linked_pages[:60]
     known = {t: "p%s-%s" % (p["num"], page_id(t)) for t in linked_pages}
     parts = []
     for t in linked_pages:
@@ -285,7 +283,7 @@ for p in pillars:
     details.append('<section class="detail" id="p-%s"><a class="back" href="#top">← All pillars</a><h2 class="dt">%s %s</h2>'
                    '<div class="md">%s</div>%s</section>'
                    % (esc(p["num"]), esc(p["num"]), esc(p["title"]), md_to_html(hub, base, known),
-                      ('<h3>The pages behind it <span class="aw">(click to open)</span></h3>' + "".join(parts)) if parts else ""))
+                      ('<h3>Everything in this pillar <span class="aw">(click a page to open it)</span></h3>' + "".join(parts)) if parts else ""))
 pillar_details = "".join(details)
 
 action_rows = "".join(
@@ -302,13 +300,13 @@ def last_txt(p):
 
 people_rows = "".join(
     f'<tr><td>{esc(p["name"])}</td><td>{esc(p["circle"] or p["role"] or "")}</td>'
-    f'<td>{esc(p["cadence"])}</td><td>{esc(last_txt(p))}</td><td class="muted">{esc(p["where"])}</td></tr>'
+    f'<td>{esc(p["cadence"])}</td><td>{esc(last_txt(p))}</td></tr>'
     for p in sorted(people, key=lambda p: (p["last"] is not None, p["last"] or TODAY))[:40]
-) or '<tr><td colspan="5" class="muted">No people pages yet.</td></tr>'
+) or '<tr><td colspan="4" class="muted">No people pages yet.</td></tr>'
 
-area_rows = "".join(
-    f'<li><b>{esc(rel)}/</b>{" <span class=chip>archived</span>" if arch else ""}</li>' for rel, arch in area_list
-) or '<li class="muted">Only life/ so far.</li>'
+unit_rows = "".join(
+    f'<li><b>{esc(rel)}/</b>{" <span class=chip>archived</span>" if arch else ""}</li>' for rel, arch in unit_list
+) or '<li class="muted">No units yet. Studies, a job or a business get one inside their pillar when they come up.</li>'
 
 recent_rows = "".join(
     f'<li><span class="ad">{esc(d)}</span><span class="chip">{esc(k)}</span>{esc(t)} <span class="aw">{esc(w)}</span></li>'
@@ -365,8 +363,8 @@ details{{border-top:1px solid var(--line);padding:10px 0}}summary{{cursor:pointe
 <section><h2>Recent activity</h2><ul class="list">{recent_rows}</ul></section>
 </div>
 <div class="two">
-<section><h2>People</h2><div class="tw"><table><tr><th>Name</th><th>Circle / role</th><th>Stay in touch</th><th>Last contact</th><th>Where</th></tr>{people_rows}</table></div></section>
-<section><h2>Areas</h2><ul class="list">{area_rows}</ul></section>
+<section><h2>People</h2><div class="tw"><table><tr><th>Name</th><th>Circle / role</th><th>Stay in touch</th><th>Last contact</th></tr>{people_rows}</table></div></section>
+<section><h2>Units</h2><ul class="list">{unit_rows}</ul></section>
 </div>
 </div>
 <footer>Built {TODAY.isoformat()} from the files in this folder. Nothing here leaves your computer. Ask for the 12-pillars dashboard skill to refresh it.</footer>

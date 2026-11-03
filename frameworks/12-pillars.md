@@ -95,7 +95,7 @@ Each entry gives the pillar's purpose, its currency (what it gives the next pill
 - **Healthy:** there are clear rules for which opportunities to take, and the pipeline is visible.
 - **Stalled:** chasing everything, or nothing in the pipeline.
 - **Ask:** "What are you working on right now?" · "What kind of opportunity do you say no to?"
-- **Note:** businesses the person runs, and their job, studies or investing if they chose them, get their own area folder (see `folder-design.md`).
+- **Note:** each business the person runs gets its own unit inside this pillar. Their job lives in Career (7), their studies in Development (5), their investing in Finance (10), each as a unit (see `folder-design.md`).
 
 ### 10 · Finance & Wealth — funds **Lifestyle**
 - **Purpose:** money in, money out, and what it's building.
@@ -131,9 +131,9 @@ Each entry gives the pillar's purpose, its currency (what it gives the next pill
 
 ## 4. Where the pillars live in the folder
 
-In this plugin, the pillars are **wiki pages**, not twelve folders. Each pillar has one hub page at `life/wiki/pillars/NN-<name>.md` that summarises where that pillar stands and links to the detail pages (people, topics, notes, sources) that feed it. One captured note can link from several pillar hubs at once. See `llm-wiki.md` for how pages are written and kept up to date.
+In this plugin, the pillars **are the folders**: twelve folders, `NN-<name>/`, that together hold the whole second brain, studies, job and businesses included (inside their pillars, as units). Each pillar folder has a hub page, `NN-<name>/README.md`, that summarises where that pillar stands and links to the pages that feed it, in its own folder or in other pillars. One captured note is saved once in `raw/` and can update pages in several pillars at once. See `llm-wiki.md` for the layout and how pages are written, and `folder-design.md` for units.
 
-| # | File slug | Tag |
+| # | Folder | Tag |
 |---|-----------|-----|
 | 1 | `01-faith` | `#faith` |
 | 2 | `02-identity` | `#identity` |
