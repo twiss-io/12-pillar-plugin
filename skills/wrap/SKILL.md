@@ -13,7 +13,7 @@ Follow `${CLAUDE_PLUGIN_ROOT}/frameworks/llm-wiki.md` for formats. Needs a works
 Brainstorms and planning sessions aren't filed message by message, because most of what's said is exploration. What's worth keeping is the **outcome**. Wrap turns a session into a few durable pages so the next session starts from what was decided, not from zero.
 
 ## 1 · Scope
-Cover the conversation since the last **wrap** in this session, or since the start. Captures made during the session don't reset the scope. List those items as "already filed" and skip them, so nothing is filed twice. If the context was compacted during the session, say so: you're working from the summary, so ask the user to add anything important that may have been lost.
+Cover the conversation since the last **wrap** in this session, or since the start. Things filed during the session don't reset the scope. Skip them, so nothing is filed twice. If the context was compacted during the session, say so: you're working from the summary, so ask the user to add anything important that may have been lost.
 
 ## 2 · Extract
 Pull out only what's worth keeping:
@@ -34,8 +34,14 @@ Each item goes to the pillar it belongs to, or to the unit inside it (match the 
 - Open questions: `actions.md` under `## Open questions`, and the relevant pillar README's `## Open questions` when it's about the person's own life.
 - Facts: update the matching page (a client in the unit's `clients/`, a person in `06-relationships/people/`, the user's own state in the pillar README it touches).
 
-## 4 · Propose (one message)
-Show the wrap as a compact card, then ask for one confirm:
+## 4 · File (straight away, no confirm)
+1. **Session note:** save to `raw/YYYY-MM-DD-session-<slug>.md` with the header `source: session-summary`: a short summary of the discussion plus the user's key statements quoted verbatim. If the name is taken, add `-2`, `-3`, and so on. Save any deliverables as drafts.
+2. Write the decision, idea and fact pages with standard frontmatter, citing the session note in `sources:` and `## Sources`, and add the actions.
+3. Link from the relevant pillar READMEs. A README's "Where this stands" may say that a decision exists and link to it ("pricing decided, see link"), but never repeats its details.
+4. Update `index.md` for new pages. Append `## [YYYY-MM-DD] wrap | <session title>` to `log.md`.
+
+## 5 · Report
+Show what was filed as one compact card:
 
 ```
 Wrap-up: <session title>
@@ -44,17 +50,6 @@ Wrap-up: <session title>
 📋 Actions: <action, owner, date> → actions.md
 ❓ Open: <question>
 📝 Saved draft: <deliverable> → raw/…-draft-<slug>.md
-🔗 Pillars: <which pillar READMEs get a link>
-📄 Session note: raw/YYYY-MM-DD-session-<slug>.md
 ```
 
-Accept corrections in plain language ("that wasn't decided, park it", "move the pricing bit to the other business", "that's for work, not the shop").
-
-## 5 · File (after confirm)
-1. **Session note:** save to `raw/YYYY-MM-DD-session-<slug>.md` with the header `source: session-summary`: a short summary of the discussion plus the user's key statements quoted verbatim. If the name is taken, add `-2`, `-3`, and so on. Save any deliverables as drafts.
-2. Write the decision, idea and fact pages with standard frontmatter, citing the session note in `sources:` and `## Sources`, and add the actions.
-3. Link from the relevant pillar READMEs. A README's "Where this stands" may say that a decision exists and link to it ("pricing decided, see link"), but never repeats its details.
-4. Update `index.md` for new pages. Append `## [YYYY-MM-DD] wrap | <session title>` to `log.md`.
-
-## 6 · Report
-One line per page written. Then one line on where the next session picks up (for example, "Next session on Twiss starts from 2 open questions and 3 actions").
+Then one line on where the next session picks up (for example, "Next session on Twiss starts from 2 open questions and 3 actions"), and that they can correct anything in plain words ("that wasn't decided, park it", "move the pricing bit to the other business") or say undo. Fix or reverse it as `llm-wiki.md` section 4 describes.

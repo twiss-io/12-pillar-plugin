@@ -227,10 +227,12 @@ for line in read(os.path.join(ROOT, "actions.md")).splitlines():
     m = re.match(r"\s*- \[ \]\s*(.+)", line)
     if not m:
         continue
-    due = re.search(r"due (\d{4}-\d{2}-\d{2})", m.group(1))
+    due = re.search(r"due (\d{4}-\d{2}-\d{2})(?: (\d{1,2}:\d{2}))?", m.group(1))
     tags = re.findall(r"#([\w-]+)", m.group(1))
     num = next((TAG2NUM[t.lower()] for t in tags if t.lower() in TAG2NUM), "")
-    text = re.sub(r"(?:,|—|\s)*due \d{4}-\d{2}-\d{2}", "", re.sub(r"\s*#[\w-]+", "", m.group(1)))
+    text = re.sub(r"(?:,|—|\s)*due \d{4}-\d{2}-\d{2}(?: \d{1,2}:\d{2})?", "", re.sub(r"\s*#[\w-]+", "", m.group(1)))
+    if due and due.group(2):
+        text += " · " + due.group(2)
     actions.append({"text": plain(text, 120), "due": to_date(due.group(1)) if due else None, "num": num,
                     "tags": [t for t in tags if t.lower() not in TAG2NUM]})
 actions.sort(key=lambda a: (a["due"] is None, a["due"] or TODAY))

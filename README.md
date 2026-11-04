@@ -120,13 +120,11 @@ In Claude Code, run a skill as `/12-pillars:<name>`. In Codex, type `$12-pillars
 | Skill | What it does |
 |---|---|
 | `/12-pillars:setup` | Choose a **full setup** (~30–40 min: who you are and your vision, optional profiles, what fills your days, where you are now, then the pillar that matters most) or a **quick start** (~5 min: who you are and what fills your days). Whatever you don't set up is learned as you go. Resumable, and every question is skippable. |
-| `/12-pillars:capture` | The daily habit. Tell it what happened or drop in a file. It proposes where it goes and what it updates, and files it after one confirm. You can also just talk; anything you share is treated as a capture. |
-| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right pillar, or into your job, studies or a business inside it. Also offered automatically when a session winds down. |
-| `/12-pillars:ask` | Ask anything. Answers come from your pillars, with links to the pages used. |
-| `/12-pillars:dashboard` | Opens a dashboard of your life in the browser: the 12 pillars (click one to see everything in it), deadlines, your season, people and recent activity. Built from your own files, on your computer, and refreshed at the start of each session. |
-| `/12-pillars:pillars` | Your 12 pillars at a glance, an optional 1–10 score, and the one pillar to work on next. |
-| `/12-pillars:add-business` | Add your studies, your job, a business or investing as a folder inside its pillar, or grow an existing one with more sections. |
-| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update, and moves a workspace from before 0.8.1 into the pillar folders. |
+| `/12-pillars:pillars` | Opens your dashboard in the browser (the flywheel, deadlines, your season, people, units; click a pillar to see everything in it), an optional 1–10 score, and the one pillar to work on next. Built from your own files, on your computer, and refreshed at the start of each session. `pillars brief` gives a morning brief, `pillars week` a weekly review. |
+| `/12-pillars:wrap` | After a brainstorm or planning session: pulls out the decisions, ideas, and actions, and files them into the right pillar, or into your job, studies or a business inside it. Runs on its own when a session winds down. |
+| `/12-pillars:lint` | Health check: contradictions, stale info, broken links, unprocessed sources, people you haven't been in touch with lately. `/12-pillars:lint rules` refreshes your workspace rules after a plugin update, and moves a workspace from before 0.8.0 into the pillar folders. |
+
+Everything else needs no command. Tell it what happened and it's saved in the right pillars; ask it anything and it answers from your pages; mention a new job, school or business and it gets its own folder in its pillar.
 
 ## Updating
 
@@ -142,11 +140,19 @@ Updates don't reach you on their own unless you turn that on.
 
 Restart any open Claude or Codex window afterwards. Skills and hooks update straight away. Your workspace rules (`AGENTS.md`) are your own copy, so an update never rewrites them. When the plugin ships newer rules, your next session mentions it, and `/12-pillars:lint rules` refreshes them after one confirm. Your notes, wiki and anything you added under `## My additions` stay as they are.
 
+## Reminders, morning brief and weekly review
+
+- **Reminders:** say "remind me Friday 3pm to send Marcus the proposal". It goes into your to-do list with the time, and shows up in your next brief and at the start of each session.
+- **Morning brief** (`pillars brief`): what's due today (with times), overdue, the rest of the week, who to reach out to (check-ins and birthdays), and one nudge for the day.
+- **Weekly review** (`pillars week`): what moved in each pillar, what's slipping, one or two old ideas worth revisiting, and next week's focus. Saved in `03-time/reviews/`.
+- **On a schedule (Codex):** in the Codex app, add two automations on your workspace folder: daily, `$12-pillars:pillars brief`; weekly (say Sunday evening), `$12-pillars:pillars week`. They run on your computer, so only while it's awake and Codex is open.
+
 ## How filing works
 
-- **Life updates** ("closed a client today", "back's been bad all week") get filed right away, with one confirm.
-- **Things you mention in passing** while asking for something else aren't filed mid-task. They're noted, and at a natural pause you get one card ("I picked up 2 things about you…") to file them all with one confirm. With the quick start, this is how your workspace fills in.
-- **Brainstorms and planning sessions** aren't interrupted. When one winds down, you get a wrap-up card: what was decided, ideas parked, actions, open questions. One confirm files it. Next time you work on that business or project, the session starts from those decisions instead of from zero.
+- **Life updates** ("closed a client today", "back's been bad all week") are saved right away, with no "OK?" step. You get one short line saying what went where, and you can correct it in plain words or say "undo".
+- **Only what matters later is kept:** people, deadlines, decisions, numbers, events, goals, changes and files you send. Small talk, passing moods, your questions and task help aren't saved. When it's borderline it's skipped; say "save that" to keep it.
+- **Things you mention in passing** while asking for something else aren't filed mid-task. At a natural pause they're saved and mentioned in one line. With the quick start, this is how your workspace fills in.
+- **Brainstorms and planning sessions** aren't interrupted. When one winds down, the outcome is filed (what was decided, ideas parked, actions, open questions) and shown as one card. Next time you work on that business or project, the session starts from those decisions instead of from zero.
 - Two small hooks keep this reliable. One re-states the filing convention on every message, so it holds through long sessions and context compaction. The other re-orients each new or compacted session with your current season and any files you dropped in but haven't filed yet. Both do nothing outside a 12-pillar workspace. Claude Code and Codex use the same hook format; in Codex, trust them once in `/hooks`.
 
 ## Optional profiles
@@ -166,4 +172,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.8.1, early release. Feedback and issues welcome.
+Version 0.9.0, early release. Feedback and issues welcome.

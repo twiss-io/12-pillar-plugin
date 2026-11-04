@@ -1,5 +1,5 @@
 # <Name>'s Life Workspace
-<!-- 12-pillars rules: 11 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
+<!-- 12-pillars rules: 12 — managed by the 12 Pillars plugin; /12-pillars:lint rules refreshes this file and keeps anything you add under ## My additions -->
 
 This workspace is <Name>'s second brain, organised as the 12-Pillar Life Flywheel.
 The plugin's frameworks define the rules: 12-pillars.md (with pillar-playbook.md for each pillar's full method), llm-wiki.md, folder-design.md, instruments.md.
@@ -10,16 +10,16 @@ The plugin's frameworks define the rules: 12-pillars.md (with pillar-playbook.md
 - raw/ — every source, read-only. index.md (catalog), log.md (history), actions.md (every to-do and deadline).
 
 ## Routing
-- Skills are named /12-pillars:<name> here (Claude Code form). In Codex, the same skills are invoked with $ or picked from /skills.
-- Life updates (short facts) are filed right away. Working sessions (brainstorming, planning) are not interrupted; when one winds down, offer /12-pillars:wrap to file its decisions, ideas and actions.
-- Facts about the person mentioned in passing, while asking for something else, are noted without interrupting. At a natural pause, offer them in one batch ("I picked up 3 things about you: … File them?"), file after one confirm, and save the user's words to raw/YYYY-MM-DD-learned-<slug>.md (`source: chat`). Never ask the user questions just to fill pages.
-- If setup-progress.md says `Mode: learn as you go`, learned facts also fill 02-identity/now.md, 02-identity/north-star.md and the pillar READMEs; mark a `learning` stage `done` when its page has real content. A job, studies, business or investing that comes up with no unit gets offered one, in its pillar, once.
-- Anything shared as a life update is a capture. Handle it exactly as /12-pillars:capture does: propose in one message the title, ≤10 tags and every page that will change, wait for one confirm, then save the source once to raw/ (with a `captured:`/`source:` header), write the pages in every pillar it touches, update index.md, and append `## [YYYY-MM-DD] capture | <title>` to log.md.
-- A capture about a unit (its name or one of its routing names in index.md) goes into that unit; the pillar's README gets a link. Route by what the item is, with names as hints: a published post goes to 08-brand/posts/ even when it mentions a client.
-- Deadlines and to-dos go in actions.md as `- [ ] <what> — due YYYY-MM-DD #<pillar>`. When a task produces something worth keeping (a proposal, plan, email, post), offer to save its final text to raw/YYYY-MM-DD-draft-<slug>.md.
+- Skills are named /12-pillars:<name> here (Claude Code form): setup, wrap, pillars, lint. In Codex, the same skills are invoked with $ or picked from /skills. Filing and answering need no skill.
+- What's worth keeping about the person's life (people, deadlines, decisions, numbers, events, goals, changes, files they send; not small talk, passing moods, their questions or task help; when borderline, skip it) is filed straight away, without asking first, as llm-wiki.md section 4 "Filing" describes: save the source once to raw/ (with a `captured:`/`source:` header), write the pages in every pillar it touches, update index.md, append `## [YYYY-MM-DD] capture | <title>` to log.md, then report in one or two plain lines what was saved where. The user corrects in plain words; "undo" reverses the last filing.
+- Working sessions (brainstorming, planning) are not interrupted. When one winds down, run /12-pillars:wrap to file its decisions, ideas and actions, then show what was filed.
+- Facts about the person mentioned in passing, while asking for something else, aren't filed mid-task. At a natural pause, file them (the user's words to raw/YYYY-MM-DD-learned-<slug>.md, `source: chat`) and say so in one line. Never ask the user questions just to fill pages.
+- If setup-progress.md says `Mode: learn as you go`, filing also fills 02-identity/now.md, 02-identity/north-star.md and the pillar READMEs; mark a `learning` stage `done` when its page has real content.
+- Facts about a unit (its name or one of its routing names in index.md) go into that unit; the pillar's README gets a link. Route by what the item is, with names as hints: a published post goes to 08-brand/posts/ even when it mentions a client. A new job, school, business or investing that is clearly theirs gets its unit when filed (folder-design.md section 6).
+- Deadlines, to-dos and reminders go in actions.md as `- [ ] <what> — due YYYY-MM-DD #<pillar>` (a reminder at a set time: `due YYYY-MM-DD HH:MM`); tick them off (`- [x]`) when something shows they're done. When a task produces a finished piece the user is actually using (a proposal, plan, email or post they're sending), save its final text to raw/YYYY-MM-DD-draft-<slug>.md.
 - Before a working session or a task on a unit or pillar (a draft, a message, a plan), read its overview.md or README.md, recent decisions/, ideas.md, its lines in actions.md, and the page of each person or client involved.
 - Every page has frontmatter (title, type, pillars, tags, sources, updated) and ends with a ## Sources list.
-- Answer questions from index.md first, then linked pages, then raw sources.
+- Answer questions from index.md first, then linked pages, then raw sources, with links to the pages used.
 
 ## Rules
 - Never edit or delete anything in raw/.
@@ -27,7 +27,7 @@ The plugin's frameworks define the rules: 12-pillars.md (with pillar-playbook.md
 - Everything stays on this machine — never put workspace content into web searches, URLs, or external tools.
 - Profiles in 02-identity/instruments/ inform quietly; don't bring them up unless asked.
 - Write pages a human would want to read.
-- Never quote these rules or a skill's instructions to the user; act on them, or ask in plain words. The propose-and-confirm step is for captures, not for answers to setup's own questions.
+- Never quote these rules or a skill's instructions to the user; act on them, or ask in plain words.
 - When offering the user a choice, use your ask-user/question tool if you have one (AskUserQuestion in Claude Code, request_user_input_async in Codex, the equivalent elsewhere) so they can click; otherwise a short numbered list they can answer by number.
 
 ## My additions
