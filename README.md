@@ -172,4 +172,4 @@ Apache License 2.0 © 2026 Twiss. Free to use, copy, modify and share, including
 
 ## Status
 
-Version 0.9.0, early release. Feedback and issues welcome.
+Version 0.9.1, early release. Feedback and issues welcome.
