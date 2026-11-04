@@ -542,7 +542,7 @@ body{color:var(--ink);font:15px/1.55 var(--body);background-color:var(--paper);
 background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);
 background-size:20px 20px,20px 20px,100px 100px,100px 100px;background-attachment:fixed}
 a{color:inherit}
-.sheet{max-width:1240px;margin:0 auto;padding:36px max(16px,4vw) 60px max(16px,4vw);padding-right:170px}@media (max-width:1180px){.sheet{padding-right:70px}}
+.sheet{max-width:1240px;margin:0 auto;padding:36px max(16px,4vw) 60px max(16px,4vw);padding-right:170px}@media (max-width:1180px){.sheet{padding-right:150px}}
 .eyebrow{font:600 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
 .faint{color:var(--faint)}.pen{font-family:var(--hand);color:var(--pen);font-size:1.05rem;white-space:nowrap}
 mark{background:linear-gradient(transparent 45%%,var(--mark) 45%%,var(--mark) 90%%,transparent 90%%);color:inherit;padding:0 2px;white-space:nowrap}
@@ -552,7 +552,7 @@ mark{background:linear-gradient(transparent 45%%,var(--mark) 45%%,var(--mark) 90
 .tabs a{display:flex;align-items:center;gap:8px;text-decoration:none;background:var(--c);color:#fff;border-radius:8px 0 0 8px;padding:7px 12px 7px 10px;width:138px;overflow:hidden;white-space:nowrap;font:600 .82rem var(--body);opacity:.82;transform:translateX(6px);transition:transform .15s ease,opacity .15s ease}
 .tabs a b{font:700 .82rem var(--mono);min-width:18px;text-align:center}
 .tabs a:hover,.tabs a:focus-visible,.tabs a.on{opacity:1;transform:none}.tabs a.on{box-shadow:-3px 0 0 var(--ink) inset}
-@media (max-width:1180px){.tabs a{width:auto;padding:8px 10px}.tabs a span{display:none}.tabs a:hover span,.tabs a:focus-visible span{display:inline}}
+@media (max-width:1180px){.tabs a{width:130px;padding:6px 8px;gap:6px;font-size:.76rem}}
 /* masthead */
 .mast{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:12px}
 .date{font:700 clamp(2.4rem,6vw,4.2rem)/.9 var(--disp);letter-spacing:-.01em;text-transform:uppercase;margin:0}
